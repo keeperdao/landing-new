@@ -121,7 +121,7 @@ function Home() {
         container
         item
         direction="row"
-        sx={{ width: { xs: 300, sm: 558 } }}
+        sx={{ width: { xs: 300, sm: 558 }, marginLeft: {sm: '0px', xs: '16px'}}}
       >
         <Grid container item direction="column" justifyContent="flex-start">
           <Grid
@@ -176,11 +176,12 @@ function Home() {
           item
           sx={{
             height: { md: 345, xs: 275 },
+            marginLeft: {sm: '0px', xs: '16px'},
             justifyContent: "space-between",
             marginBottom: { md: "0px", xs: "48px" },
           }}
           direction="column"
-          xs={12}
+          xs={10}
           sm={6}
           md={3}
         >
@@ -247,11 +248,12 @@ function Home() {
           item
           sx={{
             height: { md: 345, xs: 275 },
+            marginLeft: {sm: '0px', xs: '16px'},
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={12}
+          xs={10}
           sm={6}
           md={3}
         >
@@ -318,11 +320,12 @@ function Home() {
           item
           sx={{
             height: { md: 345, xs: 275 },
+            marginLeft: {sm: '0px', xs: '16px'},
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={12}
+          xs={10}
           sm={6}
           md={3}
         >
@@ -395,6 +398,7 @@ function Home() {
           width: "100%",
           padding: "8px",
           marginBottom: "48px",
+          marginLeft: {sm: '0px', xs: '16px'},
         }}
       >
         <Grid
