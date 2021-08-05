@@ -7,6 +7,7 @@ import {
   Divider,
   IconButton,
   SvgIcon,
+  Hidden
 } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
@@ -44,8 +45,8 @@ const ProductBox = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "100px",
   padding: "8px",
-  justifyContent: { sm: "space-between", xs: "center" },
-  alignItems: { xs: "center", sm: "sapce-between" },
+  justifyContent: "space-between",
+  alignItems: { xs: "center", sm: "space-between" },
 }));
 
 function Home() {
@@ -169,13 +170,11 @@ function Home() {
           </Grid>
         </Grid>
       </ExplainerBox>
-      <ProductBox id="products" container item direction="row">
+      <ProductBox id="products" container item>
         <Grid
           container
           item
           sx={{
-            display: "flex",
-            position: "relative",
             height: { md: 345, xs: 275 },
             justifyContent: "space-between",
             marginBottom: { md: "0px", xs: "48px" },
@@ -183,7 +182,7 @@ function Home() {
           direction="column"
           xs={10}
           sm={6}
-          md={4}
+          md={3}
         >
           <div>
             <Grid
@@ -233,7 +232,7 @@ function Home() {
             <Button
               variant="outlined"
               fullWidth
-              sx={{ borderRadius: "8px" }}
+              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"
               href="https://app.keeperdao.com/trade"
               rel="noopener noreferrer"
@@ -242,12 +241,11 @@ function Home() {
             </Button>
           </Grid>
         </Grid>
+        <Divider flexItem orientation="vertical" sx={{ display: { xs: 'none', md: 'block' } }}/>
         <Grid
           container
           item
           sx={{
-            display: "flex",
-            position: "relative",
             height: { md: 345, xs: 275 },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
@@ -255,7 +253,7 @@ function Home() {
           direction="column"
           xs={10}
           sm={6}
-          md={4}
+          md={3}
         >
           <div>
             <Grid
@@ -305,7 +303,7 @@ function Home() {
             <Button
               variant="outlined"
               fullWidth
-              sx={{ borderRadius: "8px" }}
+              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"
               href="https://app.keeperdao.com/vaults"
               rel="noopener noreferrer"
@@ -314,12 +312,11 @@ function Home() {
             </Button>
           </Grid>
         </Grid>
+        <Divider flexItem orientation="vertical" sx={{ display: { xs: 'none', md: 'block' } }}/>
         <Grid
           container
           item
           sx={{
-            display: "flex",
-            position: "relative",
             height: { md: 345, xs: 275 },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
@@ -327,7 +324,7 @@ function Home() {
           direction="column"
           xs={10}
           sm={6}
-          md={4}
+          md={3}
         >
           <div>
             <Grid
@@ -376,7 +373,7 @@ function Home() {
             <Button
               variant="outlined"
               fullWidth
-              sx={{ borderRadius: "8px" }}
+              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"
               href="https://app.keeperdao.com/pool"
               rel="noopener noreferrer"
