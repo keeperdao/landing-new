@@ -41,7 +41,7 @@ const ExplainerBox = styled(Grid)(({ theme }) => ({
 const ProductBox = styled(Grid)(({ theme }) => ({
   display: "flex",
   position: "relative",
-  flexDirection: { xs: "column", sm: "row" },
+  flexDirection: "row",
   width: "100%",
   marginBottom: "100px",
   padding: "8px",
@@ -180,7 +180,7 @@ function Home() {
             marginBottom: { md: "0px", xs: "48px" },
           }}
           direction="column"
-          xs={11}
+          xs={12}
           sm={6}
           md={3}
         >
@@ -213,7 +213,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{ width: "95%" }}
+              sx={{  }}
             >
               <Typography variant="body1">
                 Place MEV-protected limit orders that get executed for free. Get
@@ -227,7 +227,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ width: "95%", justifySelf: "flex-end" }}
+            sx={{justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
@@ -251,7 +251,7 @@ function Home() {
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={11}
+          xs={12}
           sm={6}
           md={3}
         >
@@ -284,7 +284,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{ width: "95%" }}
+              sx={{  }}
             >
               <Typography variant="body1">
                 Open up a Vault and secure your Liquidity Positions in an MEV
@@ -298,7 +298,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ width: "95%", justifySelf: "flex-end" }}
+            sx={{justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
@@ -322,7 +322,7 @@ function Home() {
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={11}
+          xs={12}
           sm={6}
           md={3}
         >
@@ -355,7 +355,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{ width: "95%" }}
+              sx={{  }}
             >
               <Typography variant="body1">
                 Provide liquidity to the protocol. Receive a proportionate share
@@ -368,7 +368,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ width: "95%", justifySelf: "flex-end" }}
+            sx={{justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
