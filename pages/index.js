@@ -20,7 +20,7 @@ export default function Index() {
         sx={{
           zIndex: 1,
           justifySelf: "flex-end",
-          marginTop: { sm: "-300px", xs: "-150px" },
+          marginTop: { sm: "-300px", xs: "-140px" },
         }}
       >
         <Image

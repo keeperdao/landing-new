@@ -46,7 +46,7 @@ const ProductBox = styled(Grid)(({ theme }) => ({
   marginBottom: "100px",
   padding: "8px",
   justifyContent: "space-between",
-  alignItems: { xs: "center", sm: "space-between" },
+  alignItems: "space-around",
 }));
 
 function Home() {
@@ -180,7 +180,7 @@ function Home() {
             marginBottom: { md: "0px", xs: "48px" },
           }}
           direction="column"
-          xs={10}
+          xs={11}
           sm={6}
           md={3}
         >
@@ -251,7 +251,7 @@ function Home() {
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={10}
+          xs={11}
           sm={6}
           md={3}
         >
@@ -322,7 +322,7 @@ function Home() {
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={10}
+          xs={11}
           sm={6}
           md={3}
         >
