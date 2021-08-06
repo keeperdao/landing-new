@@ -459,6 +459,16 @@ function Home() {
             </a>
           </Grid>
           <Grid item>
+            <a>
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/partners/volleyfire.png"}
+              />
+            </a>
+          </Grid>
+          <Grid item>
             <a
               target="_blank"
               href="https://metric.exchange/"
@@ -574,6 +584,7 @@ function Home() {
           position: "relative",
           padding: "8px",
           width: "100%",
+          zIndex: 2,
         }}
       >
         <Grid
