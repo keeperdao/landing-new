@@ -178,14 +178,14 @@ function Home() {
           container
           item
           sx={{
-            height: { md: 345, xs: 275 },
+            height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
             justifyContent: "space-between",
             marginBottom: { md: "0px", xs: "48px" },
           }}
           direction="column"
           xs={10}
-          sm={6}
+          sm={5}
           md={3}
         >
           <div>
@@ -231,7 +231,10 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ justifySelf: "flex-end" }}
+            sx={{
+              justifySelf: { sm: "flex-end" },
+              marginTop: { xs: "16px", sm: "0px" },
+            }}
           >
             <Button
               variant="outlined"
@@ -254,14 +257,14 @@ function Home() {
           container
           item
           sx={{
-            height: { md: 345, xs: 275 },
+            height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
           xs={10}
-          sm={6}
+          sm={5}
           md={3}
         >
           <div>
@@ -307,7 +310,10 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ justifySelf: "flex-end" }}
+            sx={{
+              justifySelf: { sm: "flex-end" },
+              marginTop: { xs: "16px", sm: "0px" },
+            }}
           >
             <Button
               variant="outlined"
@@ -330,14 +336,14 @@ function Home() {
           container
           item
           sx={{
-            height: { md: 345, xs: 275 },
+            height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
           xs={10}
-          sm={6}
+          sm={5}
           md={3}
         >
           <div>
@@ -382,7 +388,10 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{ justifySelf: "flex-end" }}
+            sx={{
+              justifySelf: { sm: "flex-end" },
+              marginTop: { xs: "16px", sm: "0px" },
+            }}
           >
             <Button
               variant="outlined"
