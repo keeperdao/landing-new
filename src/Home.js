@@ -459,7 +459,11 @@ function Home() {
             </a>
           </Grid>
           <Grid item>
-            <a>
+            <a
+              target="_blank"
+              href="https://0x.org/zrx/staking/pool/23"
+              rel="noopener noreferrer"
+            >
               <Image
                 width={275}
                 height={128}
