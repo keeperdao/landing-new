@@ -7,7 +7,7 @@ import {
   Divider,
   IconButton,
   SvgIcon,
-  Hidden
+  Hidden,
 } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
@@ -121,7 +121,10 @@ function Home() {
         container
         item
         direction="row"
-        sx={{ width: { xs: 300, sm: 558 }, marginLeft: {sm: '0px', xs: '16px'}}}
+        sx={{
+          width: { xs: 300, sm: 558 },
+          marginLeft: { sm: "0px", xs: "16px" },
+        }}
       >
         <Grid container item direction="column" justifyContent="flex-start">
           <Grid
@@ -176,7 +179,7 @@ function Home() {
           item
           sx={{
             height: { md: 345, xs: 275 },
-            marginLeft: {sm: '0px', xs: '16px'},
+            marginLeft: { sm: "0px", xs: "16px" },
             justifyContent: "space-between",
             marginBottom: { md: "0px", xs: "48px" },
           }}
@@ -214,7 +217,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{  }}
+              sx={{}}
             >
               <Typography variant="body1">
                 Place MEV-protected limit orders that get executed for free. Get
@@ -228,7 +231,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{justifySelf: "flex-end" }}
+            sx={{ justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
@@ -242,13 +245,17 @@ function Home() {
             </Button>
           </Grid>
         </Grid>
-        <Divider flexItem orientation="vertical" sx={{ display: { xs: 'none', md: 'block' } }}/>
+        <Divider
+          flexItem
+          orientation="vertical"
+          sx={{ display: { xs: "none", md: "block" } }}
+        />
         <Grid
           container
           item
           sx={{
             height: { md: 345, xs: 275 },
-            marginLeft: {sm: '0px', xs: '16px'},
+            marginLeft: { sm: "0px", xs: "16px" },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
@@ -286,7 +293,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{  }}
+              sx={{}}
             >
               <Typography variant="body1">
                 Open up a Vault and secure your Liquidity Positions in an MEV
@@ -300,7 +307,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{justifySelf: "flex-end" }}
+            sx={{ justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
@@ -314,13 +321,17 @@ function Home() {
             </Button>
           </Grid>
         </Grid>
-        <Divider flexItem orientation="vertical" sx={{ display: { xs: 'none', md: 'block' } }}/>
+        <Divider
+          flexItem
+          orientation="vertical"
+          sx={{ display: { xs: "none", md: "block" } }}
+        />
         <Grid
           container
           item
           sx={{
             height: { md: 345, xs: 275 },
-            marginLeft: {sm: '0px', xs: '16px'},
+            marginLeft: { sm: "0px", xs: "16px" },
             marginBottom: { md: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
@@ -358,7 +369,7 @@ function Home() {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{  }}
+              sx={{}}
             >
               <Typography variant="body1">
                 Provide liquidity to the protocol. Receive a proportionate share
@@ -371,7 +382,7 @@ function Home() {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{justifySelf: "flex-end" }}
+            sx={{ justifySelf: "flex-end" }}
           >
             <Button
               variant="outlined"
@@ -398,7 +409,6 @@ function Home() {
           width: "100%",
           padding: "8px",
           marginBottom: "48px",
-          marginLeft: {sm: '0px', xs: '16px'},
         }}
       >
         <Grid
@@ -435,20 +445,32 @@ function Home() {
           sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
         >
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/partners/bancor.png"}
-            />
+            <a
+              target="_blank"
+              href="https://bancor.network"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/partners/bancor.png"}
+              />
+            </a>
           </Grid>
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/partners/metric.png"}
-            />
+            <a
+              target="_blank"
+              href="https://metric.exchange/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/partners/metric.png"}
+              />
+            </a>
           </Grid>
         </Grid>
       </Grid>
@@ -499,28 +521,46 @@ function Home() {
           sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
         >
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/investors/polychain.png"}
-            />
+            <a
+              target="_blank"
+              href="https://polychainhedge.com/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/investors/polychain.png"}
+              />
+            </a>
           </Grid>
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/investors/threearrows.png"}
-            />
+            <a
+              target="_blank"
+              href="https://www.threearrowscap.com/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/investors/threearrows.png"}
+              />
+            </a>
           </Grid>
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/investors/amber.png"}
-            />
+            <a
+              target="_blank"
+              href="https://www.ambergroup.io/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/investors/amber.png"}
+              />
+            </a>
           </Grid>
         </Grid>
       </Grid>
@@ -570,28 +610,46 @@ function Home() {
           sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
         >
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/auditors/samczsun.png"}
-            />
+            <a
+              target="_blank"
+              href="https://github.com/keeperdao/docs/tree/master/audits"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/auditors/samczsun.png"}
+              />
+            </a>
           </Grid>
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/auditors/quantstamp.png"}
-            />
+            <a
+              target="_blank"
+              href="https://github.com/keeperdao/docs/tree/master/audits"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/auditors/quantstamp.png"}
+              />
+            </a>
           </Grid>
           <Grid item>
-            <Image
-              width={275}
-              height={128}
-              quality={100}
-              src={"/images/auditors/peckshield.png"}
-            />
+            <a
+              target="_blank"
+              href="https://github.com/keeperdao/docs/tree/master/audits"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={275}
+                height={128}
+                quality={100}
+                src={"/images/auditors/peckshield.png"}
+              />
+            </a>
           </Grid>
         </Grid>
       </Grid>

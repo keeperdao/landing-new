@@ -60,9 +60,13 @@ export default function Header() {
               <Button href="#partners" variant="text" sx={{ minWidth: 0 }}>
                 Partners
               </Button>
-              <Button target="_blank"
+              <Button
+                target="_blank"
                 href="https://github.com/keeperdao/docs/tree/master/audits"
-                rel="noopener noreferrer" variant="text" sx={{ minWidth: 0 }}>
+                rel="noopener noreferrer"
+                variant="text"
+                sx={{ minWidth: 0 }}
+              >
                 Audits
               </Button>
               <Button
