@@ -10,8 +10,9 @@
     "@material-ui/core": "next",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "clsx": "latest",
-    "next": "latest",
+    "next": "^11.1.0",
     "prop-types": "latest",
+    "pspdfkit": "^2021.5.1",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -19,6 +20,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+    "postinstall": "cp -R ./node_modules/pspdfkit/dist/pspdfkit-lib ./public"
   }
 }
