@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useRef } from "react";
 import { Container, Box, Grid } from "@material-ui/core";
 
 import Header from "../src/Header";
@@ -7,8 +7,27 @@ import Home from "../src/Home";
 import Image from "next/image";
 
 export default function Index() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let instance, PSPDFKit;
+    (async function () {
+      PSPDFKit = await import("pspdfkit");
+      instance = await PSPDFKit.load({
+        container: containerRef.current,
+        document: "/files/gov-whitepaper-v1.pdf",
+        baseUrl: `${window.location.protocol}//${window.location.host}/`,
+      });
+    })();
+
+    return () => PSPDFKit && PSPDFKit.unload(containerRef.current);
+  }, []);
+
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      ref={containerRef}
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       <Container maxWidth="md">
         <Header />
         <Box sx={{ my: 4 }}>
