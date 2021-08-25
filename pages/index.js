@@ -15,7 +15,7 @@ export default function Index() {
       PSPDFKit = await import("pspdfkit");
       instance = await PSPDFKit.load({
         container: containerRef.current,
-        document: "/files/gov-whitepaper-v1.pdf",
+        document: "/files/gov-beigepaper.pdf",
         baseUrl: `${window.location.protocol}//${window.location.host}/`,
       });
     })();
