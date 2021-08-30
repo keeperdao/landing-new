@@ -1,14 +1,6 @@
 import * as React from "react";
 
-import {
-  Grid,
-  Typography,
-  Button,
-  Divider,
-  IconButton,
-  SvgIcon,
-  Hidden,
-} from "@material-ui/core";
+import { Grid, Typography, Button, Divider } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
 import Image from "next/image";
@@ -16,10 +8,6 @@ import Image from "next/image";
 import BorrowText from "../public/images/graphics/borrow_text.svg";
 import TradeText from "../public/images/graphics/trade_text.svg";
 import EarnText from "../public/images/graphics/earn_text.svg";
-
-import Github from "../public/images/logos/GitHub.svg";
-import Discord from "../public/images/logos/Discord.svg";
-import Twitter from "../public/images/logos/Twitter.svg";
 
 const IntroBox = styled(Grid)(({ theme }) => ({
   display: "flex",
@@ -51,16 +39,7 @@ const ProductBox = styled(Grid)(({ theme }) => ({
 
 function Home() {
   return (
-    <Grid
-      container
-      direction="column"
-      sx={{
-        display: "flex",
-        position: "relative",
-        width: "100%",
-        padding: "10px",
-      }}
-    >
+    <div>
       <IntroBox id="intro" container item direction="row">
         <Grid
           container
@@ -677,70 +656,7 @@ function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Divider sx={{ marginTop: "100px", marginBottom: "30px" }} />
-      <Grid
-        container
-        item
-        direction="row"
-        alignItems="flex-end"
-        justifyContent="flex-end"
-      >
-        <Grid
-          container
-          item
-          direction="row"
-          spacing={1}
-          alignItems="center"
-          justifyContent="flex-end"
-          sx={{ zIndex: 2 }}
-        >
-          <Grid item>
-            <Typography variant="body2" color="text.secondary">
-              KeeperDAO, 2021
-            </Typography>
-          </Grid>
-          <Grid item>
-            <IconButton
-              target="_blank"
-              href="https://github.com/keeperdao"
-              rel="noopener noreferrer"
-            >
-              <SvgIcon
-                component={Github}
-                viewBox={"0 0 32 32"}
-                color="inherit"
-              />
-            </IconButton>
-          </Grid>
-          <Grid item>
-            <IconButton
-              target="_blank"
-              href="https://twitter.com/Keeper_DAO?s=20"
-              rel="noopener noreferrer"
-            >
-              <SvgIcon
-                component={Twitter}
-                viewBox={"0 0 32 32"}
-                color="inherit"
-              />
-            </IconButton>
-          </Grid>
-          <Grid item>
-            <IconButton
-              target="_blank"
-              href="https://discord.com/invite/3JUgvyyNhA"
-              rel="noopener noreferrer"
-            >
-              <SvgIcon
-                component={Discord}
-                viewBox={"0 0 32 32"}
-                color="inherit"
-              />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 
