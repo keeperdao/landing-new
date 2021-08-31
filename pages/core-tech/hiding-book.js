@@ -4,6 +4,9 @@ import theme from "../../src/theme";
 
 import { Grid, Typography, Button, Divider } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
+import MuiAccordion from "@material-ui/core/Accordion";
+import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
+import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 
 import Image from "next/image";
 
@@ -110,11 +113,73 @@ const WhyIntegrate = styled(Grid)(({ theme }) => ({
   paddingRight: "16px",
 }));
 
+const HowToIntegrate = styled(Grid)(({ theme }) => ({
+  width: "100%",
+  marginBottom: "128px",
+  justifyContent: "space-around",
+  alignItems: "center",
+  padding: "8px",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+  background: "rgba(9, 167, 243, 0.05)",
+}));
+
+const FAQ = styled(Grid)(({ theme }) => ({
+  width: "100vw",
+  position: "relative",
+  left: "calc(-50vw + 50%)",
+  marginBottom: 0,
+  justifyContent: "center",
+  alignItems: "center",
+  paddingTop: "128px",
+  paddingBottom: "128px",
+
+  backgroundColor: "rgba(143, 143, 143, 0.05)",
+}));
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+}));
+
+const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
+  ({ theme }) => ({
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? "rgba(255, 255, 255, .05)"
+        : "rgba(0, 0, 0, .03)",
+    flexDirection: "row-reverse",
+    "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+      transform: "rotate(90deg)",
+    },
+    "& .MuiAccordionSummary-content": {
+      marginLeft: theme.spacing(1),
+    },
+  })
+);
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: "1px solid rgba(0, 0, 0, .125)",
+}));
+
 export default function HidingBook(props) {
   const { colorMode, setColorMode } = props;
   setColorMode("light");
+  const [expanded, setExpanded] = React.useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
   return (
-    <div>
+    <div style={{ padding: 0, margin: 0 }}>
       <HidingBookIntro container id="intro" direction="column">
         <Grid item sx={{ marginBottom: "16px" }}>
           <Typography variant="paragraphBoldLabel" color="accent">
@@ -1195,6 +1260,150 @@ export default function HidingBook(props) {
           </Grid>
         </Grid>
       </WhyIntegrate>
+      <HowToIntegrate container id="how-to-integrate" direction="column">
+        <Grid item>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            sx={{ padding: { xs: "16px", sm: "48px" } }}
+          >
+            <Grid container item sx={{ marginBottom: "32px" }}>
+              <Typography align="left" variant="headingTitle">
+                How to integrate
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              item
+              sx={{ marginBottom: "24px", color: "#525252" }}
+            >
+              <Typography align="left" variant="bodyNormal">
+                You can integrate the Hiding Book by following the integration
+                guide.
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              item
+              sx={{ marginBottom: "32px", color: "#525252" }}
+            >
+              <Typography align="left" variant="bodyNormal">
+                Integration is relatively straightforward, mainly depending on
+                whether or not your exchange has limit order functionality set
+                up already. If anything is unclear or if you have any further
+                questions, contact us and we'll help you out.
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              item
+              direction="row"
+              justifyContent="flex-start"
+              spacing={1}
+            >
+              <Grid item>
+                <Button variant="contained" sx={{ borderRadius: "8px" }}>
+                  Talk to the team
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="outlined-light"
+                  sx={{
+                    borderRadius: "8px",
+                    borderColor: theme.palette.accent_light,
+                    color: theme.palette.accent_light,
+                  }}
+                >
+                  Integration guide
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </HowToIntegrate>
+      <FAQ container id="faq" direction="row">
+        <Grid
+          container
+          item
+          maxWidth="840px"
+          direction="column"
+          sx={{
+            paddingLeft: { sm: "10px", xs: "20px" },
+            paddingRight: { sm: "10px", xs: "20px" },
+          }}
+        >
+          <Grid container item width="345px">
+            <Typography variant="headingTitle" align="left">
+              Frequently Asked Questions
+            </Typography>
+          </Grid>
+          <Grid container item direction="column">
+            <Accordion
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
+              <AccordionSummary
+                aria-controls="panel1d-content"
+                id="panel1d-header"
+              >
+                <Typography>Collapsible Group Item #1</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
+              <AccordionSummary
+                aria-controls="panel2d-content"
+                id="panel2d-header"
+              >
+                <Typography>Collapsible Group Item #2</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
+              <AccordionSummary
+                aria-controls="panel3d-content"
+                id="panel3d-header"
+              >
+                <Typography>Collapsible Group Item #3</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+        </Grid>
+      </FAQ>
     </div>
   );
 }

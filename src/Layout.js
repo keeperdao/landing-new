@@ -38,13 +38,20 @@ export default function Layout(props) {
         </Container>
       </Grid>
 
-      <Grid item>
-        <Container maxWidth="md" disableGutters>
+      <Grid item sx={{ marginBottom: 0, paddingBottom: 0 }}>
+        <Container
+          maxWidth="md"
+          disableGutters
+          sx={{ marginBottom: 0, paddingBottom: 0 }}
+        >
           <Grid
             item
             direction="column"
             sx={{
-              padding: { md: "10px" },
+              paddingLeft: { md: "10px" },
+              paddingRight: { md: "10px" },
+              marginBottom: 0,
+              paddingBottom: 0,
             }}
           >
             {children}
@@ -57,9 +64,10 @@ export default function Layout(props) {
         sx={{
           background: theme.palette.background.dark,
           color: theme.palette.text.primary_dark,
+          marginTop: 0,
         }}
       >
-        <Container maxWidth="md" disableGutters>
+        <Container maxWidth="header" disableGutters sx={{ marginTop: 0 }}>
           <Footer />
         </Container>
         <Grid
