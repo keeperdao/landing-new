@@ -16,6 +16,15 @@ const HidingBookIntro = styled(Grid)(({ theme }) => ({
   paddingRight: "16px",
 }));
 
+const AsUsedBy = styled(Grid)(({ theme }) => ({
+  width: "100%",
+  marginBottom: "80px",
+  justifyContent: "space-around",
+  padding: "8px",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+}));
+
 const MEVIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -74,11 +83,31 @@ const Keepers = styled(Grid)(({ theme }) => ({
   left: "calc(-50vw + 50%)",
   marginBottom: "128px",
   justifyContent: "center",
-  paddingTop: "48px",
-  paddingBottom: "48px",
-  paddingLeft: "10px",
-  paddingRight: "10px",
+  paddingTop: "20px",
+  paddingBottom: "20px",
+  paddingLeft: { sm: "10px", xs: "20px" },
+  paddingRight: { sm: "10px", xs: "20px" },
   backgroundColor: "#1D1842",
+}));
+
+const PartnerRewards = styled(Grid)(({ theme }) => ({
+  width: "100%",
+  marginBottom: "128px",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "8px",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+}));
+
+const WhyIntegrate = styled(Grid)(({ theme }) => ({
+  width: "100%",
+  marginBottom: "128px",
+  justifyContent: "space-around",
+  alignItems: "center",
+  padding: "8px",
+  paddingLeft: "16px",
+  paddingRight: "16px",
 }));
 
 export default function HidingBook(props) {
@@ -110,20 +139,20 @@ export default function HidingBook(props) {
             }}
           >
             <Grid item sx={{ marginBottom: "24px" }}>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 Integrating with the Hiding Book allows you to offer your users
                 free and fully MEV-protected limit orders, while benefitting
                 from unmatched liquidity efficiency.
               </Typography>
             </Grid>
             <Grid item sx={{ marginBottom: "24px" }}>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 Additionally, any available MEV will be captured by our Keepers
                 and handed back to you and your users pro rata.
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 In this way, by integrating with the Hiding Book, both our
                 partners and their users will get paid to play.
               </Typography>
@@ -161,6 +190,15 @@ export default function HidingBook(props) {
           </Grid>
         </Grid>
       </HidingBookIntro>
+      <AsUsedBy continer id="as-used-by" direction="column">
+        <Grid container item justifyContent="center" alignItems="center">
+          <Image
+            height={107}
+            width={659}
+            src={"/images/graphics/as_used_by.png"}
+          />
+        </Grid>
+      </AsUsedBy>
       <Grid
         container
         item
@@ -211,21 +249,21 @@ export default function HidingBook(props) {
             }}
           >
             <Grid item sx={{ marginBottom: "24px" }}>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 MEV is a big and growing problem in DeFi, resulting in slippage,
                 higher gas fees, failed transactions, and frustrated users. And
                 Ethereum 2.0 won't fix it.
               </Typography>
             </Grid>
             <Grid item sx={{ marginBottom: "24px" }}>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 In the competitive DeFi landscape, protecting yourself and your
                 users from predatory MEV attacks has moved from a nice perk to a
                 requisite.
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="bodyNormal">
+              <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 On average this year, users and protocols are being manipulated
                 out of $2,300,000 in MEV per day.
               </Typography>
@@ -249,7 +287,7 @@ export default function HidingBook(props) {
             <Typography
               variant="bodyBold"
               align="center"
-              sx={{ maxWidth: "600px" }}
+              sx={{ maxWidth: "600px", color: "#525252" }}
             >
               You can make that $0 for your exchange, aggregator, wallet or DeFi
               product through integrating with the Hiding Book.
@@ -339,7 +377,7 @@ export default function HidingBook(props) {
                   Benefits
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item sx={{ color: "#525252" }}>
                 <Typography
                   variant="paragraphRegularMedium"
                   sx={{ lineHeight: "21px" }}
@@ -416,7 +454,7 @@ export default function HidingBook(props) {
                   Benefits
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item sx={{ color: "#525252" }}>
                 <Typography
                   variant="paragraphRegularMedium"
                   sx={{ lineHeight: "21px" }}
@@ -653,7 +691,7 @@ export default function HidingBook(props) {
               How does it work?
             </Typography>
           </Grid>
-          <Grid container item sm={12} md={9}>
+          <Grid container item sm={12} md={9} sx={{ color: "#525252" }}>
             <Grid item sx={{ padding: "16px" }}>
               <Typography align="left" variant="bodyNormal">
                 Integrating with the Hiding Book allows partners to route their
@@ -708,7 +746,7 @@ export default function HidingBook(props) {
           </Grid>
         </Grid>
       </HGFlowChart>
-      <SideTitle container id="how-does-it-work" direction="row">
+      <SideTitle container id="why-use-limit-orders" direction="row">
         <Grid container item sx={{ maxWidth: "840px" }}>
           <Grid
             item
@@ -720,7 +758,7 @@ export default function HidingBook(props) {
               Why use limit orders
             </Typography>
           </Grid>
-          <Grid container item sm={12} md={9}>
+          <Grid container item sm={12} md={9} sx={{ color: "#525252" }}>
             <Grid item sx={{ padding: "16px" }}>
               <Typography align="left" variant="bodyNormal">
                 Limit orders provide traders guaranteed execution price and
@@ -752,7 +790,11 @@ export default function HidingBook(props) {
                 backgroundColor: "rgba(9, 167, 243, 0.05)",
               }}
             >
-              <Typography align="left" variant="bodyNormal">
+              <Typography
+                align="left"
+                variant="bodyNormal"
+                sx={{ color: "#141414" }}
+              >
                 Integrating with the Hiding Book fixes the liquidity
                 fragmentation problem by enlisting Keepers, who are able to
                 leverage bespoke order execution strategies and can source
@@ -774,9 +816,11 @@ export default function HidingBook(props) {
           container
           item
           maxWidth="840px"
+          alignItems="center"
+          justifyContent="center"
           sx={{ color: theme.palette.text.primary_dark }}
         >
-          <Grid item xs={8} sm={5}>
+          <Grid item xs={10} sm={6}>
             <Grid
               container
               direction="column"
@@ -844,28 +888,24 @@ export default function HidingBook(props) {
                     <img
                       width={36}
                       height={36}
-                      src={"/images/logos/uniswap_kd.png"}
+                      src={"/images/logos/binance.png"}
                     />
                   </Grid>
                   <Grid item sx={{ marginRight: "32px" }}>
                     <img
                       width={36}
                       height={36}
-                      src={"/images/logos/sushi_kd.png"}
+                      src={"/images/logos/huobi.png"}
                     />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img width={36} height={36} src={"/images/logos/ftx.png"} />
                   </Grid>
                   <Grid item sx={{ marginRight: "32px" }}>
                     <img
                       width={36}
                       height={36}
-                      src={"/images/logos/0x_kd.png"}
-                    />
-                  </Grid>
-                  <Grid item sx={{ marginRight: "32px" }}>
-                    <img
-                      width={36}
-                      height={36}
-                      src={"/images/logos/1inch_kd.png"}
+                      src={"/images/logos/coinbase.png"}
                     />
                   </Grid>
                   <Grid item sx={{ marginRight: "32px" }}>
@@ -879,9 +919,282 @@ export default function HidingBook(props) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={8} sm={5}></Grid>
+          <Grid item xs={10} sm={6}>
+            <Image
+              height={520}
+              width={416}
+              src={"/images/graphics/keeper_liquidity.png"}
+            />
+          </Grid>
         </Grid>
       </Keepers>
+      <PartnerRewards container id="partner-rewards">
+        <Grid item xs={9} md={6}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="space-around"
+            alignItems="flex-start"
+            sx={{ marginBottom: "32px" }}
+          >
+            <Grid container sx={{ maxWidth: "345px", marginBottom: "32px" }}>
+              <Grid item>
+                <Typography variant="headingTitle">
+                  Partner Rewards Program
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container sx={{ maxWidth: "416px", color: "#525252" }}>
+              <Grid item sx={{ marginBottom: "24px" }}>
+                <Typography variant="bodyNormal">
+                  By default, users will receive 100% of the filled order's
+                  reward based on the amount of arbitrage captured by a Keeper.
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginBottom: "24px" }}>
+                <Typography variant="bodyNormal">
+                  Registered partners can opt to receive 5% of the total reward
+                  amount for themselves.
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginBottom: "24px" }}>
+                <Typography variant="bodyNormal">
+                  This incentivizes partners to integrate with the Hiding Book
+                  and enables them to generate revenue from the integration.
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="text-light"
+                  sx={{
+                    marginLeft: "-16px",
+                    fontSize: "18px",
+                    color: theme.palette.accent,
+                    fontWeight: 500,
+                  }}
+                >
+                  Partner Rewards Guide
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={9} md={6}>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item>
+              <Image
+                height={374}
+                width={345}
+                src={"/images/graphics/mev_rewards.png"}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </PartnerRewards>
+      <WhyIntegrate container id="why-integrate" direction="column">
+        <Grid item sx={{ marginBottom: "24px" }}>
+          <Grid
+            container
+            maxWidth="220px"
+            direction="row"
+            justifyContent="center"
+          >
+            <Typography variant="headingTitle" align="center">
+              Why integrate
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item sx={{ marginBottom: "40px" }}>
+          <Grid
+            container
+            maxWidth="416px"
+            direction="row"
+            justifyContent="center"
+            sx={{ color: "#525252" }}
+          >
+            <Typography variant="bodyNormal" align="center">
+              By integrating with the Hiding Book, partner exchanges provide
+              their users
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container item sx={{ width: "100%" }} justifyContent="center">
+          <Grid
+            container
+            direction="row"
+            sx={{ maxWidth: "840px", padding: 0, margin: 0 }}
+          >
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  Full control over their trade execution price
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  Their best chance of getting their orders filled{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  Zero slippage{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  The ability to trade assets for free{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  Full MEV protection on limit orders{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ padding: "3px" }}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid
+                container
+                item
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  height: "104px",
+                  background: "rgba(143, 143, 143, 0.05)",
+                  color: "#525252",
+                  padding: "16px",
+                }}
+              >
+                <Typography variant="paragraphRegularLarge" align="center">
+                  MEV rewards in $ROOK{" "}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </WhyIntegrate>
     </div>
   );
 }
