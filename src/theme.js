@@ -3,8 +3,14 @@ import { createTheme } from "@material-ui/core/styles";
 const COLORS = {
   text_primary: "#F5F5F5",
   text_secondary: "#8F8F8F",
-  background: "#141118",
-  hover: "#6C46D6",
+  text_accent: "#6C46D6",
+  text_primary_light: "#141118",
+  text_secondary_light: "#8F8F8F",
+  text_accent_light: "#09A7F3",
+  background_dark: "#141118",
+  background_light: "#f5f5f5",
+  hover_dark: "#6C46D6",
+  hover_light: "#09A7F3",
   selected: "#562CC9",
   focus: "#552BC8",
   disabled: "#D5D5D5",
@@ -14,12 +20,15 @@ const COLORS = {
 // Create a theme instance.
 const theme = createTheme({
   palette: {
-    mode: "dark",
     text: {
-      primary: COLORS.text_primary,
+      primary_dark: COLORS.text_primary,
+      primary_light: COLORS.text_primary_light,
       secondary: COLORS.text_secondary,
     },
-    background: { default: COLORS.background },
+    background: {
+      dark: COLORS.background_dark,
+      light: COLORS.background_light,
+    },
     action: {
       hover: COLORS.hover,
       selected: COLORS.selected,
@@ -27,6 +36,8 @@ const theme = createTheme({
       disabled: COLORS.disabled,
       active: COLORS.active,
     },
+    accent: COLORS.hover_dark,
+    accent_light: COLORS.hover_light,
   },
   typography: {
     fontFamily: ["Inter"].join(","),
@@ -96,6 +107,27 @@ const theme = createTheme({
       letterSpacing: "0.02em",
       textTransform: "capitalize",
     },
+    bodyNormal: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: 400,
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
+    bodyItalic: {
+      fontFamily: "Inter",
+      fontStyle: "italic",
+      fontWeight: 400,
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
+    bodyBold: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: 600,
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
     h1: {
       fontFamily: "Inter",
       fontStyle: "normal",
@@ -132,33 +164,132 @@ const theme = createTheme({
       },
     },
     MuiButton: {
-      styleOverrides: {
-        outlined: {
-          color: COLORS.text_primary,
-          background: "none",
-          border: "1px solid",
-          borderColor: COLORS.text_primary,
-          transition: "0.25s",
-          fontFamily: "Inter",
-          fontStyle: "normal",
-          fontWeight: 600,
-          fontSize: "16px",
-          letterSpacing: "0em",
-          textTransform: "none",
-          "&:hover": {
-            borderColor: COLORS.hover,
-            color: COLORS.hover,
-          },
-          "&:active": {
-            backgroundColor: COLORS.selected,
-            borderColor: COLORS.selected,
+      variants: [
+        {
+          props: { variant: "outlined-dark" },
+          style: {
             color: COLORS.text_primary,
-          },
-          "&:disabled": {
-            borderColor: "#525252",
-            color: "#525252",
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.text_primary,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "16px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_dark,
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              backgroundColor: COLORS.selected,
+              borderColor: COLORS.selected,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
           },
         },
+        {
+          props: { variant: "outlined-light" },
+          style: {
+            color: COLORS.text_primary_light,
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.text_primary_light,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "16px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_light,
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              backgroundColor: COLORS.hover_light,
+              borderColor: COLORS.hover_light,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
+          },
+        },
+        {
+          props: { variant: "outlined-blue" },
+          style: {
+            color: COLORS.hover_light,
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.hover_light,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "16px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_light,
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              backgroundColor: COLORS.hover_light,
+              borderColor: COLORS.hover_light,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
+          },
+        },
+        {
+          props: { variant: "text-dark" },
+          style: {
+            color: COLORS.text_primary_dark,
+            textTransform: "none",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "16px",
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              color: COLORS.hover_dark,
+            },
+          },
+        },
+        {
+          props: { variant: "text-light" },
+          style: {
+            color: COLORS.text_primary_light,
+            textTransform: "none",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "16px",
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              color: COLORS.hover_light,
+            },
+          },
+        },
+      ],
+      styleOverrides: {
         contained: {
           color: COLORS.text_primary,
           backgroundImage:
@@ -182,39 +313,43 @@ const theme = createTheme({
             background: "#525252",
           },
         },
-        text: {
-          color: COLORS.text_primary,
-          textTransform: "none",
-          fontFamily: "Inter",
-          fontStyle: "normal",
-          fontWeight: 400,
-          fontSize: "16px",
-          "&:hover": {
-            background: "none",
-            color: COLORS.hover,
-          },
-          "&:active": {
-            color: COLORS.hover,
-          },
-        },
       },
     },
     MuiIconButton: {
-      styleOverrides: {
-        root: {
-          transition: "0.25s",
-          background: "none",
-          color: COLORS.text_primary,
-          "&:hover": {
+      variants: [
+        {
+          props: { variant: "dark" },
+          style: {
+            transition: "0.25s",
             background: "none",
-            color: COLORS.hover,
-          },
-          "&:active": {
-            background: "none",
-            color: COLORS.hover,
+            color: COLORS.text_primary,
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              background: "none",
+              color: COLORS.hover_dark,
+            },
           },
         },
-      },
+        {
+          props: { variant: "light" },
+          style: {
+            transition: "0.25s",
+            background: "none",
+            color: COLORS.text_primary_light,
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              background: "none",
+              color: COLORS.hover_light,
+            },
+          },
+        },
+      ],
     },
   },
   breakpoints: {
@@ -226,6 +361,7 @@ const theme = createTheme({
       xl: 1536,
     },
   },
+  shadows: ["none"],
 });
 
 export default theme;

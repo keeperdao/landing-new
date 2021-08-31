@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import theme from "./theme";
+
 import { Grid, Typography, Button, Divider } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
@@ -37,9 +39,12 @@ const ProductBox = styled(Grid)(({ theme }) => ({
   alignItems: "space-around",
 }));
 
-function Home() {
+function Home(props) {
+  const { colorMode, setColorMode } = props;
+  setColorMode("dark");
+
   return (
-    <div>
+    <div style={{ padding: "18px" }}>
       <IntroBox id="intro" container item direction="row">
         <Grid
           container
@@ -113,16 +118,18 @@ function Home() {
             alignItems="center"
             sx={{ marginBottom: "24px", width: "100%" }}
           >
-            <Image
-              width={32}
-              height={52}
-              unoptimized
-              src={"/images/graphics/small_rook.png"}
-            />
+            <div style={{ zIndex: 2 }}>
+              <Image
+                width={32}
+                height={52}
+                unoptimized
+                src={"/images/graphics/small_rook.png"}
+              />
+            </div>
             <div
               style={{
                 marginLeft: "-16px",
-                zIndex: -1,
+                zIndex: 1,
                 height: "4px",
                 width: "231px",
                 opacity: 0.8,
@@ -216,7 +223,7 @@ function Home() {
             }}
           >
             <Button
-              variant="outlined"
+              variant="outlined-dark"
               fullWidth
               sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"
@@ -295,7 +302,7 @@ function Home() {
             }}
           >
             <Button
-              variant="outlined"
+              variant="outlined-dark"
               fullWidth
               sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"
@@ -373,7 +380,7 @@ function Home() {
             }}
           >
             <Button
-              variant="outlined"
+              variant="outlined-dark"
               fullWidth
               sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
               target="_blank"

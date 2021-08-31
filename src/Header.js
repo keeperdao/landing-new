@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import theme from "./theme";
+
 import {
   AppBar,
   Toolbar,
@@ -12,7 +14,8 @@ import {
 
 import Logo from "../public/images/logos/KeeperDAO_Logo_Inline_White.svg";
 
-export default function Header() {
+export default function Header(props) {
+  const { colorMode } = props;
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -25,7 +28,14 @@ export default function Header() {
             display: "flex",
             position: "relative",
             alignItems: "center",
-            background: "background.default",
+            background:
+              colorMode == "dark"
+                ? theme.palette.background.dark
+                : theme.palette.background.light,
+            color:
+              colorMode == "dark"
+                ? theme.palette.text.primary_dark
+                : theme.palette.text.primary_light,
           }}
         >
           <Grid
@@ -33,10 +43,11 @@ export default function Header() {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            sx={{ paddingLeft: 0, paddingRight: 0 }}
+            sx={{ paddingLeft: 0, paddingRight: 0, color: "inherit" }}
           >
-            <Grid item justifyContent="flex-start">
+            <Grid item justifyContent="flex-start" sx={{ color: "inherit" }}>
               <IconButton
+                variant={`${colorMode}`}
                 sx={{
                   paddingLeft: 0,
                   minHeight: 0,
@@ -54,17 +65,25 @@ export default function Header() {
             </Grid>
 
             <Grid item justifyContent="flex-end">
-              <Button href="#products" variant="text" sx={{ minWidth: 0 }}>
+              <Button
+                href="#products"
+                variant={`text-${colorMode}`}
+                sx={{ minWidth: 0 }}
+              >
                 Products
               </Button>
-              <Button href="#partners" variant="text" sx={{ minWidth: 0 }}>
+              <Button
+                href="#partners"
+                variant={`text-${colorMode}`}
+                sx={{ minWidth: 0 }}
+              >
                 Partners
               </Button>
               <Button
                 target="_blank"
                 href="https://github.com/keeperdao/docs/tree/master/audits"
                 rel="noopener noreferrer"
-                variant="text"
+                variant={`text-${colorMode}`}
                 sx={{ minWidth: 0 }}
               >
                 Audits
@@ -73,13 +92,13 @@ export default function Header() {
                 target="_blank"
                 href="https://blog.keeperdao.com/"
                 rel="noopener noreferrer"
-                variant="text"
+                variant={`text-${colorMode}`}
                 sx={{ minWidth: 0 }}
               >
                 Blog
               </Button>
               <Button
-                variant="outlined"
+                variant={`outlined-${colorMode}`}
                 sx={{
                   marginLeft: "8px",
                   height: "32px",

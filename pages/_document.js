@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700"
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/icon.svg" />

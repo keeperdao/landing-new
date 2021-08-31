@@ -15,13 +15,21 @@ import Twitter from "../public/images/logos/Twitter.svg";
 export default function Footer() {
   return (
     <div>
-      <Divider sx={{ marginTop: "100px", marginBottom: "30px" }} />
+      <Divider
+        sx={{
+          marginTop: "100px",
+          marginBottom: "30px",
+          background: "#f5f5f5",
+          opacity: 0.1,
+        }}
+      />
       <Grid
         container
         item
         direction="row"
         alignItems="flex-end"
         justifyContent="flex-end"
+        sx={{ paddingLeft: "16px", paddingRight: "16px" }}
       >
         <Grid
           container
@@ -39,6 +47,7 @@ export default function Footer() {
           </Grid>
           <Grid item>
             <IconButton
+              variant="dark"
               target="_blank"
               href="https://github.com/keeperdao"
               rel="noopener noreferrer"
@@ -52,6 +61,7 @@ export default function Footer() {
           </Grid>
           <Grid item>
             <IconButton
+              variant="dark"
               target="_blank"
               href="https://twitter.com/Keeper_DAO?s=20"
               rel="noopener noreferrer"
@@ -65,6 +75,7 @@ export default function Footer() {
           </Grid>
           <Grid item>
             <IconButton
+              variant="dark"
               target="_blank"
               href="https://discord.com/invite/3JUgvyyNhA"
               rel="noopener noreferrer"
