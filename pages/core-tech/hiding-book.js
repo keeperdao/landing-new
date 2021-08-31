@@ -68,6 +68,19 @@ const HGFlowChart = styled(Grid)(({ theme }) => ({
   backgroundColor: "rgba(9, 167, 243, 0.05)",
 }));
 
+const Keepers = styled(Grid)(({ theme }) => ({
+  width: "100vw",
+  position: "relative",
+  left: "calc(-50vw + 50%)",
+  marginBottom: "128px",
+  justifyContent: "center",
+  paddingTop: "48px",
+  paddingBottom: "48px",
+  paddingLeft: "10px",
+  paddingRight: "10px",
+  backgroundColor: "#1D1842",
+}));
+
 export default function HidingBook(props) {
   const { colorMode, setColorMode } = props;
   setColorMode("light");
@@ -750,6 +763,125 @@ export default function HidingBook(props) {
           </Grid>
         </Grid>
       </SideTitle>
+      <Keepers
+        container
+        id="keepers"
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Grid
+          container
+          item
+          maxWidth="840px"
+          sx={{ color: theme.palette.text.primary_dark }}
+        >
+          <Grid item xs={8} sm={5}>
+            <Grid
+              container
+              direction="column"
+              justifyContent="space-around"
+              alignItems="flex-start"
+              maxWidth="345px"
+            >
+              <Grid item sx={{ marginBottom: "64px" }}>
+                <Typography variant="headingTitle">
+                  KeeperDAO's Keepers can source liquidity from anywhere.
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginBottom: "16px" }}>
+                <Typography variant="subtitleRegular">
+                  All DEX networks
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginBottom: "40px" }}>
+                <Grid container direction="row">
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/uniswap_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/sushi_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/0x_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/1inch_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/plus.png"}
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item sx={{ marginBottom: "16px" }}>
+                <Typography variant="subtitleRegular">
+                  All Centralized Exchanges
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginBottom: "40px" }}>
+                <Grid container direction="row">
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/uniswap_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/sushi_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/0x_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/1inch_kd.png"}
+                    />
+                  </Grid>
+                  <Grid item sx={{ marginRight: "32px" }}>
+                    <img
+                      width={36}
+                      height={36}
+                      src={"/images/logos/plus.png"}
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={8} sm={5}></Grid>
+        </Grid>
+      </Keepers>
     </div>
   );
 }
