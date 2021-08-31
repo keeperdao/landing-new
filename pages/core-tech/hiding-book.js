@@ -7,6 +7,7 @@ import { styled } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import Image from "next/image";
 
@@ -133,14 +134,13 @@ const FAQ = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   paddingTop: "128px",
   paddingBottom: "128px",
-
   backgroundColor: "rgba(143, 143, 143, 0.05)",
 }));
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
+  background: "none",
   "&:not(:last-child)": {
     borderBottom: 0,
   },
@@ -151,33 +151,36 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
   ({ theme }) => ({
-    backgroundColor:
-      theme.palette.mode === "dark"
-        ? "rgba(255, 255, 255, .05)"
-        : "rgba(0, 0, 0, .03)",
-    flexDirection: "row-reverse",
+    paddingTop: "40px",
+    paddingBottom: "40px",
+    transform: "scale(1)",
+    transition: "0.35s all ease",
+    "&.Mui-expanded": {
+      paddingBottom: "0px",
+    },
     "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-      transform: "rotate(90deg)",
+      transform: "rotate(180deg)",
     },
     "& .MuiAccordionSummary-content": {
-      marginLeft: theme.spacing(1),
+      marginLeft: 0,
     },
   })
 );
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: "1px solid rgba(0, 0, 0, .125)",
+  //padding: theme.spacing(2),
+  //borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
 export default function HidingBook(props) {
   const { colorMode, setColorMode } = props;
   setColorMode("light");
-  const [expanded, setExpanded] = React.useState("panel1");
 
+  const [expanded, setExpanded] = React.useState(null);
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
   return (
     <div style={{ padding: 0, margin: 0 }}>
       <HidingBookIntro container id="intro" direction="column">
@@ -1335,12 +1338,17 @@ export default function HidingBook(props) {
             paddingRight: { sm: "10px", xs: "20px" },
           }}
         >
-          <Grid container item width="345px">
+          <Grid container item width="345px" sx={{ marginBottom: "64px" }}>
             <Typography variant="headingTitle" align="left">
               Frequently Asked Questions
             </Typography>
           </Grid>
-          <Grid container item direction="column">
+          <Grid
+            container
+            item
+            direction="column"
+            sx={{ color: theme.palette.text.primary_light }}
+          >
             <Accordion
               expanded={expanded === "panel1"}
               onChange={handleChange("panel1")}
@@ -1348,19 +1356,27 @@ export default function HidingBook(props) {
               <AccordionSummary
                 aria-controls="panel1d-content"
                 id="panel1d-header"
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{ color: theme.palette.text.primary_light }}
+                  />
+                }
               >
-                <Typography>Collapsible Group Item #1</Typography>
+                <Typography variant="subtitleRegular">
+                  What is required to integrate and how long does it take?
+                </Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+              <AccordionDetails sx={{ border: "none", color: "#525252" }}>
+                <Typography variant="bodyNormal">
+                  Integration is relatively straightforward, mainly depending on
+                  whether or not your exchange has limit order functionality set
+                  up already. The required components are an 0xv4 integration
+                  and front end limit order functionality. For more, consult our
+                  Integration Guide.
                 </Typography>
               </AccordionDetails>
             </Accordion>
+            <Divider />
             <Accordion
               expanded={expanded === "panel2"}
               onChange={handleChange("panel2")}
@@ -1368,19 +1384,27 @@ export default function HidingBook(props) {
               <AccordionSummary
                 aria-controls="panel2d-content"
                 id="panel2d-header"
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{ color: theme.palette.text.primary_light }}
+                  />
+                }
               >
-                <Typography>Collapsible Group Item #2</Typography>
+                <Typography variant="subtitleRegular">
+                  What kind of support do you offer?
+                </Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+              <AccordionDetails sx={{ border: "none", color: "#525252" }}>
+                <Typography variant="bodyNormal">
+                  We can offer engineering and testing support and will set up a
+                  dedicated channel with representatives who will be available
+                  to communicate with you when you need it. You can also receive
+                  advance notice of planned protocol changes and assistance with
+                  upgrades if necessary.
                 </Typography>
               </AccordionDetails>
             </Accordion>
+            <Divider />
             <Accordion
               expanded={expanded === "panel3"}
               onChange={handleChange("panel3")}
@@ -1388,19 +1412,71 @@ export default function HidingBook(props) {
               <AccordionSummary
                 aria-controls="panel3d-content"
                 id="panel3d-header"
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{ color: theme.palette.text.primary_light }}
+                  />
+                }
               >
-                <Typography>Collapsible Group Item #3</Typography>
+                <Typography variant="subtitleRegular">
+                  Can I talk to someone from your team?
+                </Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+              <AccordionDetails sx={{ border: "none", color: "#525252" }}>
+                <Typography variant="bodyNormal">
+                  Of course, your best bet is to contact either Lapras or Tommy
+                  inside the KeeperDAO Discord.
                 </Typography>
               </AccordionDetails>
             </Accordion>
+            <Divider />
+            <Accordion
+              expanded={expanded === "panel4"}
+              onChange={handleChange("panel4")}
+            >
+              <AccordionSummary
+                aria-controls="panel4d-content"
+                id="panel4d-header"
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{ color: theme.palette.text.primary_light }}
+                  />
+                }
+              >
+                <Typography variant="subtitleRegular">
+                  Can limit orders be filled with only liquidity from my
+                  exchange?
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ border: "none", color: "#525252" }}>
+                <Typography variant="bodyNormal">Not at this time.</Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Divider />
+            <Accordion
+              expanded={expanded === "panel5"}
+              onChange={handleChange("panel5")}
+            >
+              <AccordionSummary
+                aria-controls="panel5d-content"
+                id="panel5d-header"
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{ color: theme.palette.text.primary_light }}
+                  />
+                }
+              >
+                <Typography variant="subtitleRegular">
+                  Is The Hiding Book available for L2 as well?
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ border: "none", color: "#525252" }}>
+                <Typography variant="bodyNormal">
+                  Not yet, but it's planned for 2022.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Divider />
           </Grid>
         </Grid>
       </FAQ>
