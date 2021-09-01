@@ -56,20 +56,44 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://blog.keeperdao.com/labs/"
+                  rel="noopener noreferrer"
+                >
+                  KD Labs{" "}
+                </TextButton>
+              </Grid>
+              {/*<Grid item>
                 <TextButton variant="text-dark">Mission</TextButton>
               </Grid>
               <Grid item>
                 <TextButton variant="text-dark">Team</TextButton>
+              </Grid>*/}
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="mailto:kd@keeperdao.com"
+                  rel="noopener noreferrer"
+                >
+                  Press
+                </TextButton>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Press</TextButton>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://github.com/keeperdao/jobs"
+                  rel="noopener noreferrer"
+                >
+                  Careers{" "}
+                </TextButton>
               </Grid>
-              <Grid item>
-                <TextButton variant="text-dark">Careers</TextButton>
-              </Grid>
-              <Grid item>
+              {/*<Grid item>
                 <TextButton variant="text-dark">Branding</TextButton>
-              </Grid>
+              </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
@@ -78,10 +102,19 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Hiding Book</TextButton>
+                <TextButton variant="text-dark" href="/core-tech/hiding-book">
+                  Hiding Book
+                </TextButton>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">JITU</TextButton>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://docs.keeperdao.com/reference/products/borrow/jitu-underwriter"
+                  rel="noopener noreferrer"
+                >
+                  JITU
+                </TextButton>
               </Grid>
               <Grid item sx={{ marginBottom: "16px", marginTop: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -102,16 +135,30 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Whitepaper</TextButton>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://github.com/keeperdao/whitepaper/blob/main/whitepaper.pdf"
+                  rel="noopener noreferrer"
+                >
+                  Whitepaper{" "}
+                </TextButton>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Documentation</TextButton>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://docs.keeperdao.com"
+                  rel="noopener noreferrer"
+                >
+                  Documentation{" "}
+                </TextButton>
               </Grid>
-              <Grid item>
+              {/*<Grid item>
                 <TextButton variant="text-dark" sx={{ marginLeft: "-18px" }}>
                   FAQ
                 </TextButton>
-              </Grid>
+              </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
@@ -120,9 +167,16 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Blog</TextButton>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://blog.keeperdao.com"
+                  rel="noopener noreferrer"
+                >
+                  Blog
+                </TextButton>
               </Grid>
-              <Grid item>
+              {/*<Grid item>
                 <TextButton variant="text-dark">KD Labs</TextButton>
               </Grid>
               <Grid item>
@@ -130,7 +184,7 @@ export default function Footer() {
               </Grid>
               <Grid item>
                 <TextButton variant="text-dark">Code of Conduct</TextButton>
-              </Grid>
+              </Grid>*/}
             </Grid>
           </Grid>
           <Divider
