@@ -1,5 +1,7 @@
 import React from "react";
 
+import Image from "next/image";
+
 import theme from "../../src/theme";
 
 import { Grid, Typography, Button, Divider } from "@material-ui/core";
@@ -9,7 +11,10 @@ import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import Image from "next/image";
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import "react-awesome-slider/dist/styles.css";
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const HidingBookIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
@@ -195,6 +200,10 @@ export default function HidingBook(props) {
               Get paid to integrate the most comprehensive MEV protection into
               your wallet.
             </Typography>
+            {/*<AutoplaySlider play={true} interval={1000}>
+              <Typography variant="headingDisplay">YEETUS</Typography>
+              <Typography variant="headingDisplay">BEETUS</Typography>
+            </AutoplaySlider>*/}
           </Grid>
         </Grid>
         <Grid item>
