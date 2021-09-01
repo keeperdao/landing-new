@@ -65,7 +65,7 @@ export default function Header(props) {
             </Grid>
 
             <Grid item justifyContent="flex-end">
-              <Button
+              {/*<Button
                 href="#products"
                 variant={`text-${colorMode}`}
                 sx={{ minWidth: 0 }}
@@ -97,6 +97,7 @@ export default function Header(props) {
               >
                 Blog
               </Button>
+              */}
               <Button
                 variant={`outlined-${colorMode}`}
                 sx={{

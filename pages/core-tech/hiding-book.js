@@ -1,4 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React from "react";
+
+import { css, keyframes } from "@emotion/react";
 
 import Image from "next/image";
 
@@ -10,11 +13,6 @@ import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
-import "react-awesome-slider/dist/styles.css";
-const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const HidingBookIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
@@ -175,6 +173,40 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   //borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
+const myEffect = keyframes`
+  0% {
+    transform: translateY(-348px);
+  }
+  16.67% {
+    transform: translateY(-290px);
+  }
+  33.33% {
+    transform: translateY(-232px);
+  }
+  50% {
+    transform: translateY(-174px);
+  }
+  66.67% {
+    transform: translateY(-116px);
+  }
+  83.33% {
+    transform: translateY(-58px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+const myEffectExit = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+`;
+
 export default function HidingBook(props) {
   const { colorMode, setColorMode } = props;
   setColorMode("light");
@@ -184,8 +216,20 @@ export default function HidingBook(props) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  const animatedItem = css`
+    animation: ${myEffect} 18000ms ${theme.transitions.easing.easeInOut}
+      infinite;
+  `;
+  const animatedItemExiting = css`
+    animation: ${myEffectExit} 3000ms ${theme.transitions.easing.easeInOut};
+    opacity: 0;
+    transform: translateY(-200%);
+  `;
+  const [exit, setExit] = React.useState(false);
+
   return (
     <div style={{ padding: 0, margin: 0 }}>
+      {exit && <Button onClick={() => setExit(false)}>Click to enter</Button>}
       <HidingBookIntro container id="intro" direction="column">
         <Grid item sx={{ marginBottom: "16px" }}>
           <Typography variant="paragraphBoldLabel" color="accent">
@@ -196,7 +240,79 @@ export default function HidingBook(props) {
           <Grid container maxWidth="769px">
             <Typography variant="headingDisplay">
               Get paid to integrate the most comprehensive MEV protection into
-              your wallet.
+              your{" "}
+              <div
+                style={{
+                  display: "inline-block",
+                  height: "68px",
+                  overflow: "hidden",
+                  alignSelf: "center",
+                  marginTop: "-10px",
+                  marginBottom: "-21px",
+                  padding: 0,
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    marginBottom: "-348px",
+                    margin: 0,
+                    padding: 0,
+                  }}
+                  css={animatedItem}
+                >
+                  <Grid container direction="column">
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent,
+                      }}
+                    >
+                      wallet.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent_light,
+                      }}
+                    >
+                      exchange.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent,
+                      }}
+                    >
+                      aggregator.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent_light,
+                      }}
+                    >
+                      wallet.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent,
+                      }}
+                    >
+                      exchange.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent_light,
+                      }}
+                    >
+                      aggregator.
+                    </Typography>
+                  </Grid>
+                </div>
+              </div>
             </Typography>
             {/*<AutoplaySlider play={true} interval={1000}>
               <Typography variant="headingDisplay">YEETUS</Typography>
@@ -256,6 +372,9 @@ export default function HidingBook(props) {
                   marginBottom: "8px",
                   borderRadius: "8px",
                 }}
+                target="_blank"
+                href="https://discordapp.com/users/395761182939807744/"
+                rel="noopener noreferrer"
               >
                 Questions? Let's chat
               </Button>
@@ -264,6 +383,9 @@ export default function HidingBook(props) {
               <Button
                 variant="outlined-blue"
                 sx={{ width: "275px", height: "56px", borderRadius: "8px" }}
+                target="_blank"
+                href="https://docs.keeperdao.com/reference/developers/hiding-game-api/partner-integration"
+                rel="noopener noreferrer"
               >
                 Go to docs
               </Button>
@@ -833,6 +955,9 @@ export default function HidingBook(props) {
               <Button
                 variant="outlined-blue"
                 sx={{ width: "300px", height: "56px", borderRadius: "8px" }}
+                target="_blank"
+                href="https://docs.keeperdao.com/reference/developers/hiding-game-api/api"
+                rel="noopener noreferrer"
               >
                 Technical Documentation
               </Button>
@@ -1083,6 +1208,9 @@ export default function HidingBook(props) {
                     color: theme.palette.accent,
                     fontWeight: 500,
                   }}
+                  target="_blank"
+                  href="https://docs.keeperdao.com/reference/developers/hiding-game-api/partner-integration/partner-rewards-integration"
+                  rel="noopener noreferrer"
                 >
                   Partner Rewards Guide
                 </Button>
@@ -1365,7 +1493,13 @@ export default function HidingBook(props) {
                 spacing={1}
               >
                 <Grid item>
-                  <Button variant="contained" sx={{ borderRadius: "8px" }}>
+                  <Button
+                    variant="contained"
+                    sx={{ borderRadius: "8px" }}
+                    target="_blank"
+                    href="https://discordapp.com/users/395761182939807744/"
+                    rel="noopener noreferrer"
+                  >
                     Talk to the team
                   </Button>
                 </Grid>
@@ -1377,6 +1511,9 @@ export default function HidingBook(props) {
                       borderColor: theme.palette.accent_light,
                       color: theme.palette.accent_light,
                     }}
+                    target="_blank"
+                    href="https://docs.keeperdao.com/reference/developers/hiding-game-api/partner-integration"
+                    rel="noopener noreferrer"
                   >
                     Integration guide
                   </Button>
@@ -1542,7 +1679,6 @@ export default function HidingBook(props) {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Divider />
           </Grid>
         </Grid>
       </FAQ>
