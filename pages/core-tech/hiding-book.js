@@ -124,10 +124,8 @@ const HowToIntegrate = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
   background: "rgba(9, 167, 243, 0.05)",
+  borderRadius: "4px",
 }));
 
 const FAQ = styled(Grid)(({ theme }) => ({
@@ -161,7 +159,7 @@ const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
     transform: "scale(1)",
     transition: "0.35s all ease",
     "&.Mui-expanded": {
-      paddingBottom: "0px",
+      //paddingBottom: "0px",
     },
     "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
       transform: "rotate(180deg)",
@@ -173,7 +171,7 @@ const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
 );
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  //padding: theme.spacing(2),
+  marginBottom: "16px",
   //borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
@@ -225,13 +223,19 @@ export default function HidingBook(props) {
             <Grid item sx={{ marginBottom: "24px" }}>
               <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 Additionally, any available MEV will be captured by our Keepers
-                and handed back to you and your users pro rata.
+                and handed back to you and your users{" "}
+                <Typography variant="bodyNormal" sx={{ fontStyle: "italic" }}>
+                  pro rata.
+                </Typography>
               </Typography>
             </Grid>
             <Grid item>
               <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                 In this way, by integrating with the Hiding Book, both our
-                partners and their users will get paid to play.
+                partners and their users will{" "}
+                <Typography variant="bodyNormal" sx={{ fontWeight: 600 }}>
+                  get paid to play
+                </Typography>
               </Typography>
             </Grid>
           </Grid>
@@ -359,7 +363,7 @@ export default function HidingBook(props) {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            sx={{ padding: "32px", color: "#525252" }}
+            sx={{ padding: "32px", color: "#525252", borderRadius: "4px" }}
           >
             <Typography
               variant="bodyBold"
@@ -371,7 +375,13 @@ export default function HidingBook(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item sx={{ backgroundColor: "rgba(9, 167, 243, 0.05)" }}>
+        <Grid
+          item
+          sx={{
+            backgroundColor: "rgba(9, 167, 243, 0.05)",
+            borderRadius: "4px 4px 0px 0px",
+          }}
+        >
           <Grid
             container
             direction="row"
@@ -385,7 +395,13 @@ export default function HidingBook(props) {
             />
           </Grid>
         </Grid>
-        <Grid item sx={{ backgroundColor: "rgba(9, 167, 243, 0.2)" }}>
+        <Grid
+          item
+          sx={{
+            backgroundColor: "rgba(9, 167, 243, 0.2)",
+            borderRadius: "0px 0px 4px 4px",
+          }}
+        >
           <Grid
             container
             direction="row"
@@ -423,7 +439,10 @@ export default function HidingBook(props) {
             container
             item
             justifyContent="center"
-            sx={{ backgroundColor: "rgba(9, 167, 243, 0.05)" }}
+            sx={{
+              backgroundColor: "rgba(9, 167, 243, 0.05)",
+              borderRadius: "4px 4px 0px 0px",
+            }}
           >
             <Grid
               container
@@ -500,7 +519,10 @@ export default function HidingBook(props) {
             container
             item
             justifyContent="center"
-            sx={{ backgroundColor: "rgba(108, 70, 214, 0.05)" }}
+            sx={{
+              backgroundColor: "rgba(108, 70, 214, 0.05)",
+              borderRadius: "0px 0px 4px 4px",
+            }}
           >
             <Grid
               container
@@ -510,7 +532,7 @@ export default function HidingBook(props) {
               alignItems="flex-start"
               sx={{
                 paddingTop: "32px",
-                paddingBottom: "32px",
+                paddingBottom: 0,
                 paddingLeft: "16px",
                 paddingRight: "16px",
                 maxWidth: "416px",
@@ -531,7 +553,7 @@ export default function HidingBook(props) {
                   Benefits
                 </Typography>
               </Grid>
-              <Grid item sx={{ color: "#525252" }}>
+              <Grid item sx={{ color: "#525252", marginBottom: 0 }}>
                 <Typography
                   variant="paragraphRegularMedium"
                   sx={{ lineHeight: "21px" }}
@@ -597,6 +619,13 @@ export default function HidingBook(props) {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item sx={{ marginTop: 0 }}>
+            <Image
+              width={698}
+              height={96}
+              src={"/images/graphics/logos_purple.png"}
+            />
+          </Grid>
         </Grid>
       </Benefits>
       <UseCases container id="use-cases" direction="column">
@@ -630,6 +659,7 @@ export default function HidingBook(props) {
                   margin: 0,
                   backgroundColor: "rgba(9, 167, 243, 0.05)",
                   color: "#525252",
+                  borderRadius: "4px",
                 }}
               >
                 <Typography
@@ -666,6 +696,7 @@ export default function HidingBook(props) {
                   margin: 0,
                   backgroundColor: "rgba(9, 167, 243, 0.05)",
                   color: "#525252",
+                  borderRadius: "4px",
                 }}
               >
                 <Typography
@@ -702,6 +733,7 @@ export default function HidingBook(props) {
                   margin: 0,
                   backgroundColor: "rgba(9, 167, 243, 0.05)",
                   color: "#525252",
+                  borderRadius: "4px",
                 }}
               >
                 <Typography
@@ -738,6 +770,7 @@ export default function HidingBook(props) {
                   margin: 0,
                   backgroundColor: "rgba(9, 167, 243, 0.05)",
                   color: "#525252",
+                  borderRadius: "4px",
                 }}
               >
                 <Typography
@@ -865,6 +898,7 @@ export default function HidingBook(props) {
               sx={{
                 padding: "16px",
                 backgroundColor: "rgba(9, 167, 243, 0.05)",
+                borderRadius: "4px",
               }}
             >
               <Typography
@@ -1058,7 +1092,7 @@ export default function HidingBook(props) {
         </Grid>
         <Grid item xs={9} md={6}>
           <Grid container justifyContent="center" alignItems="center">
-            <Grid item>
+            <Grid item sx={{ borderRadius: "4px" }}>
               <Image
                 height={374}
                 width={345}
@@ -1122,9 +1156,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   Full control over their trade execution price
                 </Typography>
               </Grid>
@@ -1150,9 +1185,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   Their best chance of getting their orders filled{" "}
                 </Typography>
               </Grid>
@@ -1178,9 +1214,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   Zero slippage{" "}
                 </Typography>
               </Grid>
@@ -1206,9 +1243,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   The ability to trade assets for free{" "}
                 </Typography>
               </Grid>
@@ -1234,9 +1272,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   Full MEV protection on limit orders{" "}
                 </Typography>
               </Grid>
@@ -1262,9 +1301,10 @@ export default function HidingBook(props) {
                   background: "rgba(143, 143, 143, 0.05)",
                   color: "#525252",
                   padding: "16px",
+                  borderRadius: "4px",
                 }}
               >
-                <Typography variant="paragraphRegularLarge" align="center">
+                <Typography variant="bodyNormal" align="center">
                   MEV rewards in $ROOK{" "}
                 </Typography>
               </Grid>
@@ -1279,61 +1319,78 @@ export default function HidingBook(props) {
             direction="column"
             justifyContent="center"
             alignItems="center"
-            sx={{ padding: { xs: "16px", sm: "48px" } }}
           >
-            <Grid container item sx={{ marginBottom: "32px" }}>
-              <Typography align="left" variant="headingTitle">
-                How to integrate
-              </Typography>
-            </Grid>
             <Grid
               container
               item
-              sx={{ marginBottom: "24px", color: "#525252" }}
+              sx={{
+                paddingTop: { xs: "16px", sm: "48px" },
+                paddingLeft: { xs: "16px", sm: "48px" },
+                paddingRight: { xs: "16px", sm: "48px" },
+                paddingBottom: 0,
+              }}
             >
-              <Typography align="left" variant="bodyNormal">
-                You can integrate the Hiding Book by following the integration
-                guide.
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              item
-              sx={{ marginBottom: "32px", color: "#525252" }}
-            >
-              <Typography align="left" variant="bodyNormal">
-                Integration is relatively straightforward, mainly depending on
-                whether or not your exchange has limit order functionality set
-                up already. If anything is unclear or if you have any further
-                questions, contact us and we'll help you out.
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              item
-              direction="row"
-              justifyContent="flex-start"
-              spacing={1}
-            >
-              <Grid item>
-                <Button variant="contained" sx={{ borderRadius: "8px" }}>
-                  Talk to the team
-                </Button>
+              <Grid container item sx={{ marginBottom: "32px" }}>
+                <Typography align="left" variant="headingTitle">
+                  How to integrate
+                </Typography>
               </Grid>
-              <Grid item>
-                <Button
-                  variant="outlined-light"
-                  sx={{
-                    borderRadius: "8px",
-                    borderColor: theme.palette.accent_light,
-                    color: theme.palette.accent_light,
-                  }}
-                >
-                  Integration guide
-                </Button>
+              <Grid
+                container
+                item
+                sx={{ marginBottom: "24px", color: "#525252" }}
+              >
+                <Typography align="left" variant="bodyNormal">
+                  You can integrate the Hiding Book by following the integration
+                  guide.
+                </Typography>
+              </Grid>
+              <Grid
+                container
+                item
+                sx={{ marginBottom: "32px", color: "#525252" }}
+              >
+                <Typography align="left" variant="bodyNormal">
+                  Integration is relatively straightforward, mainly depending on
+                  whether or not your exchange has limit order functionality set
+                  up already. If anything is unclear or if you have any further
+                  questions, contact us and we'll help you out.
+                </Typography>
+              </Grid>
+              <Grid
+                container
+                item
+                direction="row"
+                justifyContent="flex-start"
+                spacing={1}
+              >
+                <Grid item>
+                  <Button variant="contained" sx={{ borderRadius: "8px" }}>
+                    Talk to the team
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="outlined-light"
+                    sx={{
+                      borderRadius: "8px",
+                      borderColor: theme.palette.accent_light,
+                      color: theme.palette.accent_light,
+                    }}
+                  >
+                    Integration guide
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item sx={{ marginTop: 0, marginBottom: "-4px" }}>
+          <Image
+            width={840}
+            height={116}
+            src={"/images/graphics/logos_azure.png"}
+          />
         </Grid>
       </HowToIntegrate>
       <FAQ container id="faq" direction="row">

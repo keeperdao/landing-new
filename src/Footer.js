@@ -49,7 +49,7 @@ export default function Footer() {
             direction="row"
             sx={{ color: theme.palette.text.primary_dark }}
           >
-            <Grid container item direction="column" header={2} sm={3} xs={6}>
+            <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   About
@@ -71,7 +71,7 @@ export default function Footer() {
                 <TextButton variant="text-dark">Branding</TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" header={2} sm={3} xs={6}>
+            <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Core Tech
@@ -95,7 +95,7 @@ export default function Footer() {
                 <TextButton variant="text-dark">Snapshot</TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" header={2} sm={3} xs={6}>
+            <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Learn
@@ -113,7 +113,7 @@ export default function Footer() {
                 </TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" header={2} sm={3} xs={6}>
+            <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Community

@@ -176,7 +176,7 @@ const theme = createTheme({
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
-            fontSize: "16px",
+            fontSize: "18px",
             letterSpacing: "0em",
             textTransform: "none",
             "&:hover": {
@@ -205,7 +205,7 @@ const theme = createTheme({
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
-            fontSize: "16px",
+            fontSize: "18px",
             letterSpacing: "0em",
             textTransform: "none",
             "&:hover": {
@@ -234,7 +234,7 @@ const theme = createTheme({
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
-            fontSize: "16px",
+            fontSize: "18px",
             letterSpacing: "0em",
             textTransform: "none",
             "&:hover": {
@@ -299,7 +299,7 @@ const theme = createTheme({
           fontFamily: "Inter",
           fontStyle: "normal",
           fontWeight: 600,
-          fontSize: "16px",
+          fontSize: "18px",
           letterSpacing: "0em",
           textTransform: "none",
           "&:hover": {
