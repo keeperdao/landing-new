@@ -34,14 +34,22 @@ export default function Footer() {
   return (
     <div style={{ background: "#141118" }}>
       <Container maxWidth="header" disableGutters>
-        <Grid container direction="column" sx={{ paddingTop: "40px" }}>
+        <Grid
+          container
+          direction="column"
+          sx={{
+            paddingTop: "40px",
+            paddingLeft: { xs: "32px", header: 0 },
+            paddingRight: { xs: "32px", header: 0 },
+          }}
+        >
           <Grid
             container
             item
             direction="row"
             sx={{ color: theme.palette.text.primary_dark }}
           >
-            <Grid container item direction="column" xs={2}>
+            <Grid container item direction="column" header={2} sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   About
@@ -63,7 +71,7 @@ export default function Footer() {
                 <TextButton variant="text-dark">Branding</TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" xs={2}>
+            <Grid container item direction="column" header={2} sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Core Tech
@@ -87,7 +95,7 @@ export default function Footer() {
                 <TextButton variant="text-dark">Snapshot</TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" xs={2}>
+            <Grid container item direction="column" header={2} sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Learn
@@ -105,7 +113,7 @@ export default function Footer() {
                 </TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" xs={2}>
+            <Grid container item direction="column" header={2} sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Community
@@ -238,7 +246,7 @@ export default function Footer() {
           left: 0,
           marginTop: "-240px",
           padding: 0,
-          display: { md: "none", lg: "block" },
+          display: { xs: "none", lg: "block" },
         }}
       >
         <Image width={300} height={240} src={"/images/graphics/galaxy.png"} />

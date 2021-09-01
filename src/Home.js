@@ -52,7 +52,7 @@ function Home(props) {
           direction="column"
           xs={11}
           sm={7}
-          md={5}
+          header={5}
           justifyContent="space-between"
         >
           <Grid item sx={{ marginBottom: "24px" }}>
@@ -67,7 +67,7 @@ function Home(props) {
           <Grid
             item
             sx={{
-              width: { xs: "100%", md: "85%" },
+              width: { xs: "100%", header: "85%" },
               justifySelf: "flex-end",
               marginBottom: { xs: "24px", sm: "0px" },
             }}
@@ -90,7 +90,7 @@ function Home(props) {
           sx={{ padding: 0 }}
           justifyContent="center"
           xs={11}
-          md={7}
+          header={7}
         >
           <Image
             width={501}
@@ -167,12 +167,12 @@ function Home(props) {
             height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
             justifyContent: "space-between",
-            marginBottom: { md: "0px", xs: "48px" },
+            marginBottom: { header: "0px", xs: "48px" },
           }}
           direction="column"
           xs={10}
           sm={5}
-          md={3}
+          header={3}
         >
           <div>
             <Grid
@@ -237,7 +237,7 @@ function Home(props) {
         <Divider
           flexItem
           orientation="vertical"
-          sx={{ display: { xs: "none", md: "block" } }}
+          sx={{ display: { xs: "none", header: "block" } }}
         />
         <Grid
           container
@@ -245,13 +245,13 @@ function Home(props) {
           sx={{
             height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
-            marginBottom: { md: "0px", xs: "48px" },
+            marginBottom: { header: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
           xs={10}
           sm={5}
-          md={3}
+          header={3}
         >
           <div>
             <Grid
@@ -316,7 +316,7 @@ function Home(props) {
         <Divider
           flexItem
           orientation="vertical"
-          sx={{ display: { xs: "none", md: "block" } }}
+          sx={{ display: { xs: "none", header: "block" } }}
         />
         <Grid
           container
@@ -324,13 +324,13 @@ function Home(props) {
           sx={{
             height: { sm: 330 },
             marginLeft: { sm: "0px", xs: "16px" },
-            marginBottom: { md: "0px", xs: "48px" },
+            marginBottom: { header: "0px", xs: "48px" },
             justifyContent: "space-between",
           }}
           direction="column"
           xs={10}
           sm={5}
-          md={3}
+          header={3}
         >
           <div>
             <Grid
@@ -446,8 +446,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/partners/bancor.png"}
               />
@@ -460,8 +460,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/partners/volleyfire.png"}
               />
@@ -474,8 +474,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/partners/metric.png"}
               />
@@ -536,8 +536,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/investors/polychain.png"}
               />
@@ -550,8 +550,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/investors/threearrows.png"}
               />
@@ -564,8 +564,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/investors/amber.png"}
               />
@@ -626,8 +626,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/auditors/samczsun.png"}
               />
@@ -640,8 +640,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/auditors/quantstamp.png"}
               />
@@ -654,8 +654,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={275}
-                height={128}
+                width={247}
+                height={115}
                 quality={100}
                 src={"/images/auditors/peckshield.png"}
               />
