@@ -30,7 +30,8 @@ const TextButton = styled(Button)(({ theme }) => ({
   paddingTop: 0,
 }));
 
-export default function Footer() {
+export default function Footer(props) {
+  const { colorMode, setColorMode } = props;
   return (
     <div style={{ background: "#141118" }}>
       <Container maxWidth="header" disableGutters>
@@ -102,7 +103,11 @@ export default function Footer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark" href="/core-tech/hiding-book">
+                <TextButton
+                  variant="text-dark"
+                  href="/core-tech/hiding-book"
+                  onClick={() => setColorMode("light")}
+                >
                   Hiding Book
                 </TextButton>
               </Grid>

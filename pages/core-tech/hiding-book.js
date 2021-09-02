@@ -177,19 +177,19 @@ const myEffect = keyframes`
   0% {
     transform: translateY(-345.6px);
   }
-  16.67% {
+  16.667% {
     transform: translateY(-288px);
   }
-  33.33% {
+  33.333% {
     transform: translateY(-230.4px);
   }
   50% {
     transform: translateY(-172.8px);
   }
-  66.67% {
+  66.667% {
     transform: translateY(-115.2px);
   }
-  83.33% {
+  83.333% {
     transform: translateY(-57.6px);
   }
   100% {
@@ -246,7 +246,6 @@ export default function HidingBook(props) {
                   height: "58px",
                   overflow: "hidden",
                   alignSelf: "center",
-
                   marginBottom: "-11px",
                   padding: 0,
                 }}
@@ -254,8 +253,8 @@ export default function HidingBook(props) {
                 <div
                   style={{
                     display: "inline-block",
-                    marginBottom: "-348px",
-                    margin: 0,
+                    marginBottom: "-288px",
+
                     padding: 0,
                   }}
                   css={animatedItem}
@@ -308,6 +307,14 @@ export default function HidingBook(props) {
                       }}
                     >
                       aggregator.
+                    </Typography>
+                    <Typography
+                      variant="headingDisplay"
+                      sx={{
+                        color: theme.palette.accent,
+                      }}
+                    >
+                      wallet.
                     </Typography>
                   </Grid>
                 </div>

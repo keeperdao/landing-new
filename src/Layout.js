@@ -8,7 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Layout(props) {
-  const { children, colorMode } = props;
+  const { children, colorMode, setColorMode } = props;
 
   return (
     <Grid
@@ -65,7 +65,7 @@ export default function Layout(props) {
           marginTop: 0,
         }}
       >
-        <Footer />
+        <Footer colorMode={colorMode} setColorMode={setColorMode} />
       </Grid>
     </Grid>
   );
