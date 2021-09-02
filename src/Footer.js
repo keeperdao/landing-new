@@ -42,15 +42,23 @@ export default function Footer(props) {
             paddingTop: "40px",
             paddingLeft: { xs: "32px", header: 0 },
             paddingRight: { xs: "32px", header: 0 },
+            zIndex: 2,
           }}
         >
           <Grid
             container
             item
             direction="row"
-            sx={{ color: theme.palette.text.primary_dark }}
+            sx={{ color: theme.palette.text.primary_dark, zIndex: 3 }}
           >
-            <Grid container item direction="column" sm={3} xs={6}>
+            <Grid
+              container
+              item
+              direction="column"
+              sm={3}
+              xs={6}
+              sx={{ zIndex: 3 }}
+            >
               <Grid item sx={{ marginBottom: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   About
@@ -58,6 +66,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
+                  sx={{ zIndex: 3 }}
                   variant="text-dark"
                   target="_blank"
                   href="https://blog.keeperdao.com/labs/"
@@ -67,14 +76,15 @@ export default function Footer(props) {
                 </TextButton>
               </Grid>
               {/*<Grid item>
-                <TextButton variant="text-dark">Mission</TextButton>
+                <TextButton variant="text-dark" sx={{ zIndex: 3 }}>Mission</TextButton>
               </Grid>
               <Grid item>
-                <TextButton variant="text-dark">Team</TextButton>
+                <TextButton variant="text-dark" sx={{ zIndex: 3 }}>Team</TextButton>
               </Grid>*/}
               <Grid item>
                 <TextButton
                   variant="text-dark"
+                  sx={{ zIndex: 3 }}
                   target="_blank"
                   href="mailto:kd@keeperdao.com"
                   rel="noopener noreferrer"

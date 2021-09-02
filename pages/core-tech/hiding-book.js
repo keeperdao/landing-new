@@ -925,7 +925,7 @@ export default function HidingBook(props) {
             sx={{ padding: "16px", marginBottom: "16px" }}
           >
             <Typography align="left" variant="headingTitle">
-              How does it work?
+              How does it work
             </Typography>
           </Grid>
           <Grid container item sm={12} md={9} sx={{ color: "#525252" }}>
@@ -945,7 +945,7 @@ export default function HidingBook(props) {
             </Grid>
             <Grid item sx={{ padding: "16px" }}>
               <Typography align="left" variant="bodyNormal">
-                Since our Keepers have access to virtually any liquidity source
+                Since our Keepers have access to virtually any liquidity source,
                 the Hiding Book is able to efficiently fill limit orders with
                 zero slippage, fully MEV-protected.
               </Typography>
@@ -1579,8 +1579,8 @@ export default function HidingBook(props) {
                   Integration is relatively straightforward, mainly depending on
                   whether or not your exchange has limit order functionality set
                   up already. The required components are an 0xv4 integration
-                  and front end limit order functionality. For more, consult our
-                  Integration Guide.
+                  and front end limit order functionality. For more details,
+                  consult our Integration Guide.
                 </Typography>
               </AccordionDetails>
             </Accordion>
