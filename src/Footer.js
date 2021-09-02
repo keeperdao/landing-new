@@ -116,7 +116,7 @@ export default function Footer() {
                   JITU
                 </TextButton>
               </Grid>
-              <Grid item sx={{ marginBottom: "16px", marginTop: "16px" }}>
+              {/*<Grid item sx={{ marginBottom: "16px", marginTop: "16px" }}>
                 <Typography align="left" variant="paragraphBoldLarge">
                   Governance
                 </Typography>
@@ -126,7 +126,7 @@ export default function Footer() {
               </Grid>
               <Grid item>
                 <TextButton variant="text-dark">Snapshot</TextButton>
-              </Grid>
+            </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
               <Grid item sx={{ marginBottom: "16px" }}>

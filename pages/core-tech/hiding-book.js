@@ -175,22 +175,22 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const myEffect = keyframes`
   0% {
-    transform: translateY(-348px);
+    transform: translateY(-345.6px);
   }
   16.67% {
-    transform: translateY(-290px);
+    transform: translateY(-288px);
   }
   33.33% {
-    transform: translateY(-232px);
+    transform: translateY(-230.4px);
   }
   50% {
-    transform: translateY(-174px);
+    transform: translateY(-172.8px);
   }
   66.67% {
-    transform: translateY(-116px);
+    transform: translateY(-115.2px);
   }
   83.33% {
-    transform: translateY(-58px);
+    transform: translateY(-57.6px);
   }
   100% {
     transform: translateY(0);
@@ -217,8 +217,7 @@ export default function HidingBook(props) {
   };
 
   const animatedItem = css`
-    animation: ${myEffect} 18000ms ${theme.transitions.easing.easeInOut}
-      infinite;
+    animation: ${myEffect} 18000ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
   `;
   const animatedItemExiting = css`
     animation: ${myEffectExit} 3000ms ${theme.transitions.easing.easeInOut};
