@@ -243,11 +243,11 @@ export default function HidingBook(props) {
               <div
                 style={{
                   display: "inline-block",
-                  height: "68px",
+                  height: "58px",
                   overflow: "hidden",
                   alignSelf: "center",
-                  marginTop: "-10px",
-                  marginBottom: "-21px",
+
+                  marginBottom: "-11px",
                   padding: 0,
                 }}
               >
