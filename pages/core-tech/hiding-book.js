@@ -368,7 +368,7 @@ export default function HidingBook(props) {
                   In this way, by integrating with the Hiding Book, both our
                   partners and their users will{" "}
                   <Typography variant="bodyNormal" sx={{ fontWeight: 600 }}>
-                    get paid to play
+                    get paid to play.
                   </Typography>
                 </Typography>
               </Grid>
