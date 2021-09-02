@@ -24,6 +24,11 @@ export default function MyApp(props) {
         <title>KeeperDAO</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="KeeperDAO" />
+        <meta
+          name="twitter:image"
+          content={`https://keeperdao.com/_next/image?url=%2Fimages%2Fgraphics%2Fvista_dark.png&w=1080&q=100`}
+        />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
