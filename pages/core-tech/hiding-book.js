@@ -414,6 +414,7 @@ export default function HidingBook(props) {
         <AsUsedBy continer id="as-used-by" direction="column">
           <Grid container item justifyContent="center" alignItems="center">
             <Image
+              priority
               height={107}
               width={659}
               src={"/images/graphics/as_used_by.png"}
@@ -434,6 +435,7 @@ export default function HidingBook(props) {
         >
           <div style={{ zIndex: 1 }}>
             <Image
+              priority
               width={32}
               height={52}
               unoptimized
@@ -529,6 +531,7 @@ export default function HidingBook(props) {
               alignItems="center"
             >
               <Image
+                priority
                 height={318}
                 width={840}
                 src={"/images/graphics/mev_chart.png"}
@@ -761,6 +764,7 @@ export default function HidingBook(props) {
             </Grid>
             <Grid item sx={{ marginTop: 0 }}>
               <Image
+                priority
                 width={698}
                 height={96}
                 src={"/images/graphics/logos_purple.png"}
@@ -992,6 +996,7 @@ export default function HidingBook(props) {
           <Grid item>
             <Grid container sx={{ width: "100%", maxWidth: "828px" }}>
               <Image
+                priority
                 width={828}
                 height={368}
                 src={"/images/graphics/hiding_book.png"}
@@ -1179,6 +1184,7 @@ export default function HidingBook(props) {
             </Grid>
             <Grid item xs={10} sm={6}>
               <Image
+                priority
                 height={520}
                 width={416}
                 src={"/images/graphics/keeper_liquidity.png"}
@@ -1245,6 +1251,7 @@ export default function HidingBook(props) {
             <Grid container justifyContent="center" alignItems="center">
               <Grid item sx={{ borderRadius: "4px" }}>
                 <Image
+                  priority
                   height={374}
                   width={345}
                   src={"/images/graphics/mev_rewards.png"}
@@ -1548,6 +1555,7 @@ export default function HidingBook(props) {
           </Grid>
           <Grid item sx={{ marginTop: 0, marginBottom: "-4px" }}>
             <Image
+              priority
               width={840}
               height={116}
               src={"/images/graphics/logos_azure.png"}

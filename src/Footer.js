@@ -322,7 +322,12 @@ export default function Footer(props) {
           display: { xs: "none", lg: "flex" },
         }}
       >
-        <Image width={300} height={240} src={"/images/graphics/galaxy.png"} />
+        <Image
+          priority
+          width={300}
+          height={240}
+          src={"/images/graphics/galaxy.png"}
+        />
       </Grid>
     </div>
   );
