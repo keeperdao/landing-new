@@ -27,7 +27,7 @@ export default function MyApp(props) {
         <meta name="twitter:title" content="KeeperDAO" />
         <meta
           name="twitter:image"
-          content={`https://keeperdao.com/_next/image?url=%2Fimages%2Fgraphics%2Fvista_dark.png&w=1080&q=100`}
+          content="https://keeperdao.com/_next/image?url=%2Fimages%2Fgraphics%2Fvista_dark.png&w=1080&q=100"
         />
       </Head>
       <ThemeProvider theme={theme}>
