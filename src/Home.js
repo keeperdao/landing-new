@@ -17,7 +17,7 @@ const IntroBox = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "100px",
   justifyContent: "space-around",
-  padding: "8px",
+  //padding: "8px",
 }));
 
 const ExplainerBox = styled(Grid)(({ theme }) => ({
@@ -92,12 +92,13 @@ function Home(props) {
           xs={11}
           header={7}
         >
-          <Image
-            width={501}
-            height={282}
-            quality={100}
-            src={"/images/graphics/keeper_vista.png"}
-          />
+          <Grid item>
+            <Image
+              width={501}
+              height={282}
+              src={"/images/graphics/keeper_vista.png"}
+            />
+          </Grid>
         </Grid>
       </IntroBox>
       <ExplainerBox
