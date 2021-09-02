@@ -33,7 +33,11 @@ const TextButton = styled(Button)(({ theme }) => ({
 export default function Footer(props) {
   const { colorMode, setColorMode } = props;
   return (
-    <div style={{ background: "#141118" }}>
+    <div
+      style={{
+        background: "#141118",
+      }}
+    >
       <Container maxWidth="header" disableGutters>
         <Grid
           container
@@ -315,7 +319,7 @@ export default function Footer(props) {
           left: 0,
           marginTop: "-240px",
           padding: 0,
-          display: { xs: "none", lg: "block" },
+          display: { xs: "none", lg: "flex" },
         }}
       >
         <Image width={300} height={240} src={"/images/graphics/galaxy.png"} />

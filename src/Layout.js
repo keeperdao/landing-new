@@ -60,9 +60,10 @@ export default function Layout(props) {
       <Grid
         item
         sx={{
-          background: theme.palette.background.dark,
+          background: "#123456",
           color: theme.palette.text.primary_dark,
           marginTop: 0,
+          bottom: 0,
         }}
       >
         <Footer colorMode={colorMode} setColorMode={setColorMode} />
@@ -70,3 +71,5 @@ export default function Layout(props) {
     </Grid>
   );
 }
+
+//background: theme.palette.background.dark,
