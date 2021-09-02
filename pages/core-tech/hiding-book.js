@@ -175,22 +175,22 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const myEffect = keyframes`
   0% {
-    transform: translateY(-345.6px);
+    transform: translateY(-348px);
   }
   16.667% {
-    transform: translateY(-288px);
+    transform: translateY(-290px);
   }
   33.333% {
-    transform: translateY(-230.4px);
+    transform: translateY(-232px);
   }
   50% {
-    transform: translateY(-172.8px);
+    transform: translateY(-174px);
   }
   66.667% {
-    transform: translateY(-115.2px);
+    transform: translateY(-116px);
   }
   83.333% {
-    transform: translateY(-57.6px);
+    transform: translateY(-58px);
   }
   100% {
     transform: translateY(0);
@@ -253,8 +253,7 @@ export default function HidingBook(props) {
                 <div
                   style={{
                     display: "inline-block",
-                    marginBottom: "-288px",
-
+                    marginBottom: "-290px",
                     padding: 0,
                   }}
                   css={animatedItem}
