@@ -8,12 +8,14 @@
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
     "@material-ui/core": "next",
+    "@material-ui/icons": "^5.0.0-beta.5",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "clsx": "latest",
     "next": "^11.1.0",
     "prop-types": "latest",
     "pspdfkit": "^2021.5.1",
     "react": "latest",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "latest"
   },
   "scripts": {

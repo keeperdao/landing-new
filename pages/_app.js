@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -7,11 +7,16 @@ import { CacheProvider } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 
+import Layout from "../src/Layout";
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
+  // Allows components to individually have light or dark theming
+  const [colorMode, setColorMode] = useState("dark");
 
   return (
     <CacheProvider value={emotionCache}>
@@ -22,7 +27,13 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <Layout colorMode={colorMode} setColorMode={setColorMode}>
+          <Component
+            {...pageProps}
+            colorMode={colorMode}
+            setColorMode={setColorMode}
+          />
+        </Layout>
       </ThemeProvider>
     </CacheProvider>
   );
