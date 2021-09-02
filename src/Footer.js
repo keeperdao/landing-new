@@ -173,6 +173,16 @@ export default function Footer(props) {
                   Documentation{" "}
                 </TextButton>
               </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="/files/Roadmap.png"
+                  rel="noopener noreferrer"
+                >
+                  Roadmap{" "}
+                </TextButton>
+              </Grid>
               {/*<Grid item>
                 <TextButton variant="text-dark" sx={{ marginLeft: "-18px" }}>
                   FAQ
