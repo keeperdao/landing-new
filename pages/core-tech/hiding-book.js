@@ -480,41 +480,27 @@ export default function HidingBook(props) {
               </Grid>
               <Grid item sx={{ marginBottom: "24px" }}>
                 <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
-                  In the competitive DeFi landscape, protecting yourself and
-                  your users from predatory MEV attacks has moved from a nice
-                  perk to a requisite.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
                   On average this year, users and protocols are being
                   manipulated out of $2,300,000 in MEV per day.
                 </Typography>
               </Grid>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sx={{
-              marginBottom: "32px",
-              backgroundColor: "rgba(9, 167, 243, 0.05)",
-            }}
-          >
-            <Grid
-              container
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ padding: "32px", color: "#525252", borderRadius: "4px" }}
-            >
-              <Typography
-                variant="bodyBold"
-                align="center"
-                sx={{ maxWidth: "600px", color: "#525252" }}
-              >
-                You can make that $0 for your exchange, aggregator, wallet or
-                DeFi product through integrating with the Hiding Book.
-              </Typography>
+              <Grid item sx={{ marginBottom: "24px" }}>
+                <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
+                  In the competitive DeFi landscape, protecting yourself and
+                  your users from predatory MEV attacks has moved from a nice
+                  perk to a{" "}
+                  <Typography variant="bodyBold" sx={{ color: "#525252" }}>
+                    requisite.
+                  </Typography>
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="bodyNormal" sx={{ color: "#525252" }}>
+                  Thankfully, this is now easily accomplished through
+                  integrating with the Hiding Book, which allows you to provide
+                  your users with fully MEV-protected limit order functionality.
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
           <Grid
