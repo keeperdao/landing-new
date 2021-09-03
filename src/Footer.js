@@ -177,7 +177,7 @@ export default function Footer(props) {
                 <TextButton
                   variant="text-dark"
                   target="_blank"
-                  href="/files/Roadmap.png"
+                  href="/files/roadmap.png"
                   rel="noopener noreferrer"
                 >
                   Roadmap{" "}
