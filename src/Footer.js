@@ -63,7 +63,13 @@ export default function Footer(props) {
               xs={6}
               sx={{ zIndex: 3 }}
             >
-              <Grid item sx={{ marginBottom: "16px" }}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "16px",
+                  marginTop: { xs: "16px", md: "0px" },
+                }}
+              >
                 <Typography align="left" variant="paragraphBoldLarge">
                   About
                 </Typography>
@@ -79,10 +85,18 @@ export default function Footer(props) {
                   KD Labs{" "}
                 </TextButton>
               </Grid>
-              {/*<Grid item>
-                <TextButton variant="text-dark" sx={{ zIndex: 3 }}>Mission</TextButton>
-              </Grid>
               <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  sx={{ zIndex: 3 }}
+                  target="_blank"
+                  href="https://blog.keeperdao.com/mission/"
+                  rel="noopener noreferrer"
+                >
+                  Mission
+                </TextButton>
+              </Grid>
+              {/*<Grid item>
                 <TextButton variant="text-dark" sx={{ zIndex: 3 }}>Team</TextButton>
               </Grid>*/}
               <Grid item>
@@ -111,7 +125,13 @@ export default function Footer(props) {
               </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
-              <Grid item sx={{ marginBottom: "16px" }}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "16px",
+                  marginTop: { xs: "16px", md: "0px" },
+                }}
+              >
                 <Typography align="left" variant="paragraphBoldLarge">
                   Core Tech
                 </Typography>
@@ -148,7 +168,13 @@ export default function Footer(props) {
             </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
-              <Grid item sx={{ marginBottom: "16px" }}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "16px",
+                  marginTop: { xs: "16px", md: "0px" },
+                }}
+              >
                 <Typography align="left" variant="paragraphBoldLarge">
                   Learn
                 </Typography>
@@ -190,7 +216,13 @@ export default function Footer(props) {
               </Grid>*/}
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
-              <Grid item sx={{ marginBottom: "16px" }}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "16px",
+                  marginTop: { xs: "16px", md: "0px" },
+                }}
+              >
                 <Typography align="left" variant="paragraphBoldLarge">
                   Community
                 </Typography>

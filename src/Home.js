@@ -58,10 +58,10 @@ function Home(props) {
           <Grid item sx={{ marginBottom: "24px" }}>
             <Typography variant="h1">Welcome to DeFi Utopia.</Typography>
           </Grid>
-          <Grid item sx={{ marginBottom: "24px" }}>
+          <Grid item sx={{ marginBottom: "24px", width: "90%" }}>
             <Typography variant="body1">
-              Trade, Borrow, and Earn more securely and profitably inside the
-              walled garden of KeeperDAO.
+              Get paid to trade and borrow with full MEV protection and
+              virtually unmatched liquidity sourcing.
             </Typography>
           </Grid>
           <Grid
