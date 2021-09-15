@@ -209,11 +209,18 @@ export default function Footer(props) {
                   Roadmap{" "}
                 </TextButton>
               </Grid>
-              {/*<Grid item>
-                <TextButton variant="text-dark" sx={{ marginLeft: "-18px" }}>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://docs.keeperdao.com/reference/faq/"
+                  rel="noopener noreferrer"
+                  sx={{ marginLeft: "-18px" }}
+                >
                   FAQ
                 </TextButton>
-              </Grid>*/}
+              </Grid>
             </Grid>
             <Grid container item direction="column" sm={3} xs={6}>
               <Grid
