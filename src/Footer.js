@@ -71,8 +71,18 @@ export default function Footer(props) {
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
-                  About
+                  KeeperDAO
                 </Typography>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  sx={{ zIndex: 3 }}
+                  variant="text-dark"
+                  href="/about"
+                  rel="noopener noreferrer"
+                >
+                  About{" "}
+                </TextButton>
               </Grid>
               <Grid item>
                 <TextButton
