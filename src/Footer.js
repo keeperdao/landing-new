@@ -193,6 +193,16 @@ export default function Footer(props) {
                 <TextButton
                   variant="text-dark"
                   target="_blank"
+                  href="https://blog.keeperdao.com"
+                  rel="noopener noreferrer"
+                >
+                  Blog
+                </TextButton>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
                   href="https://github.com/keeperdao/whitepaper/blob/main/whitepaper.pdf"
                   rel="noopener noreferrer"
                 >
@@ -241,19 +251,43 @@ export default function Footer(props) {
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
-                  Community
+                  Governance
                 </Typography>
               </Grid>
               <Grid item>
                 <TextButton
                   variant="text-dark"
+                  variant="text-dark"
                   target="_blank"
-                  href="https://blog.keeperdao.com"
+                  href="https://forum.keeperdao.com/"
                   rel="noopener noreferrer"
                 >
-                  Blog
+                  Forum
                 </TextButton>
               </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://snapshot.org/#/rook.eth"
+                  rel="noopener noreferrer"
+                >
+                  Vote
+                </TextButton>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://github.com/keeperdao/kips"
+                  rel="noopener noreferrer"
+                >
+                  KIPs
+                </TextButton>
+              </Grid>
+
               {/*<Grid item>
                 <TextButton variant="text-dark">KD Labs</TextButton>
               </Grid>
