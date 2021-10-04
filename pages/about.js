@@ -12,12 +12,14 @@ import {
   Divider,
   Card,
   CardActionArea,
+  SvgIcon,
 } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
 import BorrowText from "../public/images/graphics/borrow_text.svg";
 import TradeText from "../public/images/graphics/trade_text.svg";
 import IntegrateText from "../public/images/graphics/integrate_text.svg";
+import ArrowDiagonalUp from "../public/images/graphics/arrow.svg";
 
 const AboutIntro = styled(Grid)(({ theme }) => ({
   maxWidth: "100%",
@@ -52,7 +54,7 @@ const ProductIntro = styled(Grid)(({ theme }) => ({
 
 const ProductCards = styled(Grid)(({ theme }) => ({
   width: "100%",
-  marginBottom: "100px",
+  marginBottom: "80px",
   justifyContent: "space-around",
   alignItems: "center",
   padding: 0,
@@ -76,7 +78,7 @@ function ProductCard(props) {
         justifyContent="space-between"
         sx={{
           width: "100%",
-          height: { xs: "475px", md: "575px" },
+          height: { xs: "500px", md: "550px", lg: "525px" },
           padding: "26px",
           margin: 0,
           backgroundColor: "rgba(9, 167, 243, 0.05)",
@@ -146,7 +148,7 @@ function PrincipleCard(props) {
               </Grid>
             </Grid>
             <Grid container item direction="row" justifyContent="flex-start">
-              <Typography variant="bodyNormal">{body_text}</Typography>
+              <Typography variant="bodyNormal2">{body_text}</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -178,7 +180,10 @@ export default function About(props) {
     <>
       <Head>
         <title>About | KeeperDAO</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Learn about how KeeperDAO is creating a more profitable, fair and secure DeFi metaverse for users, protocols and Keepers."
+        />
         <meta
           name="keywords"
           content="MEV, KeeperDAO, DEX, Keeper, wallet, exchange, aggregator, DeFi"
@@ -437,7 +442,6 @@ export default function About(props) {
             justifyContent="flex-start"
             alignItems="center"
             sx={{
-              marginBottom: "24px",
               width: "100%",
               paddingLeft: "16px",
               paddingRight: "16px",
@@ -527,7 +531,7 @@ export default function About(props) {
                 justifyContent="flex-start"
                 sx={{ marginBottom: "8px" }}
               >
-                <Typography variant="bodyNormal">
+                <Typography variant="bodyNormal2">
                   Through the Hiding Game, DeFi users can get paid to trade
                   assets with zero slippage, zero gas fees, and full
                   MEV-protection, and earn ROOK in the process.
@@ -538,7 +542,18 @@ export default function About(props) {
               <Button
                 variant="outlined-blue"
                 fullWidth
-                sx={{ borderRadius: "8px" }}
+                sx={{
+                  borderRadius: "8px",
+                  fontSize: "16px",
+                }}
+                endIcon={
+                  <SvgIcon
+                    color="inherit"
+                    component={ArrowDiagonalUp}
+                    viewBox={"0 0 19 19"}
+                    sx={{ marginTop: "6px" }}
+                  />
+                }
                 target="_blank"
                 href="https://app.keeperdao.com/trade"
                 rel="noopener noreferrer"
@@ -590,7 +605,7 @@ export default function About(props) {
                 justifyContent="flex-start"
                 sx={{ marginBottom: "8px" }}
               >
-                <Typography variant="bodyNormal">
+                <Typography variant="bodyNormal2">
                   Through the Hiding Vault, users can borrow assets from major
                   lending protocols such as Compound and Aave in a more secure
                   and profitable way, while earning additional yield in ROOK.
@@ -601,7 +616,15 @@ export default function About(props) {
               <Button
                 variant="outlined-blue"
                 fullWidth
-                sx={{ borderRadius: "8px" }}
+                sx={{ borderRadius: "8px", fontSize: "16px" }}
+                endIcon={
+                  <SvgIcon
+                    color="inherit"
+                    component={ArrowDiagonalUp}
+                    viewBox={"0 0 19 19"}
+                    sx={{ marginTop: "6px" }}
+                  />
+                }
                 target="_blank"
                 href="https://app.keeperdao.com/vaults"
                 rel="noopener noreferrer"
@@ -653,7 +676,7 @@ export default function About(props) {
                 justifyContent="flex-start"
                 sx={{ marginBottom: "8px" }}
               >
-                <Typography variant="bodyNormal">
+                <Typography variant="bodyNormal2">
                   The Hiding Book integration allows DeFi protocols to provide
                   their users with completely costless, MEV-protected,
                   zero-slippage limit orders, while also benefitting from
@@ -665,7 +688,15 @@ export default function About(props) {
               <Button
                 variant="outlined-blue"
                 fullWidth
-                sx={{ borderRadius: "8px" }}
+                endIcon={
+                  <SvgIcon
+                    color="inherit"
+                    component={ArrowDiagonalUp}
+                    viewBox={"0 0 19 19"}
+                    sx={{ marginTop: "6px" }}
+                  />
+                }
+                sx={{ borderRadius: "8px", fontSize: "16px" }}
                 href="/core-tech/hiding-book"
               >
                 Learn more
@@ -685,7 +716,12 @@ export default function About(props) {
             marginBottom: "100px",
           }}
         >
-          <ProductIntro container item direction="column">
+          <ProductIntro
+            container
+            item
+            direction="column"
+            sx={{ marginBottom: 0, marginTop: 0 }}
+          >
             <Grid item sx={{ marginBottom: "32px" }}>
               <Grid container>
                 <Typography variant="headingTitle">
@@ -774,10 +810,17 @@ export default function About(props) {
             container
             item
             direction="row"
-            spacing={1}
             sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
           >
-            <Grid item>
+            <Grid
+              item
+              sx={{
+                paddingTop: "2px",
+                paddingBottom: "2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
               <a
                 target="_blank"
                 href="https://polychainhedge.com/"
@@ -791,7 +834,15 @@ export default function About(props) {
                 />
               </a>
             </Grid>
-            <Grid item>
+            <Grid
+              item
+              sx={{
+                paddingTop: "2px",
+                paddingBottom: "2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
               <a
                 target="_blank"
                 href="https://www.threearrowscap.com/"
@@ -805,7 +856,15 @@ export default function About(props) {
                 />
               </a>
             </Grid>
-            <Grid item>
+            <Grid
+              item
+              sx={{
+                paddingTop: "2px",
+                paddingBottom: "2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
               <a
                 target="_blank"
                 href="https://www.ambergroup.io/"
@@ -819,7 +878,15 @@ export default function About(props) {
                 />
               </a>
             </Grid>
-            <Grid item>
+            <Grid
+              item
+              sx={{
+                paddingTop: "2px",
+                paddingBottom: "2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
               <a
                 target="_blank"
                 href="https://www.fisher8.capital/"

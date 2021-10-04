@@ -114,6 +114,13 @@ const theme = createTheme({
       fontSize: "18px",
       lineHeight: "27px",
     },
+    bodyNormal2: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: 400,
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
     bodyItalic: {
       fontFamily: "Inter",
       fontStyle: "italic",
