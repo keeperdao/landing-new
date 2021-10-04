@@ -157,7 +157,7 @@ function PrincipleCard(props) {
             alignItems="flex-start"
             sx={{ padding: 0, margin: 0 }}
           >
-            <Image width={81} height={72} quality={100} src={image_path} />
+            <Image width={78} height={78} quality={100} src={image_path} />
           </Grid>
         </Grid>
       </Grid>
@@ -706,28 +706,28 @@ export default function About(props) {
             body_text={
               "Keepers discover MEV and provide liquidity to capture it; protocols and users create MEV with their markets, products, and transactions. Block producers are incidental to the MEV economy and have no claim to the value within the blocks they validate or mine."
             }
-            image_path={"/images/graphics/trophy.png"}
+            image_path={"/images/graphics/mev.png"}
           />
           <PrincipleCard
             header_text={'Search for "win-win" scenarios'}
             body_text={
               "Coordination and cooperation can be more competitive than going at it alone, especially in the open world of DeFi. We want to embody coordination not only in our protocol design, but in business practices and funding, to create a DAO that looks to work with others, shares its profits to gain even more, and welcomes any partnership or contribution where both parties stand to gain."
             }
-            image_path={"/images/graphics/trophy.png"}
+            image_path={"/images/graphics/rooks.png"}
           />
           <PrincipleCard
             header_text={"Solve hard problems"}
             body_text={
               'As co-founder Joey Zacherl said, "we\'re a home run first, singles and doubles later type of ball club." We want to be a DAO focused on providing lasting solutions to the complex problems of MEV and the Keeper economy. Solutions that generalize and can flourish in many directions.'
             }
-            image_path={"/images/graphics/trophy.png"}
+            image_path={"/images/graphics/solve.png"}
           />
           <PrincipleCard
             header_text={"Decentralise"}
             body_text={
               "We believe in the power of decentralisation to create stronger communities and modes of production. We are committed to creating and experimenting with all approaches that can allow us to become a stronger DAO."
             }
-            image_path={"/images/graphics/trophy.png"}
+            image_path={"/images/graphics/kip.png"}
           />
         </Grid>
         <Grid
@@ -751,6 +751,7 @@ export default function About(props) {
               justifyContent: "flex-start",
               alignItems: "center",
               marginBottom: "40px",
+              paddingLeft: { xs: "16px", md: 0 },
             }}
             spacing={1}
           >
@@ -774,7 +775,7 @@ export default function About(props) {
             item
             direction="row"
             spacing={1}
-            sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+            sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
           >
             <Grid item>
               <a
@@ -815,6 +816,20 @@ export default function About(props) {
                   height={115}
                   quality={100}
                   src={"/images/investors/amber_light.png"}
+                />
+              </a>
+            </Grid>
+            <Grid item>
+              <a
+                target="_blank"
+                href="https://www.fisher8.capital/"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  width={247}
+                  height={115}
+                  quality={100}
+                  src={"/images/investors/fisher8_light.png"}
                 />
               </a>
             </Grid>
