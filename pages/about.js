@@ -180,6 +180,8 @@ export default function About(props) {
     <>
       <Head>
         <title>About | KeeperDAO</title>
+        <meta property="og:title" content="About | KeeperDAO" />
+        <meta name="twitter:title" content="About | KeeperDAO" />
         <meta
           name="description"
           content="Learn about how KeeperDAO is creating a more profitable, fair and secure DeFi metaverse for users, protocols and Keepers."
