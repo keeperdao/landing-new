@@ -21,25 +21,18 @@ export default function MyApp(props) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>KeeperDAO</title>
-        <meta property="og:title" content="KeeperDAO" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://my.site.com" />
         <meta
           property="og:image"
           content="https://keeperdao.com/_next/image?url=%2Fimages%2Fgraphics%2Fvista_dark.png&w=1080&q=100"
         />
         <meta
-          property="description"
-          content="Creating a more profitable, fair and secure DeFi metaverse for users, protocols and Keepers"
-        />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="KeeperDAO" />
-        <meta
           name="twitter:image"
           content="https://keeperdao.com/_next/image?url=%2Fimages%2Fgraphics%2Fvista_dark.png&w=1080&q=100"
         />
+
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

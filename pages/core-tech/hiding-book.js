@@ -241,7 +241,6 @@ export default function HidingBook(props) {
         ></meta>
       </Head>
       <div style={{ padding: 0, margin: 0 }}>
-        {exit && <Button onClick={() => setExit(false)}>Click to enter</Button>}
         <HidingBookIntro container id="intro" direction="column">
           <Grid item sx={{ marginBottom: "16px" }}>
             <Typography variant="paragraphBoldLabel" color="accent">

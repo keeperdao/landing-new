@@ -21,7 +21,7 @@ export default function Header(props) {
       <AppBar
         position="static"
         elevation={0}
-        sx={{ marginTop: "16px", marginBottom: "100px" }}
+        sx={{ marginTop: "16px", marginBottom: "68px" }}
       >
         <Toolbar
           sx={{
