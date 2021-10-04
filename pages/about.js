@@ -78,7 +78,7 @@ function ProductCard(props) {
         justifyContent="space-between"
         sx={{
           width: "100%",
-          height: { xs: "500px", md: "550px", lg: "525px" },
+          height: { xs: "500px", sm: "475px", md: "525px" },
           padding: "26px",
           margin: 0,
           backgroundColor: "rgba(9, 167, 243, 0.05)",
@@ -547,6 +547,7 @@ export default function About(props) {
                 sx={{
                   borderRadius: "8px",
                   fontSize: "16px",
+                  height: "56px",
                 }}
                 endIcon={
                   <SvgIcon
@@ -618,7 +619,7 @@ export default function About(props) {
               <Button
                 variant="outlined-blue"
                 fullWidth
-                sx={{ borderRadius: "8px", fontSize: "16px" }}
+                sx={{ borderRadius: "8px", fontSize: "16px", height: "56px" }}
                 endIcon={
                   <SvgIcon
                     color="inherit"
@@ -698,7 +699,7 @@ export default function About(props) {
                     sx={{ marginTop: "6px" }}
                   />
                 }
-                sx={{ borderRadius: "8px", fontSize: "16px" }}
+                sx={{ borderRadius: "8px", fontSize: "16px", height: "56px" }}
                 href="/core-tech/hiding-book"
               >
                 Learn more
