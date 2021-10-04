@@ -44,8 +44,8 @@ export default function Layout(props) {
         >
           <Grid
             item
-            direction="column"
             sx={{
+              flexDirection: "column",
               paddingLeft: { md: "10px" },
               paddingRight: { md: "10px" },
               marginBottom: 0,
@@ -60,7 +60,7 @@ export default function Layout(props) {
       <Grid
         item
         sx={{
-          background: "#123456",
+          background: theme.palette.background.dark,
           color: theme.palette.text.primary_dark,
           marginTop: 0,
           bottom: 0,

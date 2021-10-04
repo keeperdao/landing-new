@@ -17,6 +17,7 @@ import Logo from "../public/images/logos/KeeperDAO_Logo_Inline_White.svg";
 import Github from "../public/images/logos/GitHub.svg";
 import Discord from "../public/images/logos/Discord.svg";
 import Twitter from "../public/images/logos/Twitter.svg";
+import Youtube from "../public/images/logos/Youtube.svg";
 import theme from "./theme";
 
 const TextButton = styled(Button)(({ theme }) => ({
@@ -59,15 +60,16 @@ export default function Footer(props) {
               container
               item
               direction="column"
-              sm={3}
+              sm={4}
+              md={2}
               xs={6}
               sx={{ zIndex: 3 }}
             >
               <Grid
                 item
                 sx={{
-                  marginBottom: "16px",
-                  marginTop: { xs: "16px", md: "0px" },
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -134,12 +136,12 @@ export default function Footer(props) {
                 <TextButton variant="text-dark">Branding</TextButton>
               </Grid>*/}
             </Grid>
-            <Grid container item direction="column" sm={3} xs={6}>
+            <Grid container item direction="column" sm={4} md={2} xs={6}>
               <Grid
                 item
                 sx={{
-                  marginBottom: "16px",
-                  marginTop: { xs: "16px", md: "0px" },
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -165,24 +167,13 @@ export default function Footer(props) {
                   JITU
                 </TextButton>
               </Grid>
-              {/*<Grid item sx={{ marginBottom: "16px", marginTop: "16px" }}>
-                <Typography align="left" variant="paragraphBoldLarge">
-                  Governance
-                </Typography>
-              </Grid>
-              <Grid item>
-                <TextButton variant="text-dark">Discourse</TextButton>
-              </Grid>
-              <Grid item>
-                <TextButton variant="text-dark">Snapshot</TextButton>
-            </Grid>*/}
             </Grid>
-            <Grid container item direction="column" sm={3} xs={6}>
+            <Grid container item direction="column" sm={4} md={2} xs={6}>
               <Grid
                 item
                 sx={{
-                  marginBottom: "16px",
-                  marginTop: { xs: "16px", md: "0px" },
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -242,12 +233,12 @@ export default function Footer(props) {
                 </TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" sm={3} xs={6}>
+            <Grid container item direction="column" sm={4} md={2} xs={6}>
               <Grid
                 item
                 sx={{
-                  marginBottom: "16px",
-                  marginTop: { xs: "16px", md: "0px" },
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -298,6 +289,54 @@ export default function Footer(props) {
                 <TextButton variant="text-dark">Code of Conduct</TextButton>
               </Grid>*/}
             </Grid>
+            <Grid container item direction="column" sm={4} md={2} xs={6}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
+                }}
+              >
+                <Typography align="left" variant="paragraphBoldLarge">
+                  Community
+                </Typography>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://discord.com/invite/3JUgvyyNhA"
+                  rel="noopener noreferrer"
+                >
+                  Discord
+                </TextButton>
+              </Grid>
+            </Grid>
+            <Grid container item direction="column" sm={4} md={2} xs={6}>
+              <Grid
+                item
+                sx={{
+                  marginBottom: "12px",
+                  marginTop: { xs: "24px", md: "0px" },
+                }}
+              >
+                <Typography align="left" variant="paragraphBoldLarge">
+                  Analytics
+                </Typography>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://dune.xyz/shadow/KeeperDAO"
+                  rel="noopener noreferrer"
+                >
+                  Dune
+                </TextButton>
+              </Grid>
+            </Grid>
           </Grid>
           <Divider
             sx={{
@@ -319,7 +358,8 @@ export default function Footer(props) {
               container
               item
               direction="row"
-              xs={4}
+              display={{ xs: "none", md: "block" }}
+              md={4}
               alignItems="center"
               justifyContent="flex-start"
               sx={{ zIndex: 2 }}
@@ -350,9 +390,10 @@ export default function Footer(props) {
               alignItems="center"
               justifyContent="flex-end"
               sx={{ zIndex: 2 }}
-              xs={7}
+              md={7}
+              xs={12}
             >
-              <Grid item sx={{ display: { xs: "none", md: "block" } }}>
+              <Grid item>
                 <Typography variant="body2" color="text.secondary">
                   KeeperDAO, 2021
                 </Typography>
@@ -396,6 +437,20 @@ export default function Footer(props) {
                     component={Discord}
                     viewBox={"0 0 32 32"}
                     color="inherit"
+                  />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <IconButton
+                  variant="dark"
+                  target="_blank"
+                  href="https://www.youtube.com/channel/UCDNHJWdB32MdwcHs0Btiaxg"
+                  rel="noopener noreferrer"
+                >
+                  <SvgIcon
+                    component={Youtube}
+                    color="inherit"
+                    viewBox={"0 0 18 12"}
                   />
                 </IconButton>
               </Grid>
