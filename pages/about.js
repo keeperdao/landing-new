@@ -826,7 +826,7 @@ export default function About(props) {
             >
               <a
                 target="_blank"
-                href="https://polychainhedge.com/"
+                href="https://polychain.capital/"
                 rel="noopener noreferrer"
               >
                 <Image

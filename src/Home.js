@@ -533,7 +533,7 @@ function Home(props) {
           <Grid item>
             <a
               target="_blank"
-              href="https://polychainhedge.com/"
+              href="https://polychain.capital/"
               rel="noopener noreferrer"
             >
               <Image
