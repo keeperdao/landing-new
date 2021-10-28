@@ -1690,3 +1690,11 @@ export default function HidingBook(props) {
     </>
   );
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      colorMode: "light",
+    },
+  };
+};
