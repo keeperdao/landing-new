@@ -132,6 +132,16 @@ export default function Footer(props) {
                   Careers{" "}
                 </TextButton>
               </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-dark"
+                  target="_blank"
+                  href="https://keeperdao-labs.notion.site/KeeperDAO-Brand-Assets-bca7bce9872b4e278dce1cf45fd70e56"
+                  rel="noopener noreferrer"
+                >
+                  Branding{" "}
+                </TextButton>
+              </Grid>
               {/*<Grid item>
                 <TextButton variant="text-dark">Branding</TextButton>
               </Grid>*/}
