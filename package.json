@@ -16,7 +16,8 @@
     "pspdfkit": "^2021.5.1",
     "react": "latest",
     "react-awesome-slider": "^4.1.0",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "swr": "^1.0.1"
   },
   "scripts": {
     "dev": "next",
