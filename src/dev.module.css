@@ -1,13 +1,9 @@
 /* cleanup */
 
-.large_tile {
-  height: 20rem !important;
-}
-
 .basic_tile {
   background-color: #6C46D60D;
+  /* background-color: #F5F5F5; */
   color: #6C46D6;
-  height: 6.66rem;
   width: 100%;
   border-radius: 4px;
   padding: 25px;
@@ -39,7 +35,7 @@
 
 .group {
   justify-content: space-evenly;
-  background: #F5F5F50D;
+  background-color: #F5F5F50D;
   border-radius: 16px;
   padding: 7.5px;
 }
@@ -54,12 +50,24 @@
 }
 
 .tile_data {
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 32px !important;
+  line-height: 39px;
+  color: #F5F5F5 !important;
+}
+
+.info_data {
   font-family: Inter;
   font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 39px;
-  color: #F5F5F5;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 120%;
+}
+.test {
+  color: linear-gradient(#F5F5F5, #9198e5);
+  /* background-color: white; */
 }
 
 /* border: 2px solid white; */

@@ -17,6 +17,7 @@
     "react": "latest",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "latest",
+    "recharts": "^2.1.6",
     "swr": "^1.0.1"
   },
   "scripts": {
