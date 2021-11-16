@@ -1,7 +1,7 @@
 /* cleanup */
 
 .large_tile {
-  /* height: 500px */
+  height: 525px
 }
 .basic_tile {
   background-color: #6C46D60D;
@@ -9,7 +9,7 @@
   color: #6C46D6;
   width: 100%;
   border-radius: 4px;
-  padding: 25px;
+  padding: 40px;
 }
 
 .button_inactive {
@@ -18,9 +18,9 @@
   border-radius: 8px !important;
   font-family: Inter !important;
   font-style: normal !important;
-  font-weight: normal !important;
-  font-size: 16px !important;
-  line-height: 19px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
   text-align: center !important;
   width: 100%;
   white-space: nowrap !important;
@@ -60,7 +60,7 @@
 
 
 
-.mini_button {
+.mini_button{
   color: #F5F5F5 !important;
   font-family: Inter !important;
   font-style: normal !important;
@@ -68,11 +68,12 @@
   font-size: 12px !important;
   line-height: 15px !important;
   letter-spacing: 0.02em !important;
-  white-space: nowrap;
-  padding: 0;
-  border: none;
-  background: none;
-  align-items: top;
+  white-space: nowrap !important;
+  padding: 0px 0px 0px 0px !important;
+  border: none !important;
+  background: #6C46D60D;
+  text-transform: capitalize !important;
+  /* width: 10px!important; */
 }
 
 .mini_button_selected {
@@ -84,11 +85,14 @@
   line-height: 15px !important;
   letter-spacing: 0.02em !important;
   white-space: nowrap;
+  text-decoration: underline !important;
 }
 
 
 .test {
   width: 100%;
+  padding: 0px;
+  /* background: red */
 }
 
 .ButtonContainer {
@@ -113,7 +117,7 @@
 .ToolTip {
   justify-content: center;
   background-color: #F5F5F50D;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 5px 10px 5px 10px;
   /* text-align: center;
   color: white; */
@@ -126,6 +130,10 @@
   color: white; */
 }
 
+.Container {
+  width: 840px;
+  /* background: blue */
+}
 
 .label {
   text-align: left;
