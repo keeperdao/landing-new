@@ -18,9 +18,9 @@
   border-radius: 8px !important;
   font-family: Inter !important;
   font-style: normal !important;
-  font-weight: 600 !important;
-  font-size: 12px !important;
-  line-height: 15px !important;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  line-height: 19px !important;
   text-align: center !important;
   width: 100%;
   white-space: nowrap !important;
@@ -135,7 +135,50 @@
   /* background: blue */
 }
 
-.label {
+.label1 {
   text-align: left;
   color: white;
+  color: #F5F5F5 !important;
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap !important;
+  padding: 0px 0px 0px 0px !important;
+  border: none !important;
+  text-transform: capitalize !important;
 }
+
+
+
+/* Style the button */
+/* .expandbtn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 11px;
+  background-color: #ff7;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+/* Style the button when the checkbox is checked */
+/* .expandtoggle:checked ~ .expandbtn {
+  background-color: #ccc ;
+} */
+
+/* .MuiChip-root{
+  color: #F5F5F5 !important;
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  align-items: top !important;
+} */

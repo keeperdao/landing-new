@@ -645,5 +645,14 @@ const kTokens =
 }
 
 
+let baseRoute = "http://172.25.0.6/api/v1/";
 
-export {tvl, hgVolumeWeek, hgVolumeMonth, hgVolumeAll, kTokens};
+const routes = {
+  "TOTAL VALUE LOCKED" : {route: baseRoute + "metrics/tvl", identifier: 'total_tvl'},
+  "TOTAL NUMBER OF VAULTS" : {route: baseRoute + "vaults", identifier: 'num_vaults'},
+  "CURRENT ROOK APY" : {route: baseRoute + "vaults", identifier: 'avg_rook_apr'},
+  "TOTAL BORROW VOLUME" : {route: baseRoute + "vaults", identifier: 'borrow_usd'},
+  "TOTAL SUPPLY VOLUME" : {route: baseRoute + "vaults", identifier: 'supply_usd'},
+}
+
+export {tvl, hgVolumeWeek, hgVolumeMonth, hgVolumeAll, kTokens, routes};
