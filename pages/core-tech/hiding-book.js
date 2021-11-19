@@ -390,7 +390,7 @@ export default function HidingBook(props) {
                     borderRadius: "8px",
                   }}
                   target="_blank"
-                  href="https://discordapp.com/users/395761182939807744/"
+                  href="mailto:kd@keeperdao.com"
                   rel="noopener noreferrer"
                 >
                   Questions? Let's chat
@@ -1513,7 +1513,7 @@ export default function HidingBook(props) {
                       variant="contained"
                       sx={{ borderRadius: "8px" }}
                       target="_blank"
-                      href="https://discordapp.com/users/395761182939807744/"
+                      href="mailto:kd@keeperdao.com"
                       rel="noopener noreferrer"
                     >
                       Talk to the team
