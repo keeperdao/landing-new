@@ -1,15 +1,17 @@
 import { createTheme } from "@material-ui/core/styles";
 import { css, keyframes } from "@emotion/react";
 
-const COLORS = {
+export const COLORS = {
   text_primary: "#F5F5F5",
   text_secondary: "#8F8F8F",
   text_accent: "#6C46D6",
   text_primary_light: "#141118",
   text_secondary_light: "#8F8F8F",
   text_accent_light: "#09A7F3",
+  text_tabs: "#F5F5F532" ,
   background_dark: "#141118",
   background_light: "#f5f5f5",
+  background_tabs: "#F5F5F50D",
   hover_dark: "#6C46D6",
   hover_light: "#09A7F3",
   selected: "#562CC9",
@@ -389,6 +391,158 @@ const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      variants: [
+        {
+          props: { variant: "outlined-dark" },
+          style: {
+            color: COLORS.text_primary,
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.text_primary,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "18px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_dark,
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              backgroundColor: COLORS.selected,
+              borderColor: COLORS.selected,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
+          },
+        },
+        {
+          props: { variant: "outlined-light" },
+          style: {
+            color: COLORS.text_primary_light,
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.text_primary_light,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "18px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_light,
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              backgroundColor: COLORS.hover_light,
+              borderColor: COLORS.hover_light,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
+          },
+        },
+        {
+          props: { variant: "outlined-blue" },
+          style: {
+            color: COLORS.hover_light,
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.hover_light,
+            transition: "0.25s",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "18px",
+            letterSpacing: "0em",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: COLORS.hover_light,
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              backgroundColor: COLORS.hover_light,
+              borderColor: COLORS.hover_light,
+              color: COLORS.text_primary,
+            },
+            "&:disabled": {
+              borderColor: "#525252",
+              color: "#525252",
+            },
+          },
+        },
+        {
+          props: { variant: "text-dark" },
+          style: {
+            color: COLORS.text_primary_dark,
+            textTransform: "none",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "16px",
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              color: COLORS.hover_dark,
+            },
+          },
+        },
+        {
+          props: { variant: "text-light" },
+          style: {
+            color: COLORS.text_primary_light,
+            textTransform: "none",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "16px",
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_light,
+            },
+            "&:active": {
+              color: COLORS.hover_light,
+            },
+          },
+        },
+      ],
+      styleOverrides: {
+        contained: {
+          color: COLORS.text_primary,
+          backgroundImage:
+            "linear-gradient(to right, #6C46D6 0%, #09A7F3 50%, #6C46D6 100%)",
+          backgroundSize: "200%",
+          transition: "0.25s",
+          fontFamily: "Inter",
+          fontStyle: "normal",
+          fontWeight: 600,
+          fontSize: "18px",
+          letterSpacing: "0em",
+          textTransform: "none",
+          "&:hover": {
+            backgroundPosition: "right center",
+          },
+          "&:active": {
+            backgroundImage:
+              "linear-gradient(to right, #552BC8 0%, #0993DC 50%, #552BC8 100%)",
+          },
+          "&:disabled": {
+            background: "#525252",
+          },
+        },
+      },
+    },
     MuiIconButton: {
       variants: [
         {
@@ -429,6 +583,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
+      min: 300,
       sm: 600,
       md: 840,
       header: 1000,

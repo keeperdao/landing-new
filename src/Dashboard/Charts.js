@@ -1,13 +1,19 @@
-import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Label, LabelList, Brush} from 'recharts';
-import {ToolTip, tile_header, label1, ToolTipSpace} from './dev.module.css'
+import { AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar, Label, LabelList, Brush} from 'recharts';
+import Button from '@mui/material/Button';
+import * as Ttip from '@mui/material/Tooltip';
+import {ToolTip1, tile_header, label1, ToolTipSpace} from './dev.module.css'
+import theme, {COLORS} from '../theme'
+
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className={`${ToolTip} ${tile_header}`}>
+      <>
+      <div className={`${ToolTip1} ${tile_header}`}>
         <p className={label1}>{"$ " + `${payload[0].value}`}</p>
         <p className={label1}>{`${label}`}</p>
       </div>
+      </>
     );
   }
   return null;
@@ -30,7 +36,8 @@ const Chart = ({type, data}) => {
     tickSize: 0,
     tickMargin: 10,
     interval: `${data?.length}` - 2,
-    width: 1
+    width: 1,
+    color: `${COLORS.text_primary}`,
   }
 
   let aChart = {
@@ -74,22 +81,26 @@ const Chart = ({type, data}) => {
 
               <BarChart {...bChart}>
                 {gradient}
-                <Tooltip {...tooltip} />
                 <XAxis {...xaxis}/>
+                <Tooltip {...tooltip} />
                 <Bar strokeWidth={2} {...fill} />
               </BarChart> :
 
               <AreaChart {...aChart}>
                 {gradient}
                 <XAxis {...xaxis}/>
-                <Tooltip {...tooltip} />
                 <Area strokeWidth={3} {...fill}/>
               </AreaChart>
             }
+
         </ResponsiveContainer>
+
       </div>
     );
 }
+
+// <Button>Arrow</Button>
+
 
 // <Brush dataKey='daily_volume_usd' height={30} stroke="#8884d8"/>
 

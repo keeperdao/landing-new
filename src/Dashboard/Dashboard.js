@@ -1,65 +1,77 @@
-import React, {useState, useCallback, useMemo, useEffect} from 'react';
-import { Grid, Button, Stack, Box, Chip, Link, Select, MenuItem, ButtonGroup, Tab, Tabs, RadioGroup, FormControlLabel, Radio} from "@material-ui/core";
-import {SWRConfig} from 'swr'
-import {Container, ButtonContainer, button_inactive, button_active} from './dev.module.css'
-// import Chart from '../src/Dashboard/Chart'
-// import {TileHeader, DataBlock} from '../src/Dashboard/Content'
-import {Panel} from './Containers'
-// import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Label, LabelList, Brush} from 'recharts';
-// import {tvl, hgVolumeWeek, hgVolumeMonth, hgVolumeAll, kTokens, routes} from '../src/Dashboard/SampleData';
+import React, { useState, useMemo, useCallback} from 'react';
+import { Button, Grid } from "@material-ui/core";
+import { SWRConfig } from 'swr'
+import { styled } from '@mui/material/styles';
+import { Panel } from './Containers'
+import theme, {COLORS} from '../theme'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const TabButton = styled(Button)((props) => ({
+  width: '95%',
+  // height: '10vh',
+  // maxHeight: 50,
+  whiteSpace: "nowrap",
+  borderRadius: 8,
+  textTransform: 'none',
+  skipSx: true,
+  // use typography
+  fontFamily: "Inter",
+  fontStyle: "normal",
+  fontWeight: "normal",
+  fontSize: "16px",
+  lineHeight: "19px",
+  //
+  background: props.isselected? COLORS.text_accent : 'none',
+  color: props.isselected? COLORS.text_primary : COLORS.text_tabs,
+  "&:hover": {
+      background: props.isselected? COLORS.text_accent : 'none',
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+      // width: '50%',
+      fontSize: "12px",
+  },
+}));
+
+const TabGrid = styled(Grid)({
+  maxWidth: "md",
+  borderRadius: 16,
+  alignItems: "center",
+  backgroundColor: COLORS.background_tabs,
+  textAlign: 'center',
+  padding: 8,
+  // skipSx: true
+})
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-
 export const Dashboard = props => {
 
-  // console.log("rendering Metrics")
+  const [tabValue, setTabValue] = useState(() => 0);
 
-  const [activeTab, setActiveTab] = useState(() => 0);
-  const handleChange = useCallback(event => {
-    setActiveTab(event?.target?.value);
-  }, [setActiveTab]);
+  const handleClick = useCallback(event => {
+    setTabValue(event?.target?.value);
+  },[setTabValue])
 
-  let b = {
-    onClick: handleChange,
-  }
+  const buttonList = useMemo(() => React.Children.map(props.buttons,(item1, i) =>
+    <Grid item  xs={1} md={1}>
+      <TabButton value={i} onClick={handleClick} isselected={tabValue == i ? "true" : undefined}>
+      {item1}
+      </TabButton>
+    </Grid>
+  ), [tabValue]);
 
-  let bg = {
-     disableRipple: true,
-  }
-
-  let p = {
-    titles: props.titles[activeTab],
-    types: props.types[activeTab]
-  }
-
-  let s1 = {
-    spacing: 4,
-    className: Container
-  }
-
-  let s2 = {
-    className: ButtonContainer,
-    direction: "row",
-    spacing: 1
-  }
-
-  let buttonList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
-    <Button value={i} className={`${button_inactive} ${activeTab == i ? button_active : ""}`} {...b}>
-        {item}
-    </Button>
-  ), [activeTab]);
-
-  let panel = <Panel {...p} />
+  const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
+    <Panel titles={props.titles[i]} types={props.types[i]} />
+  ), [props.titles, props.types]);
 
   return (
-      <Stack {...s1}>
-        <Stack {...s2}>
-          {buttonList}
-        </Stack>
-        <SWRConfig value={{fetcher: fetcher}}>
-        {panel}
-        </SWRConfig>
-      </Stack>
+    <>
+      <TabGrid container columns={{ xs: 5, md: 5 }} >
+        {buttonList}
+      </TabGrid>
+      <SWRConfig value={{fetcher: fetcher}}>
+        {panelList? panelList[tabValue] : ""}
+      </SWRConfig>
+    </>
   );
 }
