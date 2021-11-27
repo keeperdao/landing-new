@@ -26,6 +26,9 @@ const ExplainerBox = styled(Grid)(({ theme }) => ({
   justifyContent: "space-around",
   marginBottom: "100px",
   padding: "8px",
+  background:
+    "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+  borderRadius: "8px",
 }));
 
 const ProductBox = styled(Grid)(({ theme }) => ({
@@ -108,7 +111,8 @@ function Home(props) {
         direction="row"
         sx={{
           width: "auto",
-          padding: { xs: "0 10px", sm: "0 110px", md: "0 110px" },
+          padding: { xs: "20px", sm: "40px", md: "40px" },
+          margin: { sm: "0 100px 100px" },
         }}
       >
         <Grid container item direction="row" justifyContent="space-between">
@@ -181,6 +185,9 @@ function Home(props) {
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
             width: { md: "220px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: { xs: "20px", sm: "40px" },
           }}
           direction="column"
           justifyContent="space-between"
@@ -254,6 +261,9 @@ function Home(props) {
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
             width: { md: "220px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: { xs: "20px", sm: "40px" },
           }}
           direction="column"
         >
@@ -326,6 +336,9 @@ function Home(props) {
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
             width: { md: "220px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: { xs: "20px", sm: "40px" },
           }}
           direction="column"
         >
