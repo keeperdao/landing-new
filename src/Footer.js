@@ -465,7 +465,7 @@ export default function Footer(props) {
           left: 0,
           marginTop: "-240px",
           padding: 0,
-          display: { xs: "none", md: "flex" },
+          display: { xs: "none", lg: "flex" },
         }}
       >
         <Image
