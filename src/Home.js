@@ -176,7 +176,7 @@ function Home(props) {
         id="products"
         container
         item
-        sx={{ justifyContent: "space-between" }}
+        sx={{ justifyContent: "space-between", gap: "20px" }}
       >
         <Grid
           container
@@ -187,7 +187,8 @@ function Home(props) {
             width: { md: "220px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: { xs: "20px", sm: "40px" },
+            padding: "20px",
+            flex: "1",
           }}
           direction="column"
           justifyContent="space-between"
@@ -263,7 +264,8 @@ function Home(props) {
             width: { md: "220px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: { xs: "20px", sm: "40px" },
+            padding: "20px",
+            flex: "1",
           }}
           direction="column"
         >
@@ -338,7 +340,8 @@ function Home(props) {
             width: { md: "220px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: { xs: "20px", sm: "40px" },
+            padding: "20px",
+            flex: "1",
           }}
           direction="column"
         >
