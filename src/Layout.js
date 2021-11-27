@@ -44,12 +44,14 @@ export default function Layout(props) {
         >
           <Grid
             item
+            maxWidth="md"
             sx={{
               flexDirection: "column",
               paddingLeft: { md: "10px" },
               paddingRight: { md: "10px" },
               marginBottom: 0,
               paddingBottom: 0,
+              width: "100vw",
             }}
           >
             {children}

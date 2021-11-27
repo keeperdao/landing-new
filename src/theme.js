@@ -8,10 +8,11 @@ export const COLORS = {
   text_primary_light: "#141118",
   text_secondary_light: "#8F8F8F",
   text_accent_light: "#09A7F3",
-  text_tabs: "#F5F5F532" ,
+  text_tab: "#F5F5F532" ,
   background_dark: "#141118",
   background_light: "#f5f5f5",
-  background_tabs: "#F5F5F50D",
+  background_tab: "#F5F5F50D",
+  background_tile: "#6C46D60D",
   hover_dark: "#6C46D6",
   hover_light: "#09A7F3",
   selected: "#562CC9",
@@ -38,11 +39,15 @@ const theme = createTheme({
     text: {
       primary_dark: COLORS.text_primary,
       primary_light: COLORS.text_primary_light,
+      accent: COLORS.text_accent,
       secondary: COLORS.text_secondary,
+      tab: COLORS.text_tab,
     },
     background: {
       dark: COLORS.background_dark,
       light: COLORS.background_light,
+      tab : COLORS.background_tab,
+      tile : COLORS.background_tile,
     },
     action: {
       hover: COLORS.hover,
@@ -583,7 +588,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      min: 300,
+      tab: 400,
       sm: 600,
       md: 840,
       header: 1000,

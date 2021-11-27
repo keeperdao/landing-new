@@ -1,9 +1,27 @@
 import { AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar, Label, LabelList, Brush} from 'recharts';
-import Button from '@mui/material/Button';
+import { Button, Grid } from '@mui/material';
 import * as Ttip from '@mui/material/Tooltip';
-import {ToolTip1, tile_header, label1, ToolTipSpace} from './dev.module.css'
-import theme, {COLORS} from '../theme'
+import theme from '../theme'
 
+const lg = {
+  id: 'gradient',
+  x1: '0',
+  y1: '0',
+  x2: '0',
+  y2: '100%',
+  gradientUnits: "userSpaceOnUse",
+}
+
+// tbd
+const gradient =
+(
+  <defs>
+    <linearGradient {...lg}>
+      <stop offset="0.2" stopColor="#6C46D6" />
+      <stop offset="0.9" stopColor="#6C46D60D" />
+    </linearGradient>
+  </defs>
+)
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -19,34 +37,33 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const Chart = ({type, data}) => {
+const tooltip = {
+  cursor: false,
+  position: {x: 'auto', y: -75},
+  // content: <CustomTooltip />
+}
 
-  let lg = {
-    id: 'gradient',
-    x1: '0',
-    y1: '0',
-    x2: '0',
-    y2: '100%',
-    gradientUnits: "userSpaceOnUse",
-  }
+const Chart = props => {
+
+  // console.log(data)
 
   let xaxis ={
     dataKey: "updated",
     tickLine: "false",
     tickSize: 0,
     tickMargin: 10,
-    interval: `${data?.length}` - 2,
+    interval: `${props.data?.length}` - 2,
     width: 1,
-    color: `${COLORS.text_primary}`,
+    fill: theme.palette.text_primary,
   }
 
   let aChart = {
-    data: data
+    data: props.data
   }
 
   let bChart = {
     barCategoryGap: 2,
-    data: data
+    data: props.data
   }
 
   let fill = {
@@ -57,32 +74,14 @@ const Chart = ({type, data}) => {
     fillOpacity: 0.5,
   }
 
-  let tooltip = {
-    cursor: false,
-    position: {x: 'auto', y: -75},
-    content: <CustomTooltip />
-  }
-
-  let gradient =
-  (
-    <defs>
-      <linearGradient {...lg}>
-        <stop offset="0.2" stopColor="#6C46D6" />
-        <stop offset="0.9" stopColor="#6C46D60D" />
-      </linearGradient>
-    </defs>
-  )
-
   return (
-      <div style={{ width: "100%", height: 300}}>
-        <div className={ToolTipSpace}></div>
+      <Grid item style={{ maxWidth: "md", height: "50vh"}}>
           <ResponsiveContainer>
-            {type == "Bar" ?
+            {props.type == "Bar" ?
 
               <BarChart {...bChart}>
                 {gradient}
                 <XAxis {...xaxis}/>
-                <Tooltip {...tooltip} />
                 <Bar strokeWidth={2} {...fill} />
               </BarChart> :
 
@@ -92,10 +91,9 @@ const Chart = ({type, data}) => {
                 <Area strokeWidth={3} {...fill}/>
               </AreaChart>
             }
-
         </ResponsiveContainer>
 
-      </div>
+      </Grid>
     );
 }
 

@@ -1,61 +1,69 @@
-import React, { useState, useMemo, useCallback} from 'react';
+import React, { useState, useMemo} from 'react';
 import { Button, Grid } from "@material-ui/core";
 import { SWRConfig } from 'swr'
 import { styled } from '@mui/material/styles';
 import { Panel } from './Containers'
-import theme, {COLORS} from '../theme'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import theme from '../theme'
+import { ThemeProvider } from '@mui/material/styles';
 
 const TabButton = styled(Button)((props) => ({
   width: '95%',
-  // height: '10vh',
-  // maxHeight: 50,
-  whiteSpace: "nowrap",
+  whiteSpace: "noWrap",
   borderRadius: 8,
   textTransform: 'none',
   skipSx: true,
+  padding: "8px",
   // use typography
   fontFamily: "Inter",
   fontStyle: "normal",
   fontWeight: "normal",
-  fontSize: "16px",
+  fontSize: "1rem",
   lineHeight: "19px",
   //
-  background: props.isselected? COLORS.text_accent : 'none',
-  color: props.isselected? COLORS.text_primary : COLORS.text_tabs,
+  background: props.isselected? theme.palette.accent : 'none',
+  color: props.isselected? theme.palette.text.primary_dark : theme.palette.text.tab,
   "&:hover": {
-      background: props.isselected? COLORS.text_accent : 'none',
-  },
-  [theme.breakpoints.between('sm', 'md')]: {
-      // width: '50%',
-      fontSize: "12px",
+      background: props.isselected? theme.palette.text.accent : 'none',
   },
 }));
 
 const TabGrid = styled(Grid)({
-  maxWidth: "md",
   borderRadius: 16,
   alignItems: "center",
-  backgroundColor: COLORS.background_tabs,
+  backgroundColor: theme.palette.background.tab,
   textAlign: 'center',
   padding: 8,
-  // skipSx: true
+  skipSx: true,
+})
+
+const PanelGrid = styled(Grid)({
+  paddingTop: 32,
+  skipSx: true,
+})
+
+
+const DashboardContainer = styled(Grid)({
+  alignItems: "center",
+  background: theme.palette.background.dark,
+  minWidth: theme.breakpoints.values["tab"],
+  maxWidth: "100%",
+  width: '100%',
+  skipSx: true,
 })
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-export const Dashboard = props => {
+const Dashboard = props => {
 
   const [tabValue, setTabValue] = useState(() => 0);
-
-  const handleClick = useCallback(event => {
+  const handleClick = event => {
     setTabValue(event?.target?.value);
-  },[setTabValue])
+  }
 
   const buttonList = useMemo(() => React.Children.map(props.buttons,(item1, i) =>
-    <Grid item  xs={1} md={1}>
+    <Grid item sm={1} tab={1} xs={1}>
       <TabButton value={i} onClick={handleClick} isselected={tabValue == i ? "true" : undefined}>
-      {item1}
+        {item1}
       </TabButton>
     </Grid>
   ), [tabValue]);
@@ -65,13 +73,17 @@ export const Dashboard = props => {
   ), [props.titles, props.types]);
 
   return (
-    <>
-      <TabGrid container columns={{ xs: 5, md: 5 }} >
+    <DashboardContainer container>
+      <TabGrid item container columns={{sm: 5, tab: 2, xs: 1}}>
         {buttonList}
       </TabGrid>
-      <SWRConfig value={{fetcher: fetcher}}>
-        {panelList? panelList[tabValue] : ""}
-      </SWRConfig>
-    </>
+      <PanelGrid item container columns={{sm: 2, tab: 2, xs: 1}}>
+        <SWRConfig value={{fetcher: fetcher}}>
+          {panelList? panelList[tabValue] : ""}
+        </SWRConfig>
+      </PanelGrid>
+    </DashboardContainer>
   );
 }
+
+export { Dashboard };
