@@ -381,7 +381,7 @@ export default function HidingBook(props) {
             >
               <Grid item>
                 <Button
-                  variant="contained"
+                  variant={`contained-${colorMode}`}
                   sx={{
                     width: "275px",
                     height: "56px",
