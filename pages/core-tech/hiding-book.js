@@ -1510,7 +1510,7 @@ export default function HidingBook(props) {
                 >
                   <Grid item>
                     <Button
-                      variant="contained"
+                      variant={`contained-${colorMode}`}
                       sx={{ borderRadius: "8px" }}
                       target="_blank"
                       href="mailto:kd@keeperdao.com"
