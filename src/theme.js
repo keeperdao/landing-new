@@ -333,13 +333,14 @@ const theme = createTheme({
         },
       ],
       styleOverrides: {
-        contained: {
+        "contained-dark": {
           color: COLORS.text_primary,
           backgroundImage:
             "linear-gradient(to right, #6C46D6, #09A7F3, #6C46D6)",
           backgroundSize: "400% 400%",
           animation: `${animGradient} 18000ms ease infinite`,
-          border: "1px solid #141118",
+          border: "1px solid",
+          borderColor: COLORS.text_primary_light,
           transition: "0.22s",
           fontFamily: "Inter",
           fontStyle: "normal",
@@ -348,13 +349,42 @@ const theme = createTheme({
           letterSpacing: "0em",
           textTransform: "none",
           "&:hover": {
-            //backgroundPosition: "right center",
             background: "none",
             border: "1px solid",
           },
           "&:active": {
-            backgroundImage:
-              "linear-gradient(to right, #552BC8 0%, #0993DC 50%, #552BC8 100%)",
+            backgroundColor: COLORS.selected,
+            borderColor: COLORS.selected,
+            color: COLORS.text_primary,
+          },
+          "&:disabled": {
+            background: "#525252",
+          },
+        },
+        "contained-light": {
+          color: COLORS.text_primary,
+          backgroundImage:
+            "linear-gradient(to right, #6C46D6, #09A7F3, #6C46D6)",
+          backgroundSize: "400% 400%",
+          animation: `${animGradient} 18000ms ease infinite`,
+          border: "1px solid",
+          transition: "0.22s",
+          fontFamily: "Inter",
+          fontStyle: "normal",
+          fontWeight: 600,
+          fontSize: "20px",
+          letterSpacing: "0em",
+          textTransform: "none",
+          "&:hover": {
+            background: "none",
+            border: "1px solid",
+            borderColor: COLORS.text_primary_light,
+            color: COLORS.text_primary_light,
+          },
+          "&:active": {
+            backgroundColor: COLORS.hover_light,
+            borderColor: COLORS.hover_light,
+            color: COLORS.text_primary,
           },
           "&:disabled": {
             background: "#525252",
