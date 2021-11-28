@@ -76,27 +76,27 @@ function Home(props) {
             }}
           >
             <Button
-              variant="contained"
+              variant={`contained-${colorMode}`}
               fullWidth
               sx={{ borderRadius: "8px", marginBottom: "20px" }}
-              target="_blank"
               href="https://app.keeperdao.com/"
               rel="noopener noreferrer"
             >
-              Enter KeeperDAO
+              Enter App
             </Button>
           </Grid>
         </Grid>
         <Grid
           container
           item
-          sx={{ padding: 0 }}
+          sx={{ padding: { xs: "0", header: "26px 0 0" } }}
           justifyContent="center"
           xs={11}
           header={7}
         >
           <Grid item>
             <Image
+              priority
               width={501}
               height={282}
               src={"/images/graphics/keeper_vista.png"}
@@ -111,7 +111,7 @@ function Home(props) {
         direction="row"
         sx={{
           width: "auto",
-          padding: { xs: "20px", sm: "40px", md: "40px" },
+          padding: { xs: "24px", sm: "40px" },
           margin: { sm: "0 100px 100px" },
         }}
       >
@@ -149,7 +149,6 @@ function Home(props) {
             justifyContent="flex-start"
             sx={{
               marginBottom: "24px",
-              width: { md: "44%" },
             }}
           >
             <Typography variant="h6">
@@ -158,12 +157,7 @@ function Home(props) {
               network for all.
             </Typography>
           </Grid>
-          <Grid
-            container
-            item
-            justifyContent="flex-start"
-            sx={{ width: { md: "44%" } }}
-          >
+          <Grid container item justifyContent="flex-start">
             <Typography variant="body1">
               In the meantime, enjoy our innovative suite of DeFi primitives.
               Trade, Borrow, and Earn without exposing yourself to predatory MEV
@@ -184,11 +178,12 @@ function Home(props) {
           sx={{
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
-            width: { md: "220px" },
+            minWidth: { xs: "230px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: "20px",
+            padding: "24px",
             flex: "1",
+            justifyContent: "space-between",
           }}
           direction="column"
           justifyContent="space-between"
@@ -261,11 +256,12 @@ function Home(props) {
           sx={{
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
-            width: { md: "220px" },
+            minWidth: { xs: "230px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: "20px",
+            padding: "24px",
             flex: "1",
+            justifyContent: "space-between",
           }}
           direction="column"
         >
@@ -337,11 +333,12 @@ function Home(props) {
           sx={{
             marginLeft: 0,
             marginBottom: { header: "0px", xs: "60px" },
-            width: { md: "220px" },
+            minWidth: { xs: "230px" },
             background:
               "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-            padding: "20px",
+            padding: "24px",
             flex: "1",
+            justifyContent: "space-between",
           }}
           direction="column"
         >
