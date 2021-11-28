@@ -366,7 +366,7 @@ export default function Footer(props) {
                 <IconButton
                   variant={`dark`}
                   sx={{
-                    padding: 0,
+                    padding: "0 0 0 8px",
                     minHeight: 0,
                     minWidth: 0,
                   }}
