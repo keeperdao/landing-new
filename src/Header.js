@@ -74,7 +74,7 @@ export default function Header(props) {
               marginTop={{ xs: "20px", sm: "0" }}
             >
               <Button
-                href="./about"
+                href="../about"
                 rel="noopener noreferrer"
                 variant={`text-${colorMode}`}
                 sx={{
