@@ -78,7 +78,11 @@ function Home(props) {
             <Button
               variant={`contained-${colorMode}`}
               fullWidth
-              sx={{ borderRadius: "8px", marginBottom: "20px" }}
+              sx={{
+                borderRadius: "8px",
+                marginBottom: "20px",
+                fontSize: "20px",
+              }}
               href="https://app.keeperdao.com/"
               rel="noopener noreferrer"
             >
