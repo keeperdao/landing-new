@@ -15,7 +15,7 @@ const IntroBox = styled(Grid)(({ theme }) => ({
   display: "flex",
   position: "relative",
   width: "100%",
-  marginBottom: "100px",
+  marginBottom: "40px",
   justifyContent: "space-around",
   //padding: "8px",
 }));
@@ -70,7 +70,7 @@ function Home(props) {
           <Grid
             item
             sx={{
-              width: { xs: "100%", header: "85%" },
+              width: { xs: "100%", header: "88%" },
               justifySelf: "flex-end",
               marginBottom: { xs: "24px", sm: "0px" },
             }}
@@ -115,8 +115,8 @@ function Home(props) {
         direction="row"
         sx={{
           width: "auto",
-          padding: { xs: "24px", sm: "40px" },
-          margin: { xs: "0 8px 100px", sm: "0 100px 100px" },
+          padding: { xs: "24px" },
+          margin: { xs: "0 8px 100px" },
         }}
       >
         <Grid container item direction="row" justifyContent="space-between">
