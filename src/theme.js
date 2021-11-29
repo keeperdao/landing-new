@@ -588,7 +588,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      tab: 400,
+      tab: 350,
       sm: 600,
       md: 840,
       header: 1000,
