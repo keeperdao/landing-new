@@ -60,6 +60,8 @@ export default function Layout(props) {
       <Grid
         item
         sx={{
+          position: "relative",
+          width: "100%",
           background: theme.palette.background.dark,
           color: theme.palette.text.primary_dark,
           marginTop: 0,
@@ -71,5 +73,3 @@ export default function Layout(props) {
     </Grid>
   );
 }
-
-//background: theme.palette.background.dark,
