@@ -31,7 +31,7 @@ export default function Layout(props) {
       }}
     >
       <Grid item>
-        <Container maxWidth="md" disableGutters>
+        <Container maxWidth="header" disableGutters>
           <Header colorMode={colorMode} />
         </Container>
       </Grid>
