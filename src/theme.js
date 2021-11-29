@@ -349,13 +349,12 @@ const theme = createTheme({
           letterSpacing: "0em",
           textTransform: "none",
           "&:hover": {
-            background: "none",
-            border: "1px solid",
+            animation: `${animGradient} 2000ms ease infinite`,
           },
           "&:active": {
             backgroundColor: COLORS.selected,
-            borderColor: COLORS.selected,
             color: COLORS.text_primary,
+            transform: "scale(0.98)",
           },
           "&:disabled": {
             background: "#525252",
@@ -376,10 +375,8 @@ const theme = createTheme({
           letterSpacing: "0em",
           textTransform: "none",
           "&:hover": {
-            background: "none",
-            border: "1px solid",
-            borderColor: COLORS.text_primary_light,
-            color: COLORS.text_primary_light,
+            animation: `${animGradient} 2000ms ease infinite`,
+            color: COLORS.text_primary_dark,
           },
           "&:active": {
             backgroundColor: COLORS.hover_light,
