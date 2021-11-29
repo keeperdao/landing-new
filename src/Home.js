@@ -116,7 +116,7 @@ function Home(props) {
         sx={{
           width: "auto",
           padding: { xs: "24px", sm: "40px" },
-          margin: { sm: "0 100px 100px" },
+          margin: { xs: "0 8px 100px", sm: "0 100px 100px" },
         }}
       >
         <Grid container item direction="row" justifyContent="space-between">
