@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 import {Grid, Typography} from "@material-ui/core";
 import {styled} from '@mui/material/styles';
 import useSWR from 'swr'
-import {routes} from './SampleData';
 import theme from '../theme'
 
 const HeaderGrid = styled(Grid)({
@@ -39,7 +38,7 @@ function TileHeader(props) {
 
   // console.log("rendering Header" + title);
 
-  let filterList = React.Children.map(props.filter, (item, i) =>
+  let filterList = React.Children.map(props.filter1, (item, i) =>
   <Grid item>
     <FilterTypography
       variant="paragraphBoldLabel"
@@ -68,7 +67,7 @@ function TileHeader(props) {
       </Grid>
       <Grid item>
         <FilterGrid container>
-          {props.filter && filterList}
+          {props.filter1 && filterList}
         </FilterGrid>
       </Grid>
     </HeaderGrid>
@@ -80,19 +79,22 @@ function DataRequest(props) {
 
   const args = new URLSearchParams(props.arguments).toString()
   const {data:response} =
-    routes[props.title]
-    ? useSWR(routes[props.title]?.route + args)
+    props.route
+    ? useSWR(props.route + args)
     : ""
+
   return (
     response
-    ? response[routes[props.title]?.identifier]
+    ? response[props.identifier]
     : ""
   )
 }
 
 function DataBlock(props) {
 
-  const data = DataRequest({title : props.title})
+  // console.log(props.route)
+
+  const data = DataRequest({route: props.route, identifier: props.identifier})
 
   return (
     <Typography
@@ -100,27 +102,12 @@ function DataBlock(props) {
       color={props.color}
     >
       {props.prefix}
-      {" " + data.toLocaleString(undefined, {'maximumFractionDigits':2})}
+      {data.toLocaleString(undefined, {'maximumFractionDigits':2})}
+      {" " + props.suffix
+             ? props.suffix
+             : ""}
     </Typography>
   );
 }
 
 export {TileHeader, DataBlock, DataRequest}
-
-// use typography
-// fontFamily: "Inter",
-// fontStyle: "normal",
-// fontWeight: "600",
-// fontSize: "12px",
-// lineHeight: "15px",
-// letterSpacing: "0.02em",
-
-// width: "100%",
-
-//
-// if (getLayout.name) return getLayout(<Component
-//                                         {...pageProps}
-//                                         colorMode={colorMode}
-//                                         setColorMode={setColorMode}
-//                                       />
-                                    // )

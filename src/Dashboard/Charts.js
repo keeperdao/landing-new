@@ -41,7 +41,7 @@ function CustomTooltip({ active, payload, label, prefix }) {
           display="block"
           color={theme.palette.text.primary_dark}
         >
-          {prefix + `${payload[0].value}`}
+          {prefix? prefix: "" + `${payload[0].value}`}
         </Typography>
         <Typography
           variant="paragraphRegularMedium"
@@ -58,7 +58,6 @@ function CustomTooltip({ active, payload, label, prefix }) {
 
 function Chart(props) {
 
-
   let tooltip = {
     cursor: false,
     content: <CustomTooltip
@@ -68,7 +67,7 @@ function Chart(props) {
   }
 
   let xaxis = {
-    dataKey: props?.data ? Object.keys(props?.data[0])[0]: "",
+    dataKey: props?.data ? Object?.keys(props?.data[0])[0]: "",
     tickLine: "false",
     tickSize: 0,
     tickMargin: 10,
@@ -104,6 +103,7 @@ function Chart(props) {
 
               <AreaChart data={props.data}>
                 {gradient}
+                <Tooltip {...tooltip}/>
                 <XAxis {...xaxis}/>
                 <Area strokeWidth={3}
                       {...fill}

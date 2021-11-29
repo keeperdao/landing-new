@@ -3,7 +3,6 @@ import {Grid, Typography} from "@material-ui/core";
 import {styled} from '@mui/material/styles';
 import {TileHeader, DataBlock, DataRequest} from './Content'
 import Chart from './Charts'
-import {routes} from './SampleData';
 import theme from '../theme'
 
 const TileGrid = styled(Grid)({
@@ -16,38 +15,47 @@ const TileContainer = styled(Grid)({
 })
 
 function Panel(props) {
-  // console.log("rendering Panel")
 
-  const tilesList = useMemo(() => React.Children.map(props.titles, (item, i) =>
-    <TileGrid item sm={props.types[i]? 2 : 1} xs={1}>
+  const titles = Object.keys(props)
+
+  const tilesList = useMemo(() => React.Children.map(titles, (item, i) =>
+
+    <TileGrid item sm={props[item].type? 2 : 1} xs={1}>
       <TileContainer>
       {
-        props.types[i] == "Info"
-        ? <InfoTile title={props.titles[i]}/>
+        props[item].type == "Info"
+        ? <InfoTile title={item}/>
         : ""
       }
       {
-        !props.types[i]
-        ? <DataTile
-          title={props.titles[i]}
-          type={props.types[i]}
-          prefix="$"
-          />
+        !props[item].type
+        ? <DataTile title= {item}
+                    route= {props[item].route}
+                    identifier={props[item].identifier}
+                    prefix={props[item].prefix}
+        />
         : ""
       }
       {
-        props.types[i] == "Bar" | props.types[i] == "Area"
+        props[item].type == "Bar" | props[item].type == "Area"
         ? <Tile
-            title={props.titles[i]}
-            type={props.types[i]}
+            title={item}
+            type={props[item].type}
+            filter1={props[item].filter1}
+            filter2={props[item].filter2}
+            prefix={props[item].prefix}
+            route= {props[item].route}
+            identifier={props[item].identifier}
+            route2= {props[item].route2}
+            identifier2={props[item].identifier2}
           />
         : ""
       }
       {
-        props.types[i] == "Table"
+        props[item].type == "Table"
         ? <TableTile
-            title={props.titles[i]}
-            type={props.types[i]}
+            title={item}
+            type={props[item].type}
           />
         : ""
       }
@@ -69,29 +77,26 @@ function Tile(props) {
 
   let isChart = props.type == "Area" | props.type == "Bar"
 
-  let th = {
-    activeFilter: activeData,
-    title: props.title,
-    filter: isChart? ["week", "month", "all"] : "",
-    filterClick: handleChange,
-  }
+  const data = DataRequest({route: props.route, identifier: props.identifier, arguments: {range: activeData}})
 
-  const data = DataRequest({title : props.title, arguments: {range: activeData}})
+  const data2 = DataRequest({route: props.route2, identifier: props.identifier2, arguments: {range: activeData}})
+
 
   return (
     <>
       <TileHeader
         activeFilter={activeData}
         title={props.title}
-        filter={isChart
-                ? ["week", "month", "all"]
-                : ""}
+        filter1={props.filter1}
+        filter2={props.filter2}
         filterClick={handleChange}
       />
       {
         props.type == "Area" | !props.type
         ? <DataBlock
             title={props.title}
+            route={props.route}
+            identifier={props.identifier}
             variant="headingDisplay"
             color={theme.palette.text.primary_dark}
             prefix="$"
@@ -102,8 +107,8 @@ function Tile(props) {
         isChart
         ? <Chart
             type={props.type}
-            data={data}
-            prefix="$"
+            data={data2 ? data2 : data}
+            prefix={props.prefix}
           />
         : ""
       }
@@ -112,11 +117,16 @@ function Tile(props) {
 }
 
 function DataTile (props) {
+
+  // console.log(props.route)
+
   return (
     <>
       <TileHeader title={props.title} />
       <DataBlock
         title={props.title}
+        route={props.route}
+        identifier={props.identifier}
         variant="headingTitle"
         prefix={props.prefix}
         color={theme.palette.text.primary_dark}
@@ -172,11 +182,4 @@ function TableTile(props) {
   )
 }
 
-
-
 export {Tile, Panel}
-
-// <Tile title={props.titles[i]} type={props.types[i]}/> :
-// <DataTile title={props.titles[i]} type={props.types[i]} />}
-
-// console.log(event?.target?.innerHTML);

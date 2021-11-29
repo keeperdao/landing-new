@@ -82,11 +82,9 @@ function Dashboard(props) {
     </Grid>
   ), [tabValue]);
 
+
   const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
-    <Panel
-      titles={props.titles[i]}
-      types={props.types[i]}
-    />
+    <Panel {...props.properties[i]}/>
   ), [props.buttons]);
 
   return (
@@ -115,3 +113,10 @@ function Dashboard(props) {
 }
 
 export {Dashboard};
+
+// const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
+//   <Panel
+//     titles={props.titles[i]}
+//     types={props.types[i]}
+//   />
+// ), [props.buttons]);
