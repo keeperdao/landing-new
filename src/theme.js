@@ -1,4 +1,5 @@
 import { createTheme } from "@material-ui/core/styles";
+import { css, keyframes } from "@emotion/react";
 
 const COLORS = {
   text_primary: "#F5F5F5",
@@ -16,6 +17,18 @@ const COLORS = {
   disabled: "#D5D5D5",
   active: "#09AF73",
 };
+
+const animGradient = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
 
 // Create a theme instance.
 const theme = createTheme({
@@ -142,13 +155,14 @@ const theme = createTheme({
       fontSize: "56px",
       lineHeight: "56px",
       letterSpacing: "-0.015em",
+      textAlign: "left",
     },
     h6: {
       fontFamily: "Inter",
       fontSize: "20px",
       fontStyle: "normal",
       fontWeight: 600,
-      lineHeight: "24px",
+      lineHeight: "135%",
       letterSpacing: "0em",
       textAlign: "left",
     },
@@ -157,7 +171,7 @@ const theme = createTheme({
       fontSize: "16px",
       fontStyle: "normal",
       fontWeight: 400,
-      lineHeight: "19px",
+      lineHeight: "150%",
       letterSpacing: "0em",
       textAlign: "left",
     },
@@ -179,7 +193,7 @@ const theme = createTheme({
             background: "none",
             border: "1px solid",
             borderColor: COLORS.text_primary,
-            transition: "0.25s",
+            transition: "0.22s",
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
@@ -208,7 +222,7 @@ const theme = createTheme({
             background: "none",
             border: "1px solid",
             borderColor: COLORS.text_primary_light,
-            transition: "0.25s",
+            transition: "0.22s",
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
@@ -237,7 +251,7 @@ const theme = createTheme({
             background: "none",
             border: "1px solid",
             borderColor: COLORS.hover_light,
-            transition: "0.25s",
+            transition: "0.22s",
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 600,
@@ -267,7 +281,8 @@ const theme = createTheme({
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: "18px",
+            marginRight: "12px",
             "&:hover": {
               background: "none",
               color: COLORS.hover_dark,
@@ -285,7 +300,8 @@ const theme = createTheme({
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: "18px",
+            marginRight: "12px",
             "&:hover": {
               background: "none",
               color: COLORS.hover_light,
@@ -295,14 +311,37 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: { variant: "text-footer" },
+          style: {
+            textTransform: "none",
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "18px",
+            padding: 0,
+            justifyContent: "flex-start",
+            marginRight: "12px",
+            "&:hover": {
+              background: "none",
+              color: COLORS.hover_dark,
+            },
+            "&:active": {
+              color: COLORS.hover_dark,
+            },
+          },
+        },
       ],
       styleOverrides: {
-        contained: {
+        "contained-dark": {
           color: COLORS.text_primary,
           backgroundImage:
-            "linear-gradient(to right, #6C46D6 0%, #09A7F3 50%, #6C46D6 100%)",
-          backgroundSize: "200%",
-          transition: "0.25s",
+            "linear-gradient(to right, #6C46D6, #09A7F3, #6C46D6)",
+          backgroundSize: "400% 400%",
+          animation: `${animGradient} 18000ms ease infinite`,
+          border: "1px solid",
+          borderColor: COLORS.text_primary_light,
+          transition: "0.22s",
           fontFamily: "Inter",
           fontStyle: "normal",
           fontWeight: 600,
@@ -310,11 +349,39 @@ const theme = createTheme({
           letterSpacing: "0em",
           textTransform: "none",
           "&:hover": {
-            backgroundPosition: "right center",
+            animation: `${animGradient} 2000ms ease infinite`,
           },
           "&:active": {
-            backgroundImage:
-              "linear-gradient(to right, #552BC8 0%, #0993DC 50%, #552BC8 100%)",
+            backgroundColor: COLORS.selected,
+            color: COLORS.text_primary,
+            transform: "scale(0.98)",
+          },
+          "&:disabled": {
+            background: "#525252",
+          },
+        },
+        "contained-light": {
+          color: COLORS.text_primary,
+          backgroundImage:
+            "linear-gradient(to right, #6C46D6, #09A7F3, #6C46D6)",
+          backgroundSize: "400% 400%",
+          animation: `${animGradient} 18000ms ease infinite`,
+          border: "1px solid",
+          transition: "0.22s",
+          fontFamily: "Inter",
+          fontStyle: "normal",
+          fontWeight: 600,
+          fontSize: "18px",
+          letterSpacing: "0em",
+          textTransform: "none",
+          "&:hover": {
+            animation: `${animGradient} 2000ms ease infinite`,
+            color: COLORS.text_primary_dark,
+          },
+          "&:active": {
+            backgroundColor: COLORS.hover_light,
+            borderColor: COLORS.hover_light,
+            color: COLORS.text_primary,
           },
           "&:disabled": {
             background: "#525252",
@@ -327,7 +394,7 @@ const theme = createTheme({
         {
           props: { variant: "dark" },
           style: {
-            transition: "0.25s",
+            transition: "0.22s",
             background: "none",
             color: COLORS.text_primary,
             "&:hover": {
@@ -343,7 +410,7 @@ const theme = createTheme({
         {
           props: { variant: "light" },
           style: {
-            transition: "0.25s",
+            transition: "0.22s",
             background: "none",
             color: COLORS.text_primary_light,
             "&:hover": {

@@ -15,7 +15,7 @@ const IntroBox = styled(Grid)(({ theme }) => ({
   display: "flex",
   position: "relative",
   width: "100%",
-  marginBottom: "100px",
+  marginBottom: "40px",
   justifyContent: "space-around",
   //padding: "8px",
 }));
@@ -26,6 +26,9 @@ const ExplainerBox = styled(Grid)(({ theme }) => ({
   justifyContent: "space-around",
   marginBottom: "100px",
   padding: "8px",
+  background:
+    "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+  borderRadius: "8px",
 }));
 
 const ProductBox = styled(Grid)(({ theme }) => ({
@@ -44,7 +47,7 @@ function Home(props) {
   setColorMode("dark");
 
   return (
-    <div style={{ padding: "18px" }}>
+    <div style={{ padding: "24px" }}>
       <IntroBox id="intro" container item direction="row">
         <Grid
           container
@@ -67,33 +70,37 @@ function Home(props) {
           <Grid
             item
             sx={{
-              width: { xs: "100%", header: "85%" },
+              width: { xs: "100%", header: "88%" },
               justifySelf: "flex-end",
               marginBottom: { xs: "24px", sm: "0px" },
             }}
           >
             <Button
-              variant="contained"
+              variant={`contained-${colorMode}`}
               fullWidth
-              sx={{ borderRadius: "8px" }}
-              target="_blank"
+              sx={{
+                borderRadius: "8px",
+                marginBottom: "20px",
+                fontSize: "20px",
+              }}
               href="https://app.keeperdao.com/"
               rel="noopener noreferrer"
             >
-              Enter KeeperDAO
+              Enter App
             </Button>
           </Grid>
         </Grid>
         <Grid
           container
           item
-          sx={{ padding: 0 }}
+          sx={{ padding: { xs: "0", header: "26px 0 0" } }}
           justifyContent="center"
           xs={11}
           header={7}
         >
           <Grid item>
             <Image
+              priority
               width={501}
               height={282}
               src={"/images/graphics/keeper_vista.png"}
@@ -107,11 +114,12 @@ function Home(props) {
         item
         direction="row"
         sx={{
-          width: { xs: 300, sm: 558 },
-          marginLeft: { sm: "0px", xs: "16px" },
+          width: "auto",
+          padding: { xs: "24px" },
+          margin: { xs: "0 8px 100px" },
         }}
       >
-        <Grid container item direction="column" justifyContent="flex-start">
+        <Grid container item direction="row" justifyContent="space-between">
           <Grid
             container
             item
@@ -132,8 +140,8 @@ function Home(props) {
                 marginLeft: "-16px",
                 zIndex: 1,
                 height: "4px",
-                width: "231px",
-                opacity: 0.8,
+                width: "92%",
+                opacity: 0.9,
                 background:
                   "linear-gradient(91.6deg, #6C46D6 0%, #4F63DF 52.08%, #09A7F3 100%)",
               }}
@@ -143,7 +151,9 @@ function Home(props) {
             container
             item
             justifyContent="flex-start"
-            sx={{ marginBottom: "24px" }}
+            sx={{
+              marginBottom: "24px",
+            }}
           >
             <Typography variant="h6">
               KeeperDAO is building a decentralized protocol for Keepers that
@@ -160,32 +170,41 @@ function Home(props) {
           </Grid>
         </Grid>
       </ExplainerBox>
-      <ProductBox id="products" container item>
+      <ProductBox
+        id="products"
+        container
+        item
+        sx={{ justifyContent: "space-between", gap: "20px" }}
+      >
         <Grid
           container
           item
           sx={{
-            height: { sm: 330 },
-            marginLeft: { sm: "0px", xs: "16px" },
+            marginLeft: 0,
+            marginBottom: { header: "0px", xs: "60px" },
+            minWidth: { xs: "230px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: "24px",
+            flex: "1",
             justifyContent: "space-between",
-            marginBottom: { header: "0px", xs: "48px" },
           }}
           direction="column"
-          xs={10}
-          sm={5}
-          header={3}
+          justifyContent="space-between"
         >
           <div>
             <Grid
               container
               item
               direction="row"
-              justifyContent="flex-start"
-              sx={{ marginBottom: "24px" }}
+              sx={{
+                marginBottom: "24px",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
             >
               <Image
-                width={72}
-                height={72}
+                width={84}
+                height={84}
                 quality={100}
                 src={"/images/graphics/trade.png"}
               />
@@ -218,16 +237,16 @@ function Home(props) {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{
-              justifySelf: { sm: "flex-end" },
-              marginTop: { xs: "16px", sm: "0px" },
-            }}
+            sx={{ justifySelf: { sm: "flex-end" } }}
           >
             <Button
               variant="outlined-dark"
               fullWidth
-              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
-              target="_blank"
+              sx={{
+                borderRadius: "8px",
+                borderColor: "#6C46D6",
+                marginTop: "16px",
+              }}
               href="https://app.keeperdao.com/trade"
               rel="noopener noreferrer"
             >
@@ -235,36 +254,34 @@ function Home(props) {
             </Button>
           </Grid>
         </Grid>
-        <Divider
-          flexItem
-          orientation="vertical"
-          sx={{ display: { xs: "none", header: "block" } }}
-        />
         <Grid
           container
           item
           sx={{
-            height: { sm: 330 },
-            marginLeft: { sm: "0px", xs: "16px" },
-            marginBottom: { header: "0px", xs: "48px" },
+            marginLeft: 0,
+            marginBottom: { header: "0px", xs: "60px" },
+            minWidth: { xs: "230px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: "24px",
+            flex: "1",
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={10}
-          sm={5}
-          header={3}
         >
           <div>
             <Grid
               container
               item
               direction="row"
-              justifyContent="flex-start"
-              sx={{ marginBottom: "24px" }}
+              sx={{
+                marginBottom: "24px",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
             >
               <Image
-                width={72}
-                height={72}
+                width={84}
+                height={84}
                 quality={100}
                 src={"/images/graphics/borrow.png"}
               />
@@ -297,16 +314,16 @@ function Home(props) {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{
-              justifySelf: { sm: "flex-end" },
-              marginTop: { xs: "16px", sm: "0px" },
-            }}
+            sx={{ justifySelf: { sm: "flex-end" } }}
           >
             <Button
               variant="outlined-dark"
               fullWidth
-              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
-              target="_blank"
+              sx={{
+                borderRadius: "8px",
+                borderColor: "#6C46D6",
+                marginTop: "16px",
+              }}
               href="https://app.keeperdao.com/vaults"
               rel="noopener noreferrer"
             >
@@ -314,36 +331,34 @@ function Home(props) {
             </Button>
           </Grid>
         </Grid>
-        <Divider
-          flexItem
-          orientation="vertical"
-          sx={{ display: { xs: "none", header: "block" } }}
-        />
         <Grid
           container
           item
           sx={{
-            height: { sm: 330 },
-            marginLeft: { sm: "0px", xs: "16px" },
-            marginBottom: { header: "0px", xs: "48px" },
+            marginLeft: 0,
+            marginBottom: { header: "0px", xs: "60px" },
+            minWidth: { xs: "230px" },
+            background:
+              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            padding: "24px",
+            flex: "1",
             justifyContent: "space-between",
           }}
           direction="column"
-          xs={10}
-          sm={5}
-          header={3}
         >
           <div>
             <Grid
               container
               item
               direction="row"
-              justifyContent="flex-start"
-              sx={{ marginBottom: "24px" }}
+              sx={{
+                marginBottom: "24px",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
             >
               <Image
-                width={72}
-                height={72}
+                width={84}
+                height={84}
                 quality={100}
                 src={"/images/graphics/earn.png"}
               />
@@ -375,16 +390,16 @@ function Home(props) {
             item
             direction="row"
             justifyContent="flex-start"
-            sx={{
-              justifySelf: { sm: "flex-end" },
-              marginTop: { xs: "16px", sm: "0px" },
-            }}
+            sx={{ justifySelf: { sm: "flex-end" } }}
           >
             <Button
               variant="outlined-dark"
               fullWidth
-              sx={{ borderRadius: "8px", borderColor: "#6C46D6" }}
-              target="_blank"
+              sx={{
+                borderRadius: "8px",
+                borderColor: "#6C46D6",
+                marginTop: "16px",
+              }}
               href="https://app.keeperdao.com/pool"
               rel="noopener noreferrer"
             >
@@ -423,7 +438,7 @@ function Home(props) {
               style={{
                 width: "4px",
                 height: "24px",
-                opacity: 0.8,
+                opacity: 0.9,
                 background:
                   "linear-gradient(180deg, #6C46D6 0%, #4F63DF 52.08%, #09A7F3 100%)",
               }}
@@ -447,8 +462,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/partners/bancor.png"}
               />
@@ -461,8 +476,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/partners/volleyfire.png"}
               />
@@ -475,8 +490,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/partners/metric.png"}
               />
@@ -513,7 +528,7 @@ function Home(props) {
               style={{
                 width: "4px",
                 height: "24px",
-                opacity: 0.8,
+                opacity: 0.9,
                 background:
                   "linear-gradient(180deg, #6C46D6 0%, #4F63DF 52.08%, #09A7F3 100%)",
               }}
@@ -537,8 +552,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/investors/polychain.png"}
               />
@@ -551,8 +566,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/investors/threearrows.png"}
               />
@@ -565,8 +580,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/investors/amber.png"}
               />
@@ -603,7 +618,7 @@ function Home(props) {
               style={{
                 width: "4px",
                 height: "24px",
-                opacity: 0.8,
+                opacity: 0.9,
                 background:
                   "linear-gradient(180deg, #6C46D6 0%, #4F63DF 52.08%, #09A7F3 100%)",
               }}
@@ -618,7 +633,10 @@ function Home(props) {
           item
           direction="row"
           spacing={1}
-          sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+          sx={{
+            justifyContent: { xs: "center", sm: "flex-start" },
+            marginBottom: "48px",
+          }}
         >
           <Grid item>
             <a
@@ -627,8 +645,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/auditors/samczsun.png"}
               />
@@ -641,8 +659,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/auditors/quantstamp.png"}
               />
@@ -655,8 +673,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={247}
-                height={115}
+                width={243}
+                height={114}
                 quality={100}
                 src={"/images/auditors/peckshield.png"}
               />

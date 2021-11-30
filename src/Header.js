@@ -21,13 +21,17 @@ export default function Header(props) {
       <AppBar
         position="static"
         elevation={0}
-        sx={{ marginTop: "16px", marginBottom: "68px" }}
+        sx={{
+          marginTop: "20px",
+          marginBottom: "68px",
+        }}
       >
         <Toolbar
           sx={{
             display: "flex",
             position: "relative",
             alignItems: "center",
+            padding: "0 18px",
             background:
               colorMode == "dark"
                 ? theme.palette.background.dark
@@ -40,7 +44,7 @@ export default function Header(props) {
         >
           <Grid
             container
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
             alignItems="center"
             sx={{ paddingLeft: 0, paddingRight: 0, color: "inherit" }}
@@ -49,7 +53,7 @@ export default function Header(props) {
               <IconButton
                 variant={`${colorMode}`}
                 sx={{
-                  paddingLeft: 0,
+                  padding: "8px 0",
                   minHeight: 0,
                   minWidth: 0,
                 }}
@@ -59,58 +63,50 @@ export default function Header(props) {
                   color="inherit"
                   component={Logo}
                   viewBox={"0 0 1000 169.32"}
-                  sx={{ height: "28px", width: "166px" }}
+                  sx={{ height: "32px", width: "auto" }}
                 />
               </IconButton>
             </Grid>
 
-            <Grid item justifyContent="flex-end">
-              {/*<Button
-                href="#products"
-                variant={`text-${colorMode}`}
-                sx={{ minWidth: 0 }}
-              >
-                Products
-              </Button>
+            <Grid
+              item
+              justifyContent="flex-end"
+              marginTop={{ xs: "20px", sm: "0" }}
+            >
               <Button
-                href="#partners"
-                variant={`text-${colorMode}`}
-                sx={{ minWidth: 0 }}
-              >
-                Partners
-              </Button>
-              <Button
-                target="_blank"
-                href="https://github.com/keeperdao/docs/tree/master/audits"
+                href="../about"
                 rel="noopener noreferrer"
                 variant={`text-${colorMode}`}
-                sx={{ minWidth: 0 }}
+                sx={{
+                  minWidth: 0,
+                  fontWeight: 600,
+                }}
               >
-                Audits
+                About
               </Button>
               <Button
-                target="_blank"
                 href="https://blog.keeperdao.com/"
                 rel="noopener noreferrer"
                 variant={`text-${colorMode}`}
-                sx={{ minWidth: 0 }}
+                sx={{
+                  minWidth: 0,
+                  fontWeight: 600,
+                }}
               >
                 Blog
               </Button>
-              */}
               <Button
-                variant={`outlined-${colorMode}`}
-                sx={{
-                  marginLeft: "8px",
-                  height: "32px",
-                  width: "64px",
-                  borderRadius: "8px",
-                }}
-                target="_blank"
                 href="https://app.keeperdao.com/"
                 rel="noopener noreferrer"
+                variant={`outlined-${colorMode}`}
+                sx={{
+                  marginLeft: "16px",
+                  height: "38px",
+                  width: "auto",
+                  borderRadius: "8px",
+                }}
               >
-                App
+                Enter App
               </Button>
             </Grid>
           </Grid>

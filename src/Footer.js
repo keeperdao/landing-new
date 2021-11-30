@@ -26,7 +26,6 @@ const TextButton = styled(Button)(({ theme }) => ({
   fontWeight: "normal",
   fontSize: "14px",
   lineHeight: "17px",
-  marginLeft: "-16px",
   marginTop: 0,
   paddingTop: 0,
 }));
@@ -36,7 +35,7 @@ export default function Footer(props) {
   return (
     <div
       style={{
-        background: "#141118",
+        background: "none",
       }}
     >
       <Container maxWidth="header" disableGutters>
@@ -45,8 +44,7 @@ export default function Footer(props) {
           direction="column"
           sx={{
             paddingTop: "40px",
-            paddingLeft: { xs: "32px", header: 0 },
-            paddingRight: { xs: "32px", header: 0 },
+            padding: "40px 18px 0px",
             zIndex: 2,
           }}
         >
@@ -54,22 +52,26 @@ export default function Footer(props) {
             container
             item
             direction="row"
-            sx={{ color: theme.palette.text.primary_dark, zIndex: 3 }}
+            justifyContent="space-evenly"
+            sx={{
+              color: theme.palette.text.primary_dark,
+              zIndex: 3,
+            }}
           >
             <Grid
               container
               item
               direction="column"
-              sm={4}
-              md={2}
-              xs={6}
-              sx={{ zIndex: 3 }}
+              sx={{
+                maxWidth: "150px",
+                padding: "0 20px",
+              }}
             >
               <Grid
                 item
                 sx={{
                   marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
+                  marginTop: { xs: "40px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -79,7 +81,7 @@ export default function Footer(props) {
               <Grid item>
                 <TextButton
                   sx={{ zIndex: 3 }}
-                  variant="text-dark"
+                  variant="text-footer"
                   href="/about"
                   rel="noopener noreferrer"
                 >
@@ -89,7 +91,7 @@ export default function Footer(props) {
               <Grid item>
                 <TextButton
                   sx={{ zIndex: 3 }}
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://blog.keeperdao.com/labs/"
                   rel="noopener noreferrer"
@@ -99,7 +101,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   sx={{ zIndex: 3 }}
                   target="_blank"
                   href="https://blog.keeperdao.com/mission/"
@@ -113,7 +115,7 @@ export default function Footer(props) {
               </Grid>*/}
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   sx={{ zIndex: 3 }}
                   target="_blank"
                   href="mailto:kd@keeperdao.com"
@@ -124,7 +126,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://github.com/keeperdao/jobs"
                   rel="noopener noreferrer"
@@ -134,7 +136,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://keeperdao-labs.notion.site/KeeperDAO-Brand-Assets-bca7bce9872b4e278dce1cf45fd70e56"
                   rel="noopener noreferrer"
@@ -142,16 +144,21 @@ export default function Footer(props) {
                   Branding{" "}
                 </TextButton>
               </Grid>
-              {/*<Grid item>
-                <TextButton variant="text-dark">Branding</TextButton>
-              </Grid>*/}
             </Grid>
-            <Grid container item direction="column" sm={4} md={2} xs={6}>
+            <Grid
+              container
+              item
+              direction="column"
+              sx={{
+                maxWidth: "150px",
+                padding: "0 20px",
+              }}
+            >
               <Grid
                 item
                 sx={{
                   marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
+                  marginTop: { xs: "40px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -160,7 +167,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   href="/core-tech/hiding-book"
                   onClick={() => setColorMode("light")}
                 >
@@ -169,7 +176,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://docs.keeperdao.com/reference/products/borrow/jitu-underwriter"
                   rel="noopener noreferrer"
@@ -178,21 +185,29 @@ export default function Footer(props) {
                 </TextButton>
               </Grid>
             </Grid>
-            <Grid container item direction="column" sm={4} md={2} xs={6}>
+            <Grid
+              container
+              item
+              direction="column"
+              sx={{
+                maxWidth: "150px",
+                padding: "0 20px",
+              }}
+            >
               <Grid
                 item
                 sx={{
                   marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
+                  marginTop: { xs: "40px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
-                  Learn
+                  Explore
                 </Typography>
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://blog.keeperdao.com"
                   rel="noopener noreferrer"
@@ -202,7 +217,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://github.com/keeperdao/whitepaper/blob/main/whitepaper.pdf"
                   rel="noopener noreferrer"
@@ -212,7 +227,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://docs.keeperdao.com"
                   rel="noopener noreferrer"
@@ -222,7 +237,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="/files/roadmap.png"
                   rel="noopener noreferrer"
@@ -232,23 +247,38 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
-                  target="_blank"
+                  variant="text-footer"
                   href="https://docs.keeperdao.com/reference/faq/"
                   rel="noopener noreferrer"
-                  sx={{ marginLeft: "-18px" }}
                 >
                   FAQ
                 </TextButton>
               </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-footer"
+                  target="_blank"
+                  href="https://dune.xyz/shadow/KeeperDAO"
+                  rel="noopener noreferrer"
+                >
+                  Analytics
+                </TextButton>
+              </Grid>
             </Grid>
-            <Grid container item direction="column" sm={4} md={2} xs={6}>
+            <Grid
+              container
+              item
+              direction="column"
+              sx={{
+                maxWidth: "150px",
+                padding: "0 20px",
+              }}
+            >
               <Grid
                 item
                 sx={{
                   marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
+                  marginTop: { xs: "40px", md: "0px" },
                 }}
               >
                 <Typography align="left" variant="paragraphBoldLarge">
@@ -257,9 +287,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
-                  target="_blank"
+                  variant="text-footer"
                   href="https://forum.keeperdao.com/"
                   rel="noopener noreferrer"
                 >
@@ -268,8 +296,7 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://snapshot.org/#/rook.eth"
                   rel="noopener noreferrer"
@@ -279,13 +306,22 @@ export default function Footer(props) {
               </Grid>
               <Grid item>
                 <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
+                  variant="text-footer"
                   target="_blank"
                   href="https://github.com/keeperdao/kips"
                   rel="noopener noreferrer"
                 >
-                  KIPs
+                  Proposals
+                </TextButton>
+              </Grid>
+              <Grid item>
+                <TextButton
+                  variant="text-footer"
+                  target="_blank"
+                  href="https://discord.com/invite/3JUgvyyNhA"
+                  rel="noopener noreferrer"
+                >
+                  Community
                 </TextButton>
               </Grid>
 
@@ -298,54 +334,6 @@ export default function Footer(props) {
               <Grid item>
                 <TextButton variant="text-dark">Code of Conduct</TextButton>
               </Grid>*/}
-            </Grid>
-            <Grid container item direction="column" sm={4} md={2} xs={6}>
-              <Grid
-                item
-                sx={{
-                  marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
-                }}
-              >
-                <Typography align="left" variant="paragraphBoldLarge">
-                  Community
-                </Typography>
-              </Grid>
-              <Grid item>
-                <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
-                  target="_blank"
-                  href="https://discord.com/invite/3JUgvyyNhA"
-                  rel="noopener noreferrer"
-                >
-                  Discord
-                </TextButton>
-              </Grid>
-            </Grid>
-            <Grid container item direction="column" sm={4} md={2} xs={6}>
-              <Grid
-                item
-                sx={{
-                  marginBottom: "12px",
-                  marginTop: { xs: "24px", md: "0px" },
-                }}
-              >
-                <Typography align="left" variant="paragraphBoldLarge">
-                  Analytics
-                </Typography>
-              </Grid>
-              <Grid item>
-                <TextButton
-                  variant="text-dark"
-                  variant="text-dark"
-                  target="_blank"
-                  href="https://dune.xyz/shadow/KeeperDAO"
-                  rel="noopener noreferrer"
-                >
-                  Dune
-                </TextButton>
-              </Grid>
             </Grid>
           </Grid>
           <Divider
@@ -362,7 +350,7 @@ export default function Footer(props) {
             direction="row"
             alignItems="center"
             justifyContent="space-between"
-            sx={{ marginBottom: "32px", padding: { xs: "32px", header: 0 } }}
+            sx={{ marginBottom: "32px", padding: { xs: 0, header: 0 } }}
           >
             <Grid
               container
@@ -378,7 +366,7 @@ export default function Footer(props) {
                 <IconButton
                   variant={`dark`}
                   sx={{
-                    padding: 0,
+                    padding: "0 0 0 8px",
                     minHeight: 0,
                     minWidth: 0,
                   }}
@@ -404,8 +392,8 @@ export default function Footer(props) {
               xs={12}
             >
               <Grid item>
-                <Typography variant="body2" color="text.secondary">
-                  KeeperDAO, 2021
+                <Typography variant="body2" sx={{ marginRight: "22px" }}>
+                  © KeeperDAO, 2021
                 </Typography>
               </Grid>
               <Grid item>
