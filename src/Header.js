@@ -44,7 +44,7 @@ export default function Header(props) {
         >
           <Grid
             container
-            direction={{ xs: "column", sm: "row" }}
+            direction="row"
             justifyContent="space-between"
             alignItems="center"
             sx={{ paddingLeft: 0, paddingRight: 0, color: "inherit" }}
@@ -63,23 +63,23 @@ export default function Header(props) {
                   color="inherit"
                   component={Logo}
                   viewBox={"0 0 1000 169.32"}
-                  sx={{ height: "32px", width: "auto" }}
+                  sx={{
+                    height: { xs: "31px", sm: "32px" },
+                    width: "auto",
+                  }}
                 />
               </IconButton>
             </Grid>
 
-            <Grid
-              item
-              justifyContent="flex-end"
-              marginTop={{ xs: "20px", sm: "0" }}
-            >
+            <Grid item justifyContent="flex-end">
               <Button
                 href="../about"
                 rel="noopener noreferrer"
                 variant={`text-${colorMode}`}
                 sx={{
+                  display: { xs: "none", sm: "inline" },
                   minWidth: 0,
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
                 About
@@ -89,8 +89,9 @@ export default function Header(props) {
                 rel="noopener noreferrer"
                 variant={`text-${colorMode}`}
                 sx={{
+                  display: { xs: "none", sm: "inline" },
                   minWidth: 0,
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
                 Blog
@@ -100,10 +101,11 @@ export default function Header(props) {
                 rel="noopener noreferrer"
                 variant={`outlined-${colorMode}`}
                 sx={{
-                  marginLeft: "16px",
-                  height: "38px",
-                  width: "auto",
+                  marginLeft: { xs: "0", sm: "16px" },
+                  height: "40px",
+                  width: { xs: "auto", sm: "128px" },
                   borderRadius: "8px",
+                  fontWeight: 400,
                 }}
               >
                 Enter App

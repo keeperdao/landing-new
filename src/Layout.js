@@ -38,7 +38,7 @@ export default function Layout(props) {
 
       <Grid item sx={{ marginBottom: 0, paddingBottom: 0 }}>
         <Container
-          maxWidth="md"
+          maxWidth="header"
           disableGutters
           sx={{ marginBottom: 0, paddingBottom: 0 }}
         >

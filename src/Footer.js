@@ -52,10 +52,10 @@ export default function Footer(props) {
             container
             item
             direction="row"
-            justifyContent="space-evenly"
             sx={{
               color: theme.palette.text.primary_dark,
               zIndex: 3,
+              justifyContent: { xs: "space-evenly", header: "space-between" },
             }}
           >
             <Grid
@@ -64,7 +64,7 @@ export default function Footer(props) {
               direction="column"
               sx={{
                 maxWidth: "150px",
-                padding: "0 20px",
+                padding: { xs: "0 20px", header: "0 8px" },
               }}
             >
               <Grid
@@ -151,7 +151,7 @@ export default function Footer(props) {
               direction="column"
               sx={{
                 maxWidth: "150px",
-                padding: "0 20px",
+                padding: { xs: "0 20px", header: "0 8px" },
               }}
             >
               <Grid
@@ -191,7 +191,7 @@ export default function Footer(props) {
               direction="column"
               sx={{
                 maxWidth: "150px",
-                padding: "0 20px",
+                padding: { xs: "0 20px", header: "0 8px" },
               }}
             >
               <Grid
@@ -271,7 +271,7 @@ export default function Footer(props) {
               direction="column"
               sx={{
                 maxWidth: "150px",
-                padding: "0 20px",
+                padding: { xs: "0 20px", header: "0 8px" },
               }}
             >
               <Grid

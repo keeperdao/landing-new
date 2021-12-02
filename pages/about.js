@@ -26,9 +26,7 @@ const AboutIntro = styled(Grid)(({ theme }) => ({
   marginBottom: "40px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const InfoCards = styled(Grid)(({ theme }) => ({
@@ -36,20 +34,16 @@ const InfoCards = styled(Grid)(({ theme }) => ({
   marginBottom: "80px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "12px",
-  paddingRight: "12px",
+  padding: "8px 18px",
 }));
 
 const ProductIntro = styled(Grid)(({ theme }) => ({
   maxWidth: "698px",
-  marginTop: "80px",
+  marginTop: "10px",
   marginBottom: "40px",
   justifyContent: "space-around",
   alignItems: "flex-start",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const ProductCards = styled(Grid)(({ theme }) => ({
@@ -78,7 +72,7 @@ function ProductCard(props) {
         justifyContent="space-between"
         sx={{
           width: "100%",
-          height: { xs: "500px", sm: "475px", md: "525px" },
+          height: { xs: "auto", sm: "475px", md: "525px" },
           padding: "26px",
           margin: 0,
           backgroundColor: "rgba(9, 167, 243, 0.05)",
@@ -100,9 +94,7 @@ function PrincipleCard(props) {
       item
       sx={{
         width: "100%",
-        padding: "4px",
-        paddingLeft: { xs: "16px", md: "4px" },
-        paddingRight: { xs: "16px", md: "4px" },
+        padding: { xs: "4px 18px", md: "4px" },
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -128,7 +120,7 @@ function PrincipleCard(props) {
               item
               direction="row"
               justifyContent="flex-start"
-              sx={{ marginBottom: "8px" }}
+              sx={{ margin: "0 0 8px 3px" }}
             >
               <Typography variant="paragraphBoldLabel" color="accent_light">
                 PRINCIPLES
@@ -159,7 +151,7 @@ function PrincipleCard(props) {
             alignItems="flex-start"
             sx={{ padding: 0, margin: 0 }}
           >
-            <Image width={78} height={78} quality={100} src={image_path} />
+            <Image width={84} height={84} quality={100} src={image_path} />
           </Grid>
         </Grid>
       </Grid>
@@ -212,7 +204,7 @@ export default function About(props) {
         >
           <AboutIntro container item id="intro" direction="column">
             <Grid item sx={{ maxWidth: "698px" }}>
-              <Grid item sx={{ marginBottom: "16px" }}>
+              <Grid item sx={{ margin: "0 0 16px 4px" }}>
                 <Typography variant="paragraphBoldLabel" color="accent_light">
                   ABOUT KEEPERDAO
                 </Typography>
@@ -274,21 +266,23 @@ export default function About(props) {
             <Grid container item sx={{ width: "100%" }} justifyContent="center">
               <Grid
                 container
+                justifyContent="space-between"
                 sx={{
-                  maxWidth: "698px",
                   padding: 0,
                   margin: 0,
                   color: "accent_light",
+                  gap: { xs: "0", md: "2px" },
                 }}
               >
                 <Grid
                   container
                   item
-                  xs={12}
-                  sm={6}
                   justifyContent="center"
                   alignItems="center"
-                  sx={{ padding: "4px" }}
+                  sx={{
+                    padding: "4px 0",
+                    width: { xs: "100%", md: "49%" },
+                  }}
                 >
                   <CardActionArea
                     target="_blank"
@@ -323,11 +317,12 @@ export default function About(props) {
                 <Grid
                   container
                   item
-                  xs={12}
-                  sm={6}
                   justifyContent="center"
                   alignItems="center"
-                  sx={{ padding: "4px" }}
+                  sx={{
+                    padding: "4px 0",
+                    width: { xs: "100%", md: "49%" },
+                  }}
                 >
                   <CardActionArea
                     target="_blank"
@@ -360,11 +355,12 @@ export default function About(props) {
                 <Grid
                   container
                   item
-                  xs={12}
-                  sm={6}
                   justifyContent="center"
                   alignItems="center"
-                  sx={{ padding: "4px" }}
+                  sx={{
+                    padding: { xs: "4px 0", md: "6px 0" },
+                    width: { xs: "100%", md: "49%" },
+                  }}
                 >
                   <CardActionArea
                     target="_blank"
@@ -399,11 +395,12 @@ export default function About(props) {
                 <Grid
                   container
                   item
-                  xs={12}
-                  sm={6}
                   justifyContent="center"
                   alignItems="center"
-                  sx={{ padding: "4px" }}
+                  sx={{
+                    padding: { xs: "4px 0", md: "6px 0" },
+                    width: { xs: "100%", md: "49%" },
+                  }}
                 >
                   <CardActionArea
                     target="_blank"
@@ -445,8 +442,7 @@ export default function About(props) {
             alignItems="center"
             sx={{
               width: "100%",
-              paddingLeft: "16px",
-              paddingRight: "16px",
+              padding: "0 18px",
             }}
           >
             <div style={{ zIndex: 1 }}>
@@ -489,7 +485,12 @@ export default function About(props) {
             </Grid>
           </ProductIntro>
         </Grid>
-        <ProductCards container id="products" direction="row">
+        <ProductCards
+          container
+          id="products"
+          direction="row"
+          sx={{ gap: { xs: "30px", md: "0" } }}
+        >
           <ProductCard>
             <Grid item>
               <Grid
@@ -500,8 +501,8 @@ export default function About(props) {
                 sx={{ marginBottom: "24px" }}
               >
                 <Image
-                  width={56}
-                  height={56}
+                  width={80}
+                  height={80}
                   quality={100}
                   src={"/images/graphics/trade.png"}
                 />
@@ -531,7 +532,7 @@ export default function About(props) {
                 item
                 direction="row"
                 justifyContent="flex-start"
-                sx={{ marginBottom: "8px" }}
+                sx={{ marginBottom: "24px" }}
               >
                 <Typography variant="bodyNormal2">
                   Through the Hiding Game, DeFi users can get paid to trade
@@ -575,8 +576,8 @@ export default function About(props) {
                 sx={{ marginBottom: "24px" }}
               >
                 <Image
-                  width={56}
-                  height={56}
+                  width={80}
+                  height={80}
                   quality={100}
                   src={"/images/graphics/borrow.png"}
                 />
@@ -606,7 +607,7 @@ export default function About(props) {
                 item
                 direction="row"
                 justifyContent="flex-start"
-                sx={{ marginBottom: "8px" }}
+                sx={{ marginBottom: "24px" }}
               >
                 <Typography variant="bodyNormal2">
                   Through the Hiding Vault, users can borrow assets from major
@@ -646,8 +647,8 @@ export default function About(props) {
                 sx={{ marginBottom: "24px" }}
               >
                 <Image
-                  width={56}
-                  height={56}
+                  width={80}
+                  height={80}
                   quality={100}
                   src={"/images/graphics/earn.png"}
                 />
@@ -677,7 +678,7 @@ export default function About(props) {
                 item
                 direction="row"
                 justifyContent="flex-start"
-                sx={{ marginBottom: "8px" }}
+                sx={{ marginBottom: "24px" }}
               >
                 <Typography variant="bodyNormal2">
                   The Hiding Book integration allows DeFi protocols to provide
@@ -813,15 +814,13 @@ export default function About(props) {
             container
             item
             direction="row"
-            sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+            sx={{ justifyContent: { xs: "center", md: "space-between" } }}
           >
             <Grid
               item
               sx={{
-                paddingTop: "2px",
-                paddingBottom: "2px",
-                paddingLeft: "4px",
-                paddingRight: "4px",
+                padding: "2px 4px",
+                width: { xs: "247px", md: "200px", header: "234px" },
               }}
             >
               <a
@@ -840,10 +839,8 @@ export default function About(props) {
             <Grid
               item
               sx={{
-                paddingTop: "2px",
-                paddingBottom: "2px",
-                paddingLeft: "4px",
-                paddingRight: "4px",
+                padding: "2px 4px",
+                width: { xs: "247px", md: "200px", header: "234px" },
               }}
             >
               <a
@@ -862,10 +859,8 @@ export default function About(props) {
             <Grid
               item
               sx={{
-                paddingTop: "2px",
-                paddingBottom: "2px",
-                paddingLeft: "4px",
-                paddingRight: "4px",
+                padding: "2px 4px",
+                width: { xs: "247px", md: "200px", header: "234px" },
               }}
             >
               <a
@@ -884,10 +879,8 @@ export default function About(props) {
             <Grid
               item
               sx={{
-                paddingTop: "2px",
-                paddingBottom: "2px",
-                paddingLeft: "4px",
-                paddingRight: "4px",
+                padding: "2px 4px",
+                width: { xs: "247px", md: "200px", header: "234px" },
               }}
             >
               <a
