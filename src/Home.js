@@ -17,7 +17,6 @@ const IntroBox = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "40px",
   justifyContent: "space-around",
-  //padding: "8px",
 }));
 
 const ExplainerBox = styled(Grid)(({ theme }) => ({
@@ -26,9 +25,6 @@ const ExplainerBox = styled(Grid)(({ theme }) => ({
   justifyContent: "space-around",
   marginBottom: "100px",
   padding: "8px",
-  background:
-    "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
-  borderRadius: "8px",
 }));
 
 const ProductBox = styled(Grid)(({ theme }) => ({
@@ -93,7 +89,7 @@ function Home(props) {
         <Grid
           container
           item
-          sx={{ padding: { xs: "0", header: "26px 0 0" } }}
+          sx={{ margin: { xs: "0", header: "-3px 0 0" } }}
           justifyContent="center"
           xs={11}
           header={7}
@@ -115,8 +111,8 @@ function Home(props) {
         direction="row"
         sx={{
           width: "auto",
-          padding: { xs: "24px" },
-          margin: { xs: "0 8px 100px" },
+          padding: { header: "8px 0" },
+          margin: { xs: "0 8px 100px", header: "0 0 100px" },
         }}
       >
         <Grid container item direction="row" justifyContent="space-between">
@@ -140,7 +136,7 @@ function Home(props) {
                 marginLeft: "-16px",
                 zIndex: 1,
                 height: "4px",
-                width: "92%",
+                width: "48%",
                 opacity: 0.9,
                 background:
                   "linear-gradient(91.6deg, #6C46D6 0%, #4F63DF 52.08%, #09A7F3 100%)",
@@ -174,17 +170,20 @@ function Home(props) {
         id="products"
         container
         item
-        sx={{ justifyContent: "space-between", gap: "20px" }}
+        sx={{
+          justifyContent: "space-between",
+          gap: { xs: "40px", header: "30px" },
+          padding: { xs: "8px", header: "8px 0" },
+        }}
       >
         <Grid
           container
           item
           sx={{
             marginLeft: 0,
-            marginBottom: { header: "0px", xs: "60px" },
-            minWidth: { xs: "230px" },
-            background:
-              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            minWidth: "230px",
+            background: "rgb(24, 19, 34)",
+            borderRadius: "4px",
             padding: "24px",
             flex: "1",
             justifyContent: "space-between",
@@ -259,10 +258,9 @@ function Home(props) {
           item
           sx={{
             marginLeft: 0,
-            marginBottom: { header: "0px", xs: "60px" },
-            minWidth: { xs: "230px" },
-            background:
-              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            minWidth: "230px",
+            background: "rgb(24, 19, 34)",
+            borderRadius: "4px",
             padding: "24px",
             flex: "1",
             justifyContent: "space-between",
@@ -336,10 +334,9 @@ function Home(props) {
           item
           sx={{
             marginLeft: 0,
-            marginBottom: { header: "0px", xs: "60px" },
-            minWidth: { xs: "230px" },
-            background:
-              "radial-gradient(circle, rgba(37,31,45,1) 0%, rgba(20,17,24,1) 100%)",
+            minWidth: "230px",
+            background: "rgb(24, 19, 34)",
+            borderRadius: "4px",
             padding: "24px",
             flex: "1",
             justifyContent: "space-between",
@@ -418,7 +415,7 @@ function Home(props) {
           display: "flex",
           position: "relative",
           width: "100%",
-          padding: "8px",
+          padding: { xs: "8px", header: "0" },
           marginBottom: "48px",
         }}
       >
@@ -453,7 +450,13 @@ function Home(props) {
           item
           direction="row"
           spacing={1}
-          sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+          sx={{
+            justifyContent: {
+              xs: "center",
+              sm: "flex-start",
+              header: "space-between",
+            },
+          }}
         >
           <Grid item>
             <a
@@ -462,8 +465,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/partners/bancor.png"}
               />
@@ -476,8 +479,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/partners/volleyfire.png"}
               />
@@ -490,8 +493,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/partners/metric.png"}
               />
@@ -507,7 +510,7 @@ function Home(props) {
         sx={{
           display: "flex",
           position: "relative",
-          padding: "8px",
+          padding: { xs: "8px", header: "0" },
           width: "100%",
           marginBottom: "48px",
         }}
@@ -543,7 +546,13 @@ function Home(props) {
           item
           direction="row"
           spacing={1}
-          sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+          sx={{
+            justifyContent: {
+              xs: "center",
+              sm: "flex-start",
+              header: "space-between",
+            },
+          }}
         >
           <Grid item>
             <a
@@ -552,8 +561,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/investors/polychain.png"}
               />
@@ -566,8 +575,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/investors/threearrows.png"}
               />
@@ -580,8 +589,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/investors/amber.png"}
               />
@@ -597,7 +606,7 @@ function Home(props) {
         sx={{
           display: "flex",
           position: "relative",
-          padding: "8px",
+          padding: { xs: "8px", header: "0" },
           width: "100%",
           zIndex: 2,
         }}
@@ -634,7 +643,11 @@ function Home(props) {
           direction="row"
           spacing={1}
           sx={{
-            justifyContent: { xs: "center", sm: "flex-start" },
+            justifyContent: {
+              xs: "center",
+              sm: "flex-start",
+              header: "space-between",
+            },
             marginBottom: "48px",
           }}
         >
@@ -645,8 +658,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/auditors/samczsun.png"}
               />
@@ -659,8 +672,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/auditors/quantstamp.png"}
               />
@@ -673,8 +686,8 @@ function Home(props) {
               rel="noopener noreferrer"
             >
               <Image
-                width={243}
-                height={114}
+                width={275}
+                height={128}
                 quality={100}
                 src={"/images/auditors/peckshield.png"}
               />
