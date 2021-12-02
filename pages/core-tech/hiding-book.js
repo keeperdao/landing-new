@@ -19,27 +19,21 @@ const HidingBookIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "80px",
   justifyContent: "space-around",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const AsUsedBy = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "80px",
   justifyContent: "space-around",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const MEVIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
   justifyContent: "space-around",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const Benefits = styled(Grid)(({ theme }) => ({
@@ -47,9 +41,7 @@ const Benefits = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const UseCases = styled(Grid)(({ theme }) => ({
@@ -57,9 +49,7 @@ const UseCases = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const SideTitle = styled(Grid)(({ theme }) => ({
@@ -67,9 +57,7 @@ const SideTitle = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "center",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const HGFlowChart = styled(Grid)(({ theme }) => ({
@@ -91,10 +79,7 @@ const Keepers = styled(Grid)(({ theme }) => ({
   left: "calc(-50vw + 50%)",
   marginBottom: "128px",
   justifyContent: "center",
-  paddingTop: "20px",
-  paddingBottom: "20px",
-  paddingLeft: { sm: "10px", xs: "20px" },
-  paddingRight: { sm: "10px", xs: "20px" },
+  padding: "20px 0",
   backgroundColor: "#1D1842",
 }));
 
@@ -103,9 +88,7 @@ const PartnerRewards = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "center",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const WhyIntegrate = styled(Grid)(({ theme }) => ({
@@ -113,9 +96,7 @@ const WhyIntegrate = styled(Grid)(({ theme }) => ({
   marginBottom: "128px",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "8px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
+  padding: "8px 18px",
 }));
 
 const HowToIntegrate = styled(Grid)(({ theme }) => ({
@@ -197,6 +178,7 @@ const myEffect = keyframes`
     transform: translateY(0);
   }
 `;
+
 const myEffectExit = keyframes`
   0% {
     opacity: 1;
@@ -242,14 +224,17 @@ export default function HidingBook(props) {
       </Head>
       <div style={{ padding: 0, margin: 0 }}>
         <HidingBookIntro container id="intro" direction="column">
-          <Grid item sx={{ marginBottom: "16px" }}>
+          <Grid item sx={{ margin: "0 0 16px 4px" }}>
             <Typography variant="paragraphBoldLabel" color="accent">
               THE HIDING BOOK
             </Typography>
           </Grid>
           <Grid item sx={{ marginBottom: "40px" }}>
             <Grid container maxWidth="769px">
-              <Typography variant="headingDisplay">
+              <Typography
+                variant="headingDisplay"
+                sx={{ letterSpacing: "-1px" }}
+              >
                 Get paid to integrate the most comprehensive MEV protection into
                 your{" "}
                 <div
@@ -1049,20 +1034,18 @@ export default function HidingBook(props) {
             </Grid>
           </Grid>
         </SideTitle>
-        <Keepers
-          container
-          id="keepers"
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Keepers container id="keepers" direction="row">
           <Grid
             container
             item
-            maxWidth="840px"
             alignItems="center"
             justifyContent="center"
-            sx={{ color: theme.palette.text.primary_dark }}
+            sx={{
+              color: theme.palette.text.primary_dark,
+              padding: { xs: "0", sm: "0 30px", md: "0 40px" },
+              maxWidth: "840px",
+              minWidth: { xs: "0", sm: "380px" },
+            }}
           >
             <Grid item xs={10} sm={6}>
               <Grid
@@ -1112,7 +1095,7 @@ export default function HidingBook(props) {
                         src={"/images/logos/1inch_kd.png"}
                       />
                     </Grid>
-                    <Grid item sx={{ marginRight: "32px" }}>
+                    <Grid item sx={{ marginRight: "0" }}>
                       <img
                         width={36}
                         height={36}
@@ -1156,7 +1139,7 @@ export default function HidingBook(props) {
                         src={"/images/logos/coinbase.png"}
                       />
                     </Grid>
-                    <Grid item sx={{ marginRight: "32px" }}>
+                    <Grid item sx={{ marginRight: "0" }}>
                       <img
                         width={36}
                         height={36}
@@ -1167,7 +1150,12 @@ export default function HidingBook(props) {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={10} sm={6}>
+            <Grid
+              item
+              xs={10}
+              sm={6}
+              sx={{ minWidth: { xs: "0", sm: "380px" } }}
+            >
               <Image
                 priority
                 height={520}
@@ -1467,10 +1455,7 @@ export default function HidingBook(props) {
                 container
                 item
                 sx={{
-                  paddingTop: { xs: "16px", sm: "48px" },
-                  paddingLeft: { xs: "16px", sm: "48px" },
-                  paddingRight: { xs: "16px", sm: "48px" },
-                  paddingBottom: 0,
+                  padding: { xs: "18px 18px 0", sm: "48px 48px 0" },
                 }}
               >
                 <Grid container item sx={{ marginBottom: "32px" }}>
@@ -1541,8 +1526,8 @@ export default function HidingBook(props) {
           <Grid item sx={{ marginTop: 0, marginBottom: "-4px" }}>
             <Image
               priority
-              width={840}
-              height={116}
+              width={980}
+              height={136}
               src={"/images/graphics/logos_azure.png"}
             />
           </Grid>
