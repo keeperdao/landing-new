@@ -8,7 +8,7 @@ import theme from '../theme'
 const HeaderGrid = styled(Grid)({
   direction: "row",
   justifyContent: "space-between",
-  alignItems: "center",
+  alignItems: "top",
 })
 
 const FilterGrid = styled(Grid)({
@@ -18,9 +18,12 @@ const FilterGrid = styled(Grid)({
   alignItems: "center",
   direction: "column",
 
-  "& .MuiMenu-paper" : {
-    color: "black",
-  }
+  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+      border: "none"
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+      border: "none"
+  },
 })
 
 const FilterTypography = styled(Typography)((props) => ({
@@ -28,7 +31,7 @@ const FilterTypography = styled(Typography)((props) => ({
   color:
     props.isselected
     ? theme.palette.accent
-    : theme.palette.text_primary,
+    : theme.palette.text.primary_dark,
   whiteSpace: "noWrap",
   textTransform: "uppercase",
   // textDecoration:
@@ -54,45 +57,16 @@ const SelectTypography = styled(Typography)({
 })
 
 const SelectorField = styled(Select)({
-
-  "& .MuiSelect-outlined .MuiOutlinedInput-notchedOutline": {
-    borderColor: "transparent",
-  },
-
-  // "& .MuiSelect-select .MuiOutlinedInput-notchedOutline": {
-  //   borderColor: "transparent",
-  // },
-
-  "& .MuiSelect-outlined.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "transparent",
-
-  },
-
-  "&:hover .MuiSelect-outlined .MuiOutlinedInput-notchedOutline": {
-    borderColor: "transparent",
-  },
-
   "& .MuiSelect-outlined": {
     color: theme.palette.text.primary_dark,
     background: "none",
     padding: 0,
-    paddingLeft: 25,
-    // background: "none",
-    // backgroundColor: "transparent"
+    marginLeft: 10,
   },
-
-  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-  border: "1px solid #484850",
-  borderRadius: "5px 5px 0 0"
-},
 
   "& .MuiSelect-iconOutlined" : {
     color: theme.palette.text.primary_dark,
   },
-
-  // ".MuiModal-root" : {
-  //   color: theme.palette.text.primary_dark,
-  // },
 
 })
 
@@ -101,20 +75,8 @@ const SelectorMenuItem = styled(MenuItem)({
   background: "none",
   padding: 0,
   margin: 0,
-
-  // "& .MuiMenuItem-root" : {
-  //   background: "none",
-  //   backgroundColor: "transparent"
-  // },
-  //
-  // "& .MuiPopover-root" : {
-  //   backgroundColor: "transparent"
-  // }
 })
 
-// const SelectorMenu = styled(Menu)({
-//
-// })
 
 function TileHeader(props) {
 
@@ -138,17 +100,15 @@ function TileHeader(props) {
 
   let index = props.filter2? props.filter2.indexOf(props.activeFilter2) : ""
 
-console.log(props.filter2? props.filter2.indexOf(props.activeFilter2) : "")
-
   let filter2List = React.Children.map(props.filter2, (item, i) =>
       <SelectorMenuItem value={item} readOnly>
-      <Typography
+      <SelectTypography
         variant="paragraphBoldLabel"
         color={theme.palette.text.primary_dark}
         noWrap
       >
         {item}
-        </Typography>
+        </SelectTypography>
       </SelectorMenuItem>
 );
 
@@ -169,12 +129,12 @@ console.log(props.filter2? props.filter2.indexOf(props.activeFilter2) : "")
           {props.filter1 && filterList}
           {
             props.filter2 &&
+            <Grid item>
             <SelectorField
               value={props.activeFilter2}
-              variant="outlined"
               onChange={props.filterClick2}
               MenuProps={{
-                getContentAnchorEl: null,
+                // getContentAnchorEl: null,
                 anchorOrigin: {
                   vertical: "bottom",
                   horizontal: "center"
@@ -183,12 +143,17 @@ console.log(props.filter2? props.filter2.indexOf(props.activeFilter2) : "")
                 margin: 0,
                 PaperProps: {
                   elevation: 0,
-                  sx: {background: "none", justifyContent: "center"},
-                }
+                  sx: {
+                        background: "none",
+                        justifyContent: "center", "& li:hover": {
+                        backgroundColor: "#303039"
+                      }},
+                },
               }}
             >
               {filter2List}
             </SelectorField>
+            </Grid>
           }
         </FilterGrid>
         </Grid>

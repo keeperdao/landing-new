@@ -34,7 +34,7 @@ function Panel(props) {
     </TileGrid>
   ), [props.titles, props.types]);
 
-  return <>{tilesList}</>
+  return tilesList
 }
 
 function DynamicTile(props) {
@@ -49,17 +49,12 @@ function DynamicTile(props) {
 
   const [activeData2, setActiveData2] = useState(() => props.filter2? props.filter2[0] : "");
   const handleChange2 = event => {
-    console.log(event?.target?.value)
     setActiveData2(event?.target?.value);
   };
 
-  const data = DataRequest({route: props.route, identifier: props.identifier, arguments: {range: activeData}})
-
-  // console.log(data)
+  const data = DataRequest({route: props.route, identifier: props.identifier})
 
   const data2 = DataRequest({route: props.route2, identifier: props.identifier2, arguments: {range: activeData}})
-
-  // console.log(data2)
 
   return (
     <>
