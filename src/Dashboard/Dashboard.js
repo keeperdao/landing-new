@@ -73,9 +73,7 @@ function Dashboard(props) {
       <TabButton
         value={i}
         onClick={handleClick}
-        isselected={tabValue == i
-                    ? "true" :
-                    undefined}
+        isselected = {tabValue == i ? 1 : 0}
       >
         {item1}
       </TabButton>

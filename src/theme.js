@@ -125,7 +125,7 @@ const theme = createTheme({
       fontSize: "12px",
       lineHeight: "15px",
       letterSpacing: "0.02em",
-      textTransform: "capitalize",
+      textTransform: "uppercase",
     },
     bodyNormal: {
       fontFamily: "Inter",
@@ -596,7 +596,8 @@ const theme = createTheme({
       xl: 1536,
     },
   },
-  shadows: ["none"],
+  // req for MUI paper
+  // shadows: ["none"],
 });
 
 export default theme;

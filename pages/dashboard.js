@@ -31,7 +31,7 @@ export async function getStaticProps() {
     'Liquidity Pools'
   ];
 
-  let baseRoute = "http://172.25.0.5/api/v1/";
+  let baseRoute = "http://172.25.0.6/api/v1/";
   let r1 = baseRoute + "metrics/tvl"
   let r2 = baseRoute + "vaults"
   let r3 = baseRoute + "metrics/volume?"
@@ -50,19 +50,19 @@ export async function getStaticProps() {
       "BID ROOK" : {},
       "STAKED ROOK" : {},
       "BURNED ROOK" : {},
-      "ACTIVE KEEPERS" : {type: "Table"},
-      "ACTIVE AUCTIONS" : {type: "Table"}
+      // "ACTIVE KEEPERS" : {type: "Table"},
+      // "ACTIVE AUCTIONS" : {type: "Table"}
     },
     {
       "LIMIT ORDERS" : {type: "Info"},
-      "HIDING GAME VOLUME" : {route: r3, identifier: 'days', type: "Bar", filter1: ["week", "month", "all"], filter2: ["dai", "eth"]},
+      "HIDING GAME VOLUME" : {route2: r3, identifier2: 'days', type: "Bar", filter1: ["week", "month", "all"], filter2: ["dai", "eth"]},
       "UNIQUE ORDERS FILLED" : {},
       "HIDING GAME VOLUME TO DATE" : {prefix: "Ξ", filter1: ["dai", "eth"]},
       "DISTRIBUTED ROOK REWARDS" : {prefix: "$"},
     },
     {
-      "HISTORICAL ROOK APY" : {route: r3, identifier: 'days', type: "Bar"},
-      "HISTORICAL SUPPLY/BORROW" : {route2: r3, identifier2: "days", type: "Area", filter2: ["dai", "eth"]},
+      "HISTORICAL ROOK APY" : {route2: r3, identifier2: 'days', type: "Bar"},
+      "HISTORICAL SUPPLY/BORROW" : {route2: r3, identifier2: "days", type: "Area", filter2: ["supply", "borrow"]},
       "CURRENT ROOK APY" : {route: r2, identifier: 'avg_rook_apr'},
       "TOTAL NUMBER OF VAULTS" : {route: r2, identifier: 'num_vaults'},
       "DISTRIBUTED ROOK REWARDS" : {prefix: "$"},
@@ -71,8 +71,8 @@ export async function getStaticProps() {
       "TOTAL SUPPLY VOLUME" : {route: r2, identifier: 'supply_usd', prefix: "$"},
     },
     {
-      "HISTORICAL APY" : {route: r3, identifier: 'days', type: "Bar", filter2: ["dai", "eth"]},
-      "TOTAL FEES COLLECTED" : {prefix: "$", filter2: ["dai", "eth"]},
+      "HISTORICAL APY" : {route2: r3, identifier2: 'days', type: "Bar", filter2: ["dai pool", "eth pool"]},
+      "TOTAL FEES COLLECTED" : {prefix: "$", filter2: ["dai pool", "eth pool"]},
       "ROOK REWARDS DISTRIBUTED" : {prefix: "$"},
     },
   ]

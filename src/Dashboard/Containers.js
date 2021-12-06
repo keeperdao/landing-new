@@ -12,6 +12,7 @@ const TileGrid = styled(Grid)({
 
 const TileContainer = styled(Grid)({
   background: theme.palette.background.tile,
+  padding: 40,
 })
 
 function Panel(props) {
@@ -23,41 +24,11 @@ function Panel(props) {
     <TileGrid item sm={props[item].type? 2 : 1} xs={1}>
       <TileContainer>
       {
-        props[item].type == "Info"
-        ? <InfoTile title={item}/>
-        : ""
-      }
-      {
-        !props[item].type
-        ? <DataTile title= {item}
-                    route= {props[item].route}
-                    identifier={props[item].identifier}
-                    prefix={props[item].prefix}
-        />
-        : ""
-      }
-      {
-        props[item].type == "Bar" | props[item].type == "Area"
-        ? <Tile
-            title={item}
-            type={props[item].type}
-            filter1={props[item].filter1}
-            filter2={props[item].filter2}
-            prefix={props[item].prefix}
-            route= {props[item].route}
-            identifier={props[item].identifier}
-            route2= {props[item].route2}
-            identifier2={props[item].identifier2}
-          />
-        : ""
-      }
-      {
-        props[item].type == "Table"
-        ? <TableTile
-            title={item}
-            type={props[item].type}
-          />
-        : ""
+        !props[item].type && !props[item].filter1 && !props[item].filter2
+        ? <DataTile title= {item} {...props[item]}/>
+        : props[item].type == "Info"
+          ? <InfoTile title={item}/>
+          : <DynamicTile title={item} {...props[item]} />
       }
       </TileContainer>
     </TileGrid>
@@ -66,70 +37,76 @@ function Panel(props) {
   return <>{tilesList}</>
 }
 
-function Tile(props) {
+function DynamicTile(props) {
 
   // console.log("rendering Tile: " + props.title);
 
-  const [activeData, setActiveData] = useState(() => "week");
+  const [activeData, setActiveData] = useState(() => props.filter1? props.filter1[0] : "week");
   const handleChange = event => {
+    event.preventDefault();
     setActiveData(event?.target?.innerHTML);
   };
 
-  let isChart = props.type == "Area" | props.type == "Bar"
+  const [activeData2, setActiveData2] = useState(() => props.filter2? props.filter2[0] : "");
+  const handleChange2 = event => {
+    console.log(event?.target?.value)
+    setActiveData2(event?.target?.value);
+  };
 
   const data = DataRequest({route: props.route, identifier: props.identifier, arguments: {range: activeData}})
 
+  // console.log(data)
+
   const data2 = DataRequest({route: props.route2, identifier: props.identifier2, arguments: {range: activeData}})
 
+  // console.log(data2)
 
   return (
     <>
       <TileHeader
         activeFilter={activeData}
-        title={props.title}
-        filter1={props.filter1}
-        filter2={props.filter2}
         filterClick={handleChange}
+        activeFilter2={activeData2}
+        filterClick2={handleChange2}
+        {...props}
       />
       {
-        props.type == "Area" | !props.type
+        props.type == "Area"
         ? <DataBlock
-            title={props.title}
-            route={props.route}
-            identifier={props.identifier}
             variant="headingDisplay"
             color={theme.palette.text.primary_dark}
             prefix="$"
+            {...props}
           />
         : ""
       }
       {
-        isChart
+        props.type == "Area" | props.type == "Bar"
         ? <Chart
             type={props.type}
-            data={data2 ? data2 : data}
+            data={data2}
             prefix={props.prefix}
           />
-        : ""
+        : <DataBlock
+            variant="headingTitle"
+            color={theme.palette.text.primary_dark}
+            {...props}
+          />
       }
+
     </>
   );
 }
 
 function DataTile (props) {
 
-  // console.log(props.route)
-
   return (
     <>
-      <TileHeader title={props.title} />
+      <TileHeader title={props.title} {...props} />
       <DataBlock
-        title={props.title}
-        route={props.route}
-        identifier={props.identifier}
         variant="headingTitle"
-        prefix={props.prefix}
         color={theme.palette.text.primary_dark}
+        {...props}
       />
     </>
   )
@@ -139,7 +116,7 @@ function InfoTile(props) {
 
   //temp
   const users = 5374;
-  const savings = "Ξ 3025";
+  const savings = "Ξ " + 3025;
   const rook = 5166;
 
   return(
@@ -160,6 +137,7 @@ function InfoTile(props) {
       <Typography
         variant="headingDisplay"
         color={theme.palette.text.accent}
+        noWrap
       >
         {" " + savings.toLocaleString() + " "}
       </Typography>
@@ -176,10 +154,4 @@ function InfoTile(props) {
   )
 }
 
-function TableTile(props) {
-  return (
-    <TileHeader title={props.title} />
-  )
-}
-
-export {Tile, Panel}
+export {Panel}
