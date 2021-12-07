@@ -5,24 +5,48 @@ import {SWRConfig} from 'swr'
 import {Panel} from './Containers'
 import theme from '../theme'
 
-const DashboardContainer = styled(Grid)({
+const DashboardContainer = styled((props) => (
+  <Grid
+    container
+    {...props}
+  />
+))(() => ({
   background: theme.palette.background.dark,
   minWidth: theme.breakpoints.values["tab"],
   maxWidth: theme.breakpoints.values["md"],
   alignItems: "center",
-  skipSx: true,
-})
+}));
 
-const TabGrid = styled(Grid)({
+const ControlContainer = styled((props) => (
+  <Grid
+    item
+    container
+    columns={{sm: 5, tab: 2, xs: 1}}
+    {...props}
+  />
+))(() => ({
   background: theme.palette.background.tab,
   alignItems: "center",
   textAlign: "center",
   borderRadius: 16,
   padding: 8,
-  skipSx: true,
-})
+}));
 
-const TabButton = styled(Button)((props) => ({
+const ControlItem = styled((props) => (
+  <Grid
+    item
+    sm={1}
+    tab={1}
+    xs={1}
+    {...props}
+  />
+))(() => ({}))
+
+const ControlButton = styled((props) => (
+  <Button
+    {...props}
+  />
+))( props => ({
   background:
     props.isselected
     ? theme.palette.accent
@@ -33,7 +57,6 @@ const TabButton = styled(Button)((props) => ({
     : theme.palette.text.tab,
   width: '95%',
   borderRadius: 8,
-  skipSx: true,
   padding: 8,
   // use typography
   fontFamily: "Inter",
@@ -52,10 +75,17 @@ const TabButton = styled(Button)((props) => ({
   },
 }));
 
-const PanelGrid = styled(Grid)({
+const PanelContainer = styled((props) => (
+  <Grid
+    item
+    container
+    columns={{sm: 2, tab: 2, xs: 1}}
+    {...props}
+  />
+))(() => ({
   paddingTop: 32,
-  skipSx: true,
-})
+}));
+
 
 function fetcher(...args) {
   return fetch(...args).then(res => res.json())
@@ -63,22 +93,22 @@ function fetcher(...args) {
 
 function Dashboard(props) {
 
-  const [tabValue, setTabValue] = useState(() => 0);
+  const [activePanel, setActivePanel] = useState(() => 0);
   const handleClick = event => {
-    setTabValue(event?.target?.value);
+    setActivePanel(event?.target?.value);
   }
 
   const buttonList = useMemo(() => React.Children.map(props.buttons,(item1, i) =>
-    <Grid item sm={1} tab={1} xs={1}>
-      <TabButton
+    <ControlItem>
+      <ControlButton
         value={i}
         onClick={handleClick}
-        isselected = {tabValue == i ? 1 : 0}
+        isselected = {activePanel == i ? 1 : 0}
       >
         {item1}
-      </TabButton>
-    </Grid>
-  ), [tabValue]);
+      </ControlButton>
+    </ControlItem>
+  ), [activePanel]);
 
 
   const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
@@ -86,35 +116,20 @@ function Dashboard(props) {
   ), [props.buttons]);
 
   return (
-    <DashboardContainer container>
-      <TabGrid
-        item
-        container
-        columns={{sm: 5, tab: 2, xs: 1}}
-      >
+    <DashboardContainer>
+      <ControlContainer>
         {buttonList}
-      </TabGrid>
-      <PanelGrid
-        item
-        container
-        columns={{sm: 2, tab: 2, xs: 1}}
-      >
+      </ControlContainer>
+      <PanelContainer>
         <SWRConfig value={{fetcher: fetcher}}>
           {panelList
-            ? panelList[tabValue]
+            ? panelList[activePanel]
             : ""
           }
         </SWRConfig>
-      </PanelGrid>
+      </PanelContainer>
     </DashboardContainer>
   );
 }
 
 export {Dashboard};
-
-// const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
-//   <Panel
-//     titles={props.titles[i]}
-//     types={props.types[i]}
-//   />
-// ), [props.buttons]);

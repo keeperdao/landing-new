@@ -1,17 +1,26 @@
 import React, {useMemo} from 'react';
-import {Grid, Typography, TextField, Popover, MenuItem, Menu, Select} from "@material-ui/core";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import {Grid, Typography, MenuItem, Select} from "@material-ui/core";
 import {styled} from '@mui/material/styles';
 import useSWR from 'swr'
 import theme from '../theme'
 
-const HeaderGrid = styled(Grid)({
+const HeaderContainer = styled((props) => (
+  <Grid
+    container
+    {...props}
+  />
+))(() => ({
   direction: "row",
   justifyContent: "space-between",
-  alignItems: "top",
-})
+  alignItems: "center",
+}));
 
-const FilterGrid = styled(Grid)({
+const FilterContainer = styled((props) => (
+  <Grid
+    container
+    {...props}
+  />
+))(() => ({
   justifyContent: "flex-end",
   textTransform: 'uppercase',
   textWrap: 'noWrap',
@@ -19,44 +28,71 @@ const FilterGrid = styled(Grid)({
   direction: "column",
 
   "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-      border: "none"
+      border: "none",
   },
-  "&:hover .MuiOutlinedInput-notchedOutline": {
-      border: "none"
-  },
-})
 
-const FilterTypography = styled(Typography)((props) => ({
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+      border: "none",
+  },
+}));
+
+const HeaderTypography = styled((props) => (
+  <Typography
+    variant="paragraphBoldLabel"
+    noWrap
+    {...props}
+  />
+))( props => ({
   background: "none",
   color:
     props.isselected
     ? theme.palette.accent
     : theme.palette.text.primary_dark,
   whiteSpace: "noWrap",
-  textTransform: "uppercase",
-  // textDecoration:
-  //   props.isselected && "underline",
   borderBottom :
-    props.isselected && "2px solid" + `${theme.palette.accent}`,
-  marginRight: 2,
-  marginLeft: 2,
+    props.isselected
+    && props.value
+    && "2px solid" + `${theme.palette.accent}`,
+  marginRight:
+    isNaN(props.isselected)
+    ? 0
+    : 2,
+  marginLeft:
+    isNaN(props.isselected)
+    ? 0
+    : 2,
   "&:hover": {
     background: "none",
-    cursor: "pointer",
+    cursor:
+      isNaN(props.isselected)
+      ? "auto"
+      : "pointer",
   },
 }));
 
-const SelectTypography = styled(Typography)({
-  background: "none",
-  whiteSpace: "noWrap",
-  textTransform: "uppercase",
-  "&:hover": {
-    background: "none",
-    cursor: "pointer",
-  },
-})
-
-const SelectorField = styled(Select)({
+const Filter2Select = styled((props) => (
+  <Select
+    MenuProps={{
+      anchorOrigin: {
+        vertical: "bottom",
+        horizontal: "center"
+      },
+      padding: 0,
+      margin: 0,
+      PaperProps: {
+        elevation: 0,
+        sx: {
+          background: "none",
+          justifyContent: "center",
+          "& li:hover": {
+            backgroundColor: "#303039",
+            background: "none",
+          }},
+        },
+    }}
+    {...props}
+  />
+))(() => ({
   "& .MuiSelect-outlined": {
     color: theme.palette.text.primary_dark,
     background: "none",
@@ -67,15 +103,19 @@ const SelectorField = styled(Select)({
   "& .MuiSelect-iconOutlined" : {
     color: theme.palette.text.primary_dark,
   },
+}));
 
-})
-
-const SelectorMenuItem = styled(MenuItem)({
+const SelectItem = styled((props) => (
+  <MenuItem
+    readOnly
+    {...props}
+  />
+))(() => ({
   alignItems: "center",
   background: "none",
   padding: 0,
   margin: 0,
-})
+}));
 
 
 function TileHeader(props) {
@@ -84,83 +124,61 @@ function TileHeader(props) {
 
   let filterList = React.Children.map(props.filter1, (item, i) =>
   <Grid item>
-    <FilterTypography
-      variant="paragraphBoldLabel"
-      // color={theme.palette.text.primary_dark}
+    <HeaderTypography
       value={item}
       onClick={props.filterClick}
-      isselected={props.activeFilter == item
-                    ? "true"
-                    : undefined}
+      isselected=
+      {
+        props.activeFilter == item
+        ? 1
+        : 0
+      }
     >
       {item}
-    </FilterTypography>
+    </HeaderTypography>
   </Grid>
   );
 
   let index = props.filter2? props.filter2.indexOf(props.activeFilter2) : ""
 
   let filter2List = React.Children.map(props.filter2, (item, i) =>
-      <SelectorMenuItem value={item} readOnly>
-      <SelectTypography
-        variant="paragraphBoldLabel"
-        color={theme.palette.text.primary_dark}
-        noWrap
-      >
-        {item}
-        </SelectTypography>
-      </SelectorMenuItem>
+      <SelectItem value={item}>
+        <HeaderTypography>
+          {item}
+        </HeaderTypography>
+      </SelectItem>
 );
 
 
   return (
-    <HeaderGrid container>
+    <HeaderContainer>
       <Grid item>
-        <Typography
-          variant="paragraphBoldLabel"
-          color={theme.palette.accent}
-          noWrap
-        >
+        <HeaderTypography isselected={1}>
           {props.title}
-        </Typography>
+        </HeaderTypography>
       </Grid>
       <Grid item>
-        <FilterGrid container>
-          {props.filter1 && filterList}
+        <FilterContainer>
           {
-            props.filter2 &&
-            <Grid item>
-            <SelectorField
-              value={props.activeFilter2}
-              onChange={props.filterClick2}
-              MenuProps={{
-                // getContentAnchorEl: null,
-                anchorOrigin: {
-                  vertical: "bottom",
-                  horizontal: "center"
-                },
-                padding: 0,
-                margin: 0,
-                PaperProps: {
-                  elevation: 0,
-                  sx: {
-                        background: "none",
-                        justifyContent: "center", "& li:hover": {
-                        backgroundColor: "#303039"
-                      }},
-                },
-              }}
-            >
-              {filter2List}
-            </SelectorField>
-            </Grid>
+            props.filter1
+            && filterList
           }
-        </FilterGrid>
+          {
+            props.filter2
+            && <Grid item>
+                <Filter2Select
+                  value={props.activeFilter2}
+                  onChange={props.filterClick2}
+                >
+                  {filter2List}
+                </Filter2Select>
+              </Grid>
+          }
+        </FilterContainer>
         </Grid>
-    </HeaderGrid>
+    </HeaderContainer>
   );
 }
-
 
 function DataRequest(props) {
 
@@ -179,12 +197,10 @@ function DataRequest(props) {
 
 function DataBlock(props) {
 
-
   let data = DataRequest({route: props.route, identifier: props.identifier})
 
   // temp random values
   data = data? data: Math.random() * 10000;
-
 
   return (
     <Typography
