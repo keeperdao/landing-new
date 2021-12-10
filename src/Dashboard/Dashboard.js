@@ -1,91 +1,8 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo} from "react";
 import {Button, Grid} from "@material-ui/core";
-import {styled, ThemeProvider} from '@mui/material/styles';
-import {SWRConfig} from 'swr'
-import {Panel} from './Containers'
-import theme from '../theme'
-
-const DashboardContainer = styled((props) => (
-  <Grid
-    container
-    {...props}
-  />
-))(() => ({
-  background: theme.palette.background.dark,
-  minWidth: theme.breakpoints.values["tab"],
-  maxWidth: theme.breakpoints.values["md"],
-  alignItems: "center",
-}));
-
-const ControlContainer = styled((props) => (
-  <Grid
-    item
-    container
-    columns={{sm: 5, tab: 2, xs: 1}}
-    {...props}
-  />
-))(() => ({
-  background: theme.palette.background.tab,
-  alignItems: "center",
-  textAlign: "center",
-  borderRadius: 16,
-  padding: 8,
-}));
-
-const ControlItem = styled((props) => (
-  <Grid
-    item
-    sm={1}
-    tab={1}
-    xs={1}
-    {...props}
-  />
-))(() => ({}))
-
-const ControlButton = styled((props) => (
-  <Button
-    {...props}
-  />
-))( props => ({
-  background:
-    props.isselected
-    ? theme.palette.accent
-    : "none",
-  color:
-    props.isselected
-    ? theme.palette.text.primary_dark
-    : theme.palette.text.tab,
-  width: '95%',
-  borderRadius: 8,
-  padding: 8,
-  // use typography
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  fontWeight: "normal",
-  fontSize: "16px",
-  lineHeight: "19px",
-  whiteSpace: "noWrap",
-  textTransform: "none",
-  //
-  "&:hover": {
-      background:
-        props.isselected
-        ? theme.palette.text.accent
-        : "none",
-  },
-}));
-
-const PanelContainer = styled((props) => (
-  <Grid
-    item
-    container
-    columns={{sm: 2, tab: 2, xs: 1}}
-    {...props}
-  />
-))(() => ({
-  paddingTop: 32,
-}));
-
+import {SWRConfig} from "swr"
+import {Panel} from "./Containers"
+import {useStyle} from "./Theme"
 
 function fetcher(...args) {
   return fetch(...args).then(res => res.json())
@@ -99,15 +16,18 @@ function Dashboard(props) {
   }
 
   const buttonList = useMemo(() => React.Children.map(props.buttons,(item1, i) =>
-    <ControlItem>
-      <ControlButton
+    <Grid
+      item
+      sm={1} min={1} xs={1}
+    >
+      <Button
+        variant={activePanel == i ? "control-active" : "control-inactive"}
         value={i}
         onClick={handleClick}
-        isselected = {activePanel == i ? 1 : 0}
       >
         {item1}
-      </ControlButton>
-    </ControlItem>
+      </Button>
+    </Grid>
   ), [activePanel]);
 
 
@@ -116,19 +36,32 @@ function Dashboard(props) {
   ), [props.buttons]);
 
   return (
-    <DashboardContainer>
-      <ControlContainer>
+    <Grid
+      variant="dashboard-container"
+      container
+    >
+      <Grid
+        variant="control-container"
+        container
+        item
+        columns={{sm: 5, min: 2, xs: 1}}
+      >
         {buttonList}
-      </ControlContainer>
-      <PanelContainer>
+      </Grid>
+      <Grid
+        variant="panel-container"
+        container
+        item
+        columns={{sm: 2, min: 2, xs: 1}}
+      >
         <SWRConfig value={{fetcher: fetcher}}>
           {panelList
             ? panelList[activePanel]
             : ""
           }
         </SWRConfig>
-      </PanelContainer>
-    </DashboardContainer>
+      </Grid>
+    </Grid>
   );
 }
 

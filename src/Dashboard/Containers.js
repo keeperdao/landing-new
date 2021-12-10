@@ -1,19 +1,8 @@
 import React, {useState, useMemo} from 'react';
 import {Grid, Typography} from "@material-ui/core";
-import {styled} from '@mui/material/styles';
 import {TileHeader, DataBlock, DataRequest} from './Content'
 import Chart from './Charts'
 import theme from '../theme'
-
-const TileGrid = styled(Grid)({
-  padding: 4,
-  skipSx: true,
-})
-
-const TileContainer = styled(Grid)({
-  background: theme.palette.background.tile,
-  padding: 40,
-})
 
 function Panel(props) {
 
@@ -21,8 +10,14 @@ function Panel(props) {
 
   const tilesList = useMemo(() => React.Children.map(titles, (item, i) =>
 
-    <TileGrid item sm={props[item].type? 2 : 1} xs={1}>
-      <TileContainer>
+    <Grid
+      variant="tile-item"
+      item
+      sm={props[item].type? 2 : 1} xs={1}
+    >
+      <Grid
+        variant="tile-inner-container"
+      >
       {
         !props[item].type && !props[item].filter1 && !props[item].filter2
         ? <DataTile title= {item} {...props[item]}/>
@@ -30,8 +25,8 @@ function Panel(props) {
           ? <InfoTile title={item}/>
           : <DynamicTile title={item} {...props[item]} />
       }
-      </TileContainer>
-    </TileGrid>
+      </Grid>
+    </Grid>
   ), [props.titles, props.types]);
 
   return tilesList

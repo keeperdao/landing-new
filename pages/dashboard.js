@@ -39,7 +39,7 @@ export async function getStaticProps() {
   const properties =
   [
     {
-      "TOTAL VALUE LOCKED" : {route: r1, identifier: 'total_tvl', route2: r3, identifier2: "days", type: "Area"},
+      "TOTAL VALUE LOCKED" : {route: r1, identifier: 'total_tvl', route2: r3, identifier2: "days", type: "Area", prefix: "$"},
       "TREASURY" : {prefix: "$"},
       "DISTRIBUTED ROOK REWARDS" : {prefix: "$"},
       "ROOK SUPPLY" : {prefix: "R"},

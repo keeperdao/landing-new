@@ -32,7 +32,7 @@ const gradient =
   </defs>
 )
 
-function CustomTooltip({ active, payload, label, prefix }) {
+function CustomTooltip({ active, payload, label, prefix, suffix}) {
   if (active && payload && payload.length) {
     return (
       <>
@@ -41,7 +41,9 @@ function CustomTooltip({ active, payload, label, prefix }) {
           display="block"
           color={theme.palette.text.primary_dark}
         >
-          {prefix? prefix: "" + `${payload[0].value}`}
+          {prefix? prefix: ""}
+          {payload[0].value}
+          {suffix? suffix : ""}
         </Typography>
         <Typography
           variant="paragraphRegularMedium"
@@ -62,6 +64,7 @@ function Chart(props) {
     cursor: false,
     content: <CustomTooltip
                 prefix={props.prefix}
+                suffix={props.suffix}
               />,
     position: {x: 0, y: -75},
   }
@@ -84,7 +87,10 @@ function Chart(props) {
   }
 
   return (
-      <ChartGrid item>
+      <Grid
+        variant="chart-container"
+        item
+      >
           <ResponsiveContainer>
             {props.type == "Bar" ?
 
@@ -111,52 +117,8 @@ function Chart(props) {
               </AreaChart>
             }
         </ResponsiveContainer>
-      </ChartGrid>
+      </Grid>
     );
 }
 
 export default Chart;
-
-// type="monotone"
-// dataKey={
-//         props?.data
-//         ? Object.keys(props?.data[0])[1]
-//         : ""
-//         }
-// stroke="url(#gradient)"
-// fill="url(#gradient)"
-// fillOpacity={0.5}
-
-// dataKey={
-//         props?.data
-//         ? Object.keys(props?.data[0])[0]
-//         : ""
-//         }
-// tickLine={false}
-// tickSize={0}
-// tickMargin={10}
-// interval={`${props.data?.length}` - 2}
-// fill={theme.palette.text.primary_dark}
-
-
-// const lg = {
-//   id: 'gradient',
-//   x1: '0',
-//   y1: '0',
-//   x2: '0',
-//   y2: '100%',
-//   gradientUnits: "userSpaceOnUse",
-// }
-
-// const tooltip = {
-//   cursor: false,
-//   position: {x: 0, y: -75},
-//   content:
-// }
-
-// <Button>Arrow</Button>
-
-// console.log(data)
-// console.log(Object.keys(props?.data[0])[0])
-
-// <Brush dataKey='daily_volume_usd' height={30} stroke="#8884d8"/>
