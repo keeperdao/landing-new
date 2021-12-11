@@ -55,8 +55,8 @@ let areaFill = {
   activeDot: {stroke: `${themeDashboard.palette.text.dark_tertiary}`},
 }
 
-function CustomTooltip({ active, payload, label, prefix, suffix, show}) {
-  if (active && payload && payload.length && show) {
+function CustomTooltip({ active, payload, label, prefix, suffix}) {
+  if (active && payload && payload.length) {
     return (
       <>
         <Typography
@@ -83,13 +83,10 @@ function CustomTooltip({ active, payload, label, prefix, suffix, show}) {
 
 function Chart(props) {
 
-  const [focusBar, setFocusBar] = useState(null);
-
   tooltip.content =
   (<CustomTooltip
       prefix={props.prefix}
       suffix={props.suffix}
-      show={props.type == "Bar" ? focusBar : true}
   />)
 
   xaxis.dataKey = props?.data ? Object?.keys(props?.data[0])[0]: "";
@@ -115,8 +112,6 @@ function Chart(props) {
                 <Bar
                   strokeWidth={2}
                   {...barFill}
-                  onMouseEnter={()=>{setFocusBar(true)}}
-                  onMouseLeave={()=>{setFocusBar(false)}}
                 />
               </BarChart>
 
