@@ -1,9 +1,14 @@
-import { Dashboard } from '../src/Dashboard/Dashboard'
+import {ThemeProvider} from "@material-ui/core/styles";
+import {Dashboard} from '../src/Dashboard/Dashboard'
+import themeDashboard from "../src/Dashboard/Theme"
 import Layout from '../src/Dashboard/Layout'
+
 
 export const Main = props => {
   return (
+    <ThemeProvider theme={themeDashboard}>
       <Dashboard {...props} />
+    </ThemeProvider>
     );
 }
 

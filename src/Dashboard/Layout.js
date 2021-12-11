@@ -4,7 +4,6 @@ import {ThemeProvider} from "@material-ui/core/styles";
 import Header from "../Header";
 import Footer from "../Footer";
 import theme from '../theme'
-import themeDashboard from "./Theme"
 
 export default function Layout(props) {
 
@@ -52,9 +51,7 @@ export default function Layout(props) {
               width: "100vw",
             }}
           >
-          <ThemeProvider theme={themeDashboard}>
             {props.children}
-          </ThemeProvider>
           </Grid>
         </Container>
       </Grid>
