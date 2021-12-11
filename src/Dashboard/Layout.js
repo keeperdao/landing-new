@@ -75,8 +75,3 @@ export default function Layout(props) {
   </ThemeProvider>
   )
 }
-
-// <CacheProvider value={emotionCache}>
-//   <ThemeProvider theme={theme}>
-//   </ThemeProvider>
-// </CacheProvider>

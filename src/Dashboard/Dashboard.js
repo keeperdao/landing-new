@@ -21,7 +21,12 @@ function Dashboard(props) {
       sm={1} min={1} xs={1}
     >
       <Button
-        variant={activePanel == i ? "control-active" : "control-inactive"}
+        variant=
+        {
+          activePanel == i
+          ? "control-active"
+          : "control-inactive"
+        }
         value={i}
         onClick={handleClick}
       >
@@ -55,10 +60,10 @@ function Dashboard(props) {
         columns={{sm: 2, min: 2, xs: 1}}
       >
         <SWRConfig value={{fetcher: fetcher}}>
-          {panelList
-            ? panelList[activePanel]
-            : ""
-          }
+            {panelList
+              ? panelList[activePanel]
+              : ""
+            }
         </SWRConfig>
       </Grid>
     </Grid>

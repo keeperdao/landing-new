@@ -53,7 +53,7 @@ const themeDashboard = createTheme({
     paragraphBoldLabelLink: {
       fontFamily: "Inter",
       fontStyle: "normal",
-      fontWeight: "600",
+      fontWeight: "400",
       fontSize: "12px",
       lineHeight: "15px",
       letterSpacing: "0.02em",
@@ -78,6 +78,10 @@ const themeDashboard = createTheme({
       fontWeight: "normal",
       fontSize: "48px",
       lineHeight: "58px",
+      '@media (max-width:700px)': {
+        fontSize: "38px",
+        lineHeight: "48px",
+      },
     },
 
     headingTitle: {
@@ -124,6 +128,7 @@ const themeDashboard = createTheme({
           props: {variant: "tile-item"},
           style: {
             padding: 4,
+            height: "100%",
           },
         },
         {
@@ -131,12 +136,17 @@ const themeDashboard = createTheme({
           style: {
             background: COLORS.background_dark_primary,
             padding: 40,
+            '@media (max-width:700px)': {
+              padding: 20,
+            },
+            '@media (max-width:600px)': {
+              padding: 10,
+            },
           },
         },
         {
           props: {variant: "header-container"},
           style: {
-            direction: "row",
             justifyContent: "space-between",
             alignItems: "center",
           },
@@ -179,7 +189,18 @@ const themeDashboard = createTheme({
           props: {variant: "chart-container"},
           style: {
             marginTop: 96,
-            height: "50vh",
+            height: "30vh",
+
+            "& .recharts-rectangle:hover" : {
+              fill: COLORS.text_dark_tertiary,
+            },
+
+            "& .recharts-tooltip-wrapper" : {
+              color: COLORS.text_dark_tertiary,
+              background: COLORS.background_dark_secondary,
+              borderRadius: 16,
+              padding: 16,
+            },
           },
         },
       ]
@@ -243,6 +264,7 @@ const themeDashboard = createTheme({
             horizontal: "center",
           },
           PaperProps: {
+            elevation: 0,
             style: {
               background: "none",
             },
@@ -273,6 +295,7 @@ const themeDashboard = createTheme({
       sm: 600,
       max: 840,
     },
+
   },
 });
 

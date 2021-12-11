@@ -76,6 +76,7 @@ function DynamicTile(props) {
             type={props.type}
             data={data2}
             prefix={props.prefix}
+            suffix={props.suffix}
           />
         : <DataBlock
             variant="headingTitle"
@@ -116,7 +117,7 @@ function InfoTile(props) {
       variant="headingDisplay"
       color={theme.palette.text.primary_dark}
     >
-      To date
+      To date,
       <Typography
         variant="headingDisplay"
         color={theme.palette.text.accent}

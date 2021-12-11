@@ -47,9 +47,9 @@ export async function getStaticProps() {
     },
     {
       "NUMBER OF AUCTIONS" : {},
-      "BID ROOK" : {},
-      "STAKED ROOK" : {},
-      "BURNED ROOK" : {},
+      "BID ROOK" : {prefix: "R"},
+      "STAKED ROOK" : {prefix: "R"},
+      "BURNED ROOK" : {prefix: "R"},
       // "ACTIVE KEEPERS" : {type: "Table"},
       // "ACTIVE AUCTIONS" : {type: "Table"}
     },
@@ -57,7 +57,7 @@ export async function getStaticProps() {
       "LIMIT ORDERS" : {type: "Info"},
       "HIDING GAME VOLUME" : {route2: r3, identifier2: 'days', type: "Bar", filter1: ["week", "month", "all"], filter2: ["dai", "eth"]},
       "UNIQUE ORDERS FILLED" : {},
-      "HIDING GAME VOLUME TO DATE" : {prefix: "Ξ", filter1: ["dai", "eth"]},
+      "HIDING GAME VOLUME TO DATE" : {prefix: "Ξ ", filter1: ["dai", "eth"]},
       "DISTRIBUTED ROOK REWARDS" : {prefix: "$"},
     },
     {
@@ -73,7 +73,7 @@ export async function getStaticProps() {
     {
       "HISTORICAL APY" : {route2: r3, identifier2: 'days', type: "Bar", filter2: ["dai pool", "eth pool"]},
       "TOTAL FEES COLLECTED" : {prefix: "$", filter2: ["dai pool", "eth pool"]},
-      "ROOK REWARDS DISTRIBUTED" : {prefix: "$"},
+      "ROOK REWARDS DISTRIBUTED" : {prefix: "$", suffix: "APY"},
     },
   ]
 

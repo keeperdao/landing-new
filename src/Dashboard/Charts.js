@@ -1,13 +1,8 @@
+import React, {useState, useMemo} from 'react';
 import {AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar, Label, Brush} from 'recharts';
 import {Grid, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import theme from '../theme'
-
-const ChartGrid = styled(Grid)({
-  marginTop: 96,
-  height: "50vh",
-})
-
+import themeDashboard from "./Theme"
 // tbd
 const gradient =
 (
@@ -22,32 +17,63 @@ const gradient =
     >
       <stop
         offset="0.2"
-        stopColor={theme.palette.text.accent}
+        stopColor={themeDashboard.palette.text.dark_tertiary}
       />
       <stop
         offset="0.9"
-        stopColor={theme.palette.background.tile}
+        stopColor={themeDashboard.palette.background.dark_primary}
       />
     </linearGradient>
   </defs>
 )
 
-function CustomTooltip({ active, payload, label, prefix, suffix}) {
-  if (active && payload && payload.length) {
+let tooltip = {
+  cursor: false,
+  position: {x: 0, y: -75},
+}
+
+let xaxis = {
+  tickLine: "false",
+  tickSize: 0,
+  tickMargin: 10,
+  fill: `${themeDashboard.palette.text.light_primary}`,
+}
+
+let barFill = {
+  type: "monotone",
+  stroke: "url(#gradient)",
+  strokeOpacity: 1,
+  fill: "url(#gradient)",
+  fillOpacity: 0.5,
+}
+
+let areaFill = {
+  type: "monotone",
+  stroke: `${themeDashboard.palette.text.dark_tertiary}`,
+  strokeOpacity: 1,
+  fill: "url(#gradient)",
+  fillOpacity: 0.25,
+}
+
+
+
+
+function CustomTooltip({ active, payload, label, prefix, suffix, show}) {
+  if (active && payload && payload.length && show) {
     return (
       <>
         <Typography
-          variant="paragraphRegularMedium"
+          variant="paragraphRegularLarge"
           display="block"
-          color={theme.palette.text.primary_dark}
+          color={themeDashboard.palette.text.dark_primary}
         >
           {prefix? prefix: ""}
           {payload[0].value}
           {suffix? suffix : ""}
         </Typography>
         <Typography
-          variant="paragraphRegularMedium"
-          color={theme.palette.text.primary_dark}
+          variant="paragraphRegularLarge"
+          color={themeDashboard.palette.text.dark_primary}
         >
           {`${label}`}
         </Typography>
@@ -60,31 +86,21 @@ function CustomTooltip({ active, payload, label, prefix, suffix}) {
 
 function Chart(props) {
 
-  let tooltip = {
-    cursor: false,
-    content: <CustomTooltip
-                prefix={props.prefix}
-                suffix={props.suffix}
-              />,
-    position: {x: 0, y: -75},
-  }
+  const [focusBar, setFocusBar] = useState(null);
 
-  let xaxis = {
-    dataKey: props?.data ? Object?.keys(props?.data[0])[0]: "",
-    tickLine: "false",
-    tickSize: 0,
-    tickMargin: 10,
-    interval: `${props.data?.length}` - 2,
-    fill: theme.palette.text_primary,
-  }
+  tooltip.content = (<CustomTooltip
+                          prefix={props.prefix}
+                          suffix={props.suffix}
+                          show={props.types == "Bar"? focusBar : true}
+                      />)
 
-  let fill = {
-    type: "monotone",
-    dataKey: props?.data ? Object.keys(props?.data[0])[1]: "",
-    stroke: "url(#gradient)",
-    fill: "url(#gradient)",
-    fillOpacity: 0.5,
-  }
+  xaxis.dataKey = props?.data ? Object?.keys(props?.data[0])[0]: "";
+  xaxis.interval = `${props.data?.length}` - 2;
+
+  barFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
+  areaFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
+
+
 
   return (
       <Grid
@@ -92,9 +108,8 @@ function Chart(props) {
         item
       >
           <ResponsiveContainer>
-            {props.type == "Bar" ?
-
-              <BarChart
+            {props.type == "Bar"
+            ?  <BarChart
                 barCategoryGap={2}
                 data={props.data}
               >
@@ -103,16 +118,19 @@ function Chart(props) {
                 <XAxis {...xaxis}/>
                 <Bar
                   strokeWidth={2}
-                  {...fill}
+                  {...barFill}
+                  onMouseEnter={()=>{setFocusBar(true)}}
+                  onMouseLeave={()=>{setFocusBar(false)}}
                 />
-              </BarChart> :
+              </BarChart>
 
-              <AreaChart data={props.data}>
+              :<AreaChart data={props.data}>
                 {gradient}
                 <Tooltip {...tooltip}/>
                 <XAxis {...xaxis}/>
-                <Area strokeWidth={3}
-                      {...fill}
+                <Area
+                  strokeWidth={3}
+                  {...areaFill}
                 />
               </AreaChart>
             }
