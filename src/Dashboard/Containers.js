@@ -107,6 +107,7 @@ function InformationTile(props) {
     <Typography
       variant="headingDisplay"
       color={themeDashboard.palette.text.dark_primary}
+      paragraph
     >
       {"To date, "}
       <DataBlock

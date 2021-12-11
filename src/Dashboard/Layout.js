@@ -1,6 +1,6 @@
 import Head from "next/head";
 import {Container, Grid} from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import {ThemeProvider} from "@material-ui/core/styles";
 import Header from "../Header";
 import Footer from "../Footer";
 import theme from '../theme'
@@ -34,7 +34,6 @@ export default function Layout(props) {
           <Header colorMode={props.colorMode} />
         </Container>
       </Grid>
-
       <Grid item sx={{ marginBottom: 0, paddingBottom: 0 }}>
         <Container
           maxWidth="md"
