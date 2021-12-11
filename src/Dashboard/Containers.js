@@ -2,14 +2,13 @@ import React, {useState, useMemo} from 'react';
 import {Grid, Typography} from "@material-ui/core";
 import {TileHeader, DataBlock, DataRequest} from './Content'
 import Chart from './Charts'
-import theme from '../theme'
+import themeDashboard from './Theme'
 
 function Panel(props) {
 
   const titles = Object.keys(props)
 
   const tilesList = useMemo(() => React.Children.map(titles, (item, i) =>
-
     <Grid
       variant="tile-item"
       item
@@ -22,7 +21,7 @@ function Panel(props) {
         !props[item].type && !props[item].filter1 && !props[item].filter2
         ? <DataTile title= {item} {...props[item]}/>
         : props[item].type == "Info"
-          ? <InfoTile title={item}/>
+          ? <InformationTile title={item}/>
           : <DynamicTile title={item} {...props[item]} />
       }
       </Grid>
@@ -64,8 +63,7 @@ function DynamicTile(props) {
         props.type == "Area"
         ? <DataBlock
             variant="headingDisplay"
-            color={theme.palette.text.primary_dark}
-            prefix="$"
+            color={themeDashboard.palette.text.dark_primary}
             {...props}
           />
         : ""
@@ -73,14 +71,12 @@ function DynamicTile(props) {
       {
         props.type == "Area" | props.type == "Bar"
         ? <Chart
-            type={props.type}
             data={data2}
-            prefix={props.prefix}
-            suffix={props.suffix}
+            {...props}
           />
         : <DataBlock
             variant="headingTitle"
-            color={theme.palette.text.primary_dark}
+            color={themeDashboard.palette.text.dark_primary}
             {...props}
           />
       }
@@ -96,50 +92,42 @@ function DataTile (props) {
       <TileHeader title={props.title} {...props} />
       <DataBlock
         variant="headingTitle"
-        color={theme.palette.text.primary_dark}
+        color={themeDashboard.palette.text.dark_primary}
         {...props}
       />
     </>
   )
 }
 
-function InfoTile(props) {
-
-  //temp
-  const users = 5374;
-  const savings = "Ξ " + 3025;
-  const rook = 5166;
+function InformationTile(props) {
 
   return(
     <>
     <TileHeader title={props.title} />
     <Typography
       variant="headingDisplay"
-      color={theme.palette.text.primary_dark}
+      color={themeDashboard.palette.text.dark_primary}
     >
-      To date,
-      <Typography
+      {"To date, "}
+      <DataBlock
         variant="headingDisplay"
-        color={theme.palette.text.accent}
-      >
-        {" " + users.toLocaleString() + " "}
-      </Typography>
-      users have saved
-      <Typography
+        color={themeDashboard.palette.text.dark_tertiary}
+        {...props}
+      />
+      {" users have saved "}
+      <DataBlock
         variant="headingDisplay"
-        color={theme.palette.text.accent}
-        noWrap
-      >
-        {" " + savings.toLocaleString() + " "}
-      </Typography>
-      in gas and earned
-      <Typography
+        color={themeDashboard.palette.text.dark_tertiary}
+        prefix="Ξ "
+        {...props}
+      />
+      {" in gas and earned "}
+      <DataBlock
         variant="headingDisplay"
-        color={theme.palette.text.accent}
-      >
-        {" " + rook.toLocaleString() + " "}
-      </Typography>
-      ROOK by using the Hiding Game for limit orders.
+        color={themeDashboard.palette.text.dark_tertiary}
+        {...props}
+      />
+      {" ROOK by using the Hiding Game for limit orders."}
     </Typography>
     </>
   )

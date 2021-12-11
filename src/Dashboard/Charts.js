@@ -33,16 +33,15 @@ let tooltip = {
 }
 
 let xaxis = {
-  tickLine: "false",
+  axisLine: true,
   tickSize: 0,
-  tickMargin: 10,
-  fill: `${themeDashboard.palette.text.light_primary}`,
+  tickMargin: 12,
 }
 
 let barFill = {
   type: "monotone",
   stroke: "url(#gradient)",
-  strokeOpacity: 1,
+  strokeOpacity: 0.5,
   fill: "url(#gradient)",
   fillOpacity: 0.5,
 }
@@ -53,10 +52,8 @@ let areaFill = {
   strokeOpacity: 1,
   fill: "url(#gradient)",
   fillOpacity: 0.25,
+  activeDot: {stroke: `${themeDashboard.palette.text.dark_tertiary}`},
 }
-
-
-
 
 function CustomTooltip({ active, payload, label, prefix, suffix, show}) {
   if (active && payload && payload.length && show) {
@@ -88,19 +85,18 @@ function Chart(props) {
 
   const [focusBar, setFocusBar] = useState(null);
 
-  tooltip.content = (<CustomTooltip
-                          prefix={props.prefix}
-                          suffix={props.suffix}
-                          show={props.types == "Bar"? focusBar : true}
-                      />)
+  tooltip.content =
+  (<CustomTooltip
+      prefix={props.prefix}
+      suffix={props.suffix}
+      show={props.type == "Bar" ? focusBar : true}
+  />)
 
   xaxis.dataKey = props?.data ? Object?.keys(props?.data[0])[0]: "";
   xaxis.interval = `${props.data?.length}` - 2;
 
   barFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
   areaFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
-
-
 
   return (
       <Grid

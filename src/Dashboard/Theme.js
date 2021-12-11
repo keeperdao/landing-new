@@ -201,6 +201,10 @@ const themeDashboard = createTheme({
               borderRadius: 16,
               padding: 16,
             },
+
+            "& .recharts-text.recharts-cartesian-axis-tick-value" : {
+              fill: COLORS.text_dark_primary,
+            },
           },
         },
       ]

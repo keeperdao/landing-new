@@ -2,7 +2,6 @@ import React, {useState, useMemo} from "react";
 import {Button, Grid} from "@material-ui/core";
 import {SWRConfig} from "swr"
 import {Panel} from "./Containers"
-import {useStyle} from "./Theme"
 
 function fetcher(...args) {
   return fetch(...args).then(res => res.json())

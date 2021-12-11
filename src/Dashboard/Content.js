@@ -83,15 +83,18 @@ function TileHeader(props) {
 
 function DataRequest(props) {
 
-  const args = new URLSearchParams(props.arguments).toString()
+  const args =
+    props?.arguments
+    ? new URLSearchParams(props.arguments).toString()
+    : ""
   const {data:response} =
-    props.route
-    ? useSWR(props.route + args)
+    props?.route
+    ? useSWR(props?.route + args)
     : ""
 
   return (
     response
-    ? response[props.identifier]
+    ? response[props?.identifier]
     : ""
   )
 }
