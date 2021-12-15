@@ -1,18 +1,25 @@
-import React, {useState, useMemo} from 'react';
-import {Grid, Typography} from "@material-ui/core";
-import {TileHeader, DataBlock, DataRequest} from './Content'
+import React,{ useState, useMemo } from 'react';
+import { Grid, Typography, Fade } from "@material-ui/core";
+import { TileHeader, DataBlock, DataRequest } from './Content'
 import Chart from './Charts'
-import themeDashboard from './Theme'
+import theme from '../theme'
 
 function Panel(props) {
 
   const titles = Object.keys(props)
 
   const tilesList = useMemo(() => React.Children.map(titles, (item, i) =>
+  <Fade 
+    in={true} 
+    mountOnEnter 
+    unmountOnExit
+    easing="ease-in-out"
+    timeout={500}
+  >
     <Grid
       variant="tile-item"
+      sm={props[item].size} xs={1}
       item
-      sm={props[item].type? 2 : 1} xs={1}
     >
       <Grid
         variant="tile-inner-container"
@@ -26,6 +33,7 @@ function Panel(props) {
       }
       </Grid>
     </Grid>
+    </Fade>
   ), [props.titles, props.types]);
 
   return tilesList
@@ -63,7 +71,7 @@ function DynamicTile(props) {
         props.type == "Area"
         ? <DataBlock
             variant="headingDisplay"
-            color={themeDashboard.palette.text.dark_primary}
+            color={theme.palette.text.primary_dark}
             {...props}
           />
         : ""
@@ -76,7 +84,7 @@ function DynamicTile(props) {
           />
         : <DataBlock
             variant="headingTitle"
-            color={themeDashboard.palette.text.dark_primary}
+            color={theme.palette.text.primary_dark}
             {...props}
           />
       }
@@ -92,7 +100,7 @@ function DataTile (props) {
       <TileHeader title={props.title} {...props} />
       <DataBlock
         variant="headingTitle"
-        color={themeDashboard.palette.text.dark_primary}
+        color={theme.palette.text.primary_dark}
         {...props}
       />
     </>
@@ -106,26 +114,26 @@ function InformationTile(props) {
     <TileHeader title={props.title} />
     <Typography
       variant="headingDisplay"
-      color={themeDashboard.palette.text.dark_primary}
+      color={theme.palette.text.primary_darks}
       paragraph
     >
       {"To date, "}
       <DataBlock
         variant="headingDisplay"
-        color={themeDashboard.palette.text.dark_tertiary}
+        color={theme.palette.accent}
         {...props}
       />
       {" users have saved "}
       <DataBlock
         variant="headingDisplay"
-        color={themeDashboard.palette.text.dark_tertiary}
+        color={theme.palette.accent}
         prefix="Ξ "
         {...props}
       />
       {" in gas and earned "}
       <DataBlock
         variant="headingDisplay"
-        color={themeDashboard.palette.text.dark_tertiary}
+        color={theme.palette.accent}
         {...props}
       />
       {" ROOK by using the Hiding Game for limit orders."}

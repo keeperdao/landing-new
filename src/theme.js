@@ -1,24 +1,27 @@
 import { createTheme } from "@material-ui/core/styles";
 import { css, keyframes } from "@emotion/react";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import { selectClasses } from "@mui/material/Select";
 
-export const COLORS = {
+const COLORS = {
   text_primary: "#F5F5F5",
   text_secondary: "#8F8F8F",
   text_accent: "#6C46D6",
   text_primary_light: "#141118",
   text_secondary_light: "#8F8F8F",
   text_accent_light: "#09A7F3",
-  text_tab: "#F5F5F532" ,
   background_dark: "#141118",
   background_light: "#f5f5f5",
-  background_tab: "#F5F5F50D",
-  background_tile: "#6C46D60D",
   hover_dark: "#6C46D6",
   hover_light: "#09A7F3",
   selected: "#562CC9",
   focus: "#552BC8",
   disabled: "#D5D5D5",
   active: "#09AF73",
+
+  dashboard_primary_light: "#F5F5F532",
+  dashboard_primary_dark: "#F5F5F50D",
+  dashboard_secondary_dark: "#6C46D60D",
 };
 
 const animGradient = keyframes`
@@ -39,15 +42,13 @@ const theme = createTheme({
     text: {
       primary_dark: COLORS.text_primary,
       primary_light: COLORS.text_primary_light,
-      accent: COLORS.text_accent,
       secondary: COLORS.text_secondary,
-      tab: COLORS.text_tab,
     },
     background: {
       dark: COLORS.background_dark,
       light: COLORS.background_light,
-      tab : COLORS.background_tab,
-      tile : COLORS.background_tile,
+      dashboard_primary_dark: COLORS.dashboard_primary_dark,
+      dashboard_secondary_dark: COLORS.dashboard_secondary_dark
     },
     action: {
       hover: COLORS.hover,
@@ -126,6 +127,19 @@ const theme = createTheme({
       lineHeight: "15px",
       letterSpacing: "0.02em",
       textTransform: "uppercase",
+    },
+    paragraphBoldLabelLink: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: "600",
+      fontSize: "12px",
+      lineHeight: "15px",
+      letterSpacing: "0.02em",
+      textTransform: "uppercase",
+      "&:hover": {
+        background: "none",
+        cursor: "pointer",
+      },
     },
     bodyNormal: {
       fontFamily: "Inter",
@@ -338,6 +352,54 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: { 
+            variant: "navigation-bar-button",
+            active: 1,
+          },
+          style: {
+            color: COLORS.text_primary_dark,
+            background: COLORS.text_accent,
+            width: '100%',
+            borderRadius: 8,
+            padding: 8,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "16px",
+            lineHeight: "19px",
+            whiteSpace: "noWrap",
+            textTransform: "none",
+
+            "&:hover": {
+              background: COLORS.text_accent,
+            },
+          },
+        },
+        {
+          props: { 
+            variant: "navigation-bar-button",
+            active: 0,
+          },
+          style: {
+            color: COLORS.dashboard_primary_light,
+            background: "none",
+            width: '100%',
+            borderRadius: 8,
+            padding: 8,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "16px",
+            lineHeight: "19px",
+            whiteSpace: "noWrap",
+            textTransform: "none",
+
+            "&:hover": {
+              background: "none",
+            },
+          },
+        },
       ],
       styleOverrides: {
         "contained-dark": {
@@ -396,158 +458,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiTab: {
-      variants: [
-        {
-          props: { variant: "outlined-dark" },
-          style: {
-            color: COLORS.text_primary,
-            background: "none",
-            border: "1px solid",
-            borderColor: COLORS.text_primary,
-            transition: "0.25s",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "18px",
-            letterSpacing: "0em",
-            textTransform: "none",
-            "&:hover": {
-              borderColor: COLORS.hover_dark,
-              color: COLORS.hover_dark,
-            },
-            "&:active": {
-              backgroundColor: COLORS.selected,
-              borderColor: COLORS.selected,
-              color: COLORS.text_primary,
-            },
-            "&:disabled": {
-              borderColor: "#525252",
-              color: "#525252",
-            },
-          },
-        },
-        {
-          props: { variant: "outlined-light" },
-          style: {
-            color: COLORS.text_primary_light,
-            background: "none",
-            border: "1px solid",
-            borderColor: COLORS.text_primary_light,
-            transition: "0.25s",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "18px",
-            letterSpacing: "0em",
-            textTransform: "none",
-            "&:hover": {
-              borderColor: COLORS.hover_light,
-              color: COLORS.hover_light,
-            },
-            "&:active": {
-              backgroundColor: COLORS.hover_light,
-              borderColor: COLORS.hover_light,
-              color: COLORS.text_primary,
-            },
-            "&:disabled": {
-              borderColor: "#525252",
-              color: "#525252",
-            },
-          },
-        },
-        {
-          props: { variant: "outlined-blue" },
-          style: {
-            color: COLORS.hover_light,
-            background: "none",
-            border: "1px solid",
-            borderColor: COLORS.hover_light,
-            transition: "0.25s",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "18px",
-            letterSpacing: "0em",
-            textTransform: "none",
-            "&:hover": {
-              borderColor: COLORS.hover_light,
-              color: COLORS.hover_light,
-            },
-            "&:active": {
-              backgroundColor: COLORS.hover_light,
-              borderColor: COLORS.hover_light,
-              color: COLORS.text_primary,
-            },
-            "&:disabled": {
-              borderColor: "#525252",
-              color: "#525252",
-            },
-          },
-        },
-        {
-          props: { variant: "text-dark" },
-          style: {
-            color: COLORS.text_primary_dark,
-            textTransform: "none",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: 400,
-            fontSize: "16px",
-            "&:hover": {
-              background: "none",
-              color: COLORS.hover_dark,
-            },
-            "&:active": {
-              color: COLORS.hover_dark,
-            },
-          },
-        },
-        {
-          props: { variant: "text-light" },
-          style: {
-            color: COLORS.text_primary_light,
-            textTransform: "none",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: 400,
-            fontSize: "16px",
-            "&:hover": {
-              background: "none",
-              color: COLORS.hover_light,
-            },
-            "&:active": {
-              color: COLORS.hover_light,
-            },
-          },
-        },
-      ],
-      styleOverrides: {
-        contained: {
-          color: COLORS.text_primary,
-          backgroundImage:
-            "linear-gradient(to right, #6C46D6 0%, #09A7F3 50%, #6C46D6 100%)",
-          backgroundSize: "200%",
-          transition: "0.25s",
-          fontFamily: "Inter",
-          fontStyle: "normal",
-          fontWeight: 600,
-          fontSize: "18px",
-          letterSpacing: "0em",
-          textTransform: "none",
-          "&:hover": {
-            backgroundPosition: "right center",
-          },
-          "&:active": {
-            backgroundImage:
-              "linear-gradient(to right, #552BC8 0%, #0993DC 50%, #552BC8 100%)",
-          },
-          "&:disabled": {
-            background: "#525252",
-          },
-        },
-      },
-    },
     MuiIconButton: {
       variants: [
         {
@@ -584,11 +494,136 @@ const theme = createTheme({
         },
       ],
     },
+    MuiGrid: {
+      variants: [
+        {
+          props: { variant: "dashboard-container" },
+          style: {
+            background: COLORS.background_dark,
+            alignItems: "center",
+            minWidth: 350, //theme.breakpoints["min"]
+            maxWidth: 1000, //theme.breakpoints["header"]
+          },
+        },
+        {
+          props: { variant: "navigation-bar-container" },
+          style: {
+            background: COLORS.dashboard_primary_dark,
+            alignItems: "center",
+            borderRadius: 16,
+          },
+        },
+        {
+          props: { variant: "panel-container" },
+          style: {
+            paddingTop: 40,
+          },
+        },
+        {
+          props: { variant: "tile-item" },
+          style: {
+            padding: 4,
+            height: "100%",
+          },
+        },
+        {
+          props: { variant: "tile-inner-container" },
+          style: {
+            background: COLORS.dashboard_secondary_dark,
+            padding: 40,
+            '@media (max-width:700px)': {
+              padding: 20,
+            },
+            '@media (max-width:600px)': {
+              padding: 10,
+            },
+          },
+        },
+        {
+          props: { variant: "header-container" },
+          style: {
+            justifyContent: "space-between",
+            alignItems: "center",
+          },
+        },
+        {
+          props: { variant: "filter-container" },
+          style: {
+            justifyContent: "flex-end",
+            textTransform: 'uppercase',
+            textWrap: 'noWrap',
+            alignItems: "center",
+            direction: "column",
+  
+            [`& .${outlinedInputClasses.notchedOutline}`]: {
+              border: "none",
+            },
+            [`& .${selectClasses.outlined}`]: {
+              color: COLORS.text_primary,
+              background: "none",
+              padding: 0,
+            },
+            [`& .${selectClasses.iconOutlined}`]: {
+              stroke: COLORS.text_primary,
+              fill: "none",
+            },
+          },
+        },
+        {
+          props: { variant: "chart-container" },
+          style: {
+            marginTop: 96,
+            height: "30vh",
+            [`& .recharts-rectangle:hover`]: {
+              fill: COLORS.text_accent,
+            },
+            [`& .recharts-tooltip-wrapper`]: {
+              color: COLORS.text_primary,
+              background: COLORS.dashboard_primary_dark,
+              borderRadius: 16,
+              padding: 16,
+            },
+            [`& .recharts-text.recharts-cartesian-axis-tick-value`]: {
+              fill: COLORS.text_primary,
+            },
+          },
+        },
+      ]
+    },
+    MuiSelect: {
+      defaultProps: {
+        MenuProps: {
+          padding: 0,
+          margin: 0,
+          anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "center",
+          },
+          PaperProps: {
+            elevation: 0,
+            style: {
+              background: "none",
+            },
+          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      defaultProps: {
+        style: {
+          color: COLORS.text_primary,
+          alignItems: "center",
+          background: "none",
+          padding: 0,
+          margin: 0,
+        }
+      },
+    },
   },
   breakpoints: {
     values: {
       xs: 0,
-      tab: 350,
+      min: 350,
       sm: 600,
       md: 840,
       header: 1000,
@@ -596,8 +631,7 @@ const theme = createTheme({
       xl: 1536,
     },
   },
-  // req for MUI paper
-  // shadows: ["none"],
+  shadows: ["none"],
 });
 
 export default theme;

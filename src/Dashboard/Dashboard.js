@@ -1,44 +1,24 @@
-import React, {useState, useMemo} from "react";
-import {Button, Grid} from "@material-ui/core";
-import {SWRConfig} from "swr"
-import {Panel} from "./Containers"
-import themeDashboard from './Theme'
+import React, { useState, useMemo, useCallback } from "react";
+import { Button, Grid, Fade, Container, Grow} from "@material-ui/core";
+import { SWRConfig } from "swr"
+import { Panel } from "./Containers"
+import theme from '../theme'
 
-function fetcher(...args) {
-  return fetch(...args).then(res => res.json())
+async function fetcher(...args) {
+  const res = await fetch(...args);
+  return await res.json();
 }
 
 function Dashboard(props) {
 
-  const [activePanel, setActivePanel] = useState(() => 0);
-  const handleClick = event => {
-    setActivePanel(event?.target?.value);
+  const [activePanelIndex, setActivePanelIndex] = useState(() => 0);
+  const changeActivePanelIndex = event => {
+    setActivePanelIndex(event?.target?.value);
   }
 
-  const buttonList = useMemo(() => React.Children.map(props.buttons,(item1, i) =>
-    <Grid
-      item
-      sm={1} min={1} xs={1}
-    >
-      <Button
-        variant=
-        {
-          activePanel == i
-          ? "control-active"
-          : "control-inactive"
-        }
-        value={i}
-        onClick={handleClick}
-      >
-        {item1}
-      </Button>
-    </Grid>
-  ), [activePanel]);
-
-
-  const panelList = useMemo(() => React.Children.map(props.buttons,(item, i) =>
-    <Panel {...props.properties[i]}/>
-  ), [props.buttons]);
+  const panelArray = useMemo(() => React.Children.map(props.buttons,(_, index) =>
+    <Panel {...props.properties[index]}/>
+  ),[props.properties]);
 
   return (
     <Grid
@@ -46,28 +26,41 @@ function Dashboard(props) {
       container
     >
       <Grid
-        variant="control-container"
+        variant="navigation-bar-container"
+        columns={{ sm: 5, min: 2, xs: 1 }}
+        py={theme.spacing(1)}
         container
         item
-        columns={{sm: 5, min: 2, xs: 1}}
       >
-        {buttonList}
+        {useMemo(() => React.Children.map(props.buttons, (buttonText, index) =>
+          <Grid
+            sm={1} min={1} xs={1}
+            px={theme.spacing(1)}
+            item
+          >
+            <Button
+              variant="navigation-bar-button"
+              active={index == activePanelIndex? 1 : 0}
+              onClick={changeActivePanelIndex}
+              value={index}
+            >
+              {buttonText}
+            </Button>
+          </Grid>
+        ), [activePanelIndex])}
       </Grid>
       <Grid
         variant="panel-container"
+        columns={{ sm: 2, min: 2, xs: 1 }}
         container
         item
-        columns={{sm: 2, min: 2, xs: 1}}
       >
-        <SWRConfig value={{fetcher: fetcher}}>
-            {panelList
-              ? panelList[activePanel]
-              : ""
-            }
+        <SWRConfig value={{ fetcher: fetcher }}>
+          {panelArray[activePanelIndex]}
         </SWRConfig>
       </Grid>
     </Grid>
   );
 }
 
-export {Dashboard};
+export { Dashboard };

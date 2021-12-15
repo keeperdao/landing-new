@@ -1,6 +1,5 @@
-import Head from "next/head";
-import {Container, Grid} from "@material-ui/core";
-import {ThemeProvider} from "@material-ui/core/styles";
+import { Container, Grid } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
 import Header from "../Header";
 import Footer from "../Footer";
 import theme from '../theme'
@@ -29,19 +28,19 @@ export default function Layout(props) {
       }}
     >
       <Grid item>
-        <Container maxWidth="md" disableGutters>
+        <Container maxWidth="header" disableGutters>
           <Header colorMode={props.colorMode} />
         </Container>
       </Grid>
       <Grid item sx={{ marginBottom: 0, paddingBottom: 0 }}>
         <Container
-          maxWidth="md"
+          maxWidth="header"
           disableGutters
           sx={{ marginBottom: 0, paddingBottom: 0 }}
         >
           <Grid
             item
-            maxWidth="md"
+            maxWidth="header"
             sx={{
               flexDirection: "column",
               paddingLeft: { md: "10px" },
@@ -58,6 +57,7 @@ export default function Layout(props) {
 
       <Grid
         item
+        maxWidth="header"
         sx={{
           background: theme.palette.background.dark,
           color: theme.palette.text.primary_dark,

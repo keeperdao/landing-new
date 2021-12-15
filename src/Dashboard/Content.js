@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {Grid, Typography, MenuItem, Select, SvgIcon} from "@material-ui/core";
 import Logo from "../../public/icon.svg";
 import useSWR from 'swr'
-import themeDashboard from './Theme'
+import theme from '../theme'
 
 function TileHeader(props) {
 
@@ -15,8 +15,8 @@ function TileHeader(props) {
         color=
         {
           props.activeFilter == item
-          ? themeDashboard.palette.text.dark_tertiary
-          : themeDashboard.palette.text.dark_primary
+          ? theme.palette.accent
+          : theme.palette.text.primary_dark
         }
         noWrap
       >
@@ -29,7 +29,7 @@ function TileHeader(props) {
       <MenuItem value={item}>
         <Typography
           variant="paragraphBoldLabelLink"
-          color={themeDashboard.palette.text.dark_primary}
+          color={theme.palette.text.primary_dark}
           noWrap
         >
           {item}
@@ -48,7 +48,7 @@ function TileHeader(props) {
       <Grid item>
         <Typography
           variant="paragraphBoldLabel"
-          color={themeDashboard.palette.text.dark_tertiary}
+          color={theme.palette.accent}
           noWrap
           >
           {props.title}

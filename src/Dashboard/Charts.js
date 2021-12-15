@@ -1,8 +1,7 @@
 import React, {useState, useMemo} from 'react';
 import {AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar, Label, Brush} from 'recharts';
 import {Grid, Typography} from '@mui/material';
-import {styled} from '@mui/material/styles';
-import themeDashboard from "./Theme"
+import theme from "../theme"
 // tbd
 const gradient =
 (
@@ -17,11 +16,11 @@ const gradient =
     >
       <stop
         offset="0.2"
-        stopColor={themeDashboard.palette.text.dark_tertiary}
+        stopColor={theme.palette.accent}
       />
       <stop
         offset="0.9"
-        stopColor={themeDashboard.palette.background.dark_primary}
+        stopColor={theme.palette.background.dashboard_secondary_dark}
       />
     </linearGradient>
   </defs>
@@ -48,11 +47,11 @@ let barFill = {
 
 let areaFill = {
   type: "monotone",
-  stroke: `${themeDashboard.palette.text.dark_tertiary}`,
+  stroke: `${theme.palette.accent}`,
   strokeOpacity: 1,
   fill: "url(#gradient)",
   fillOpacity: 0.25,
-  activeDot: {stroke: `${themeDashboard.palette.text.dark_tertiary}`},
+  activeDot: {stroke: `${theme.palette.accent}`},
 }
 
 function CustomTooltip({ active, payload, label, prefix, suffix}) {
@@ -62,7 +61,7 @@ function CustomTooltip({ active, payload, label, prefix, suffix}) {
         <Typography
           variant="paragraphRegularLarge"
           display="block"
-          color={themeDashboard.palette.text.dark_primary}
+          color={theme.palette.text.primary_dark}
         >
           {prefix? prefix: ""}
           {payload[0].value}
@@ -70,7 +69,7 @@ function CustomTooltip({ active, payload, label, prefix, suffix}) {
         </Typography>
         <Typography
           variant="paragraphRegularLarge"
-          color={themeDashboard.palette.text.dark_primary}
+          color={theme.palette.text.primary_dark}
         >
           {`${label}`}
         </Typography>
