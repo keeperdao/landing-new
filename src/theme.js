@@ -527,12 +527,12 @@ const theme = createTheme({
           style: {
             background: COLORS.dashboard_secondary_dark,
             padding: 40,
-            '@media (max-width:700px)': {
-              padding: 20,
-            },
-            '@media (max-width:600px)': {
-              padding: 10,
-            },
+            // '@media (max-width:700px)': {
+            //   padding: 20,
+            // },
+            // '@media (max-width:600px)': {
+            //   padding: 10,
+            // },
           },
         },
         {
