@@ -31,7 +31,7 @@ export async function getStaticProps() {
       'Liquidity Pools'
     ];
 
-  let baseRoute = "http://172.25.0.5/api/v1/";
+  let baseRoute = "http://172.19.0.5/api/v1/";
   let r1 = baseRoute + "metrics/tvl"
   let r2 = baseRoute + "vaults"
   let r3 = baseRoute + "metrics/volume?"
@@ -63,7 +63,7 @@ export async function getStaticProps() {
       {
         "HISTORICAL ROOK APY": { route2: r3, identifier2: 'days', type: "Bar", suffix: "% APY", size: 2 },
         "HISTORICAL SUPPLY/BORROW": { route2: r3, identifier2: "days", type: "Area", selectionsFilter: ["supply", "borrow"], prefix: "$", size: 2 },
-        "CURRENT ROOK APY": { route: r2, identifier: 'avg_rook_apr', size: 1 },
+        "CURRENT ROOK APY": { route: r2, identifier: 'avg_rook_apr', suffix: "% APY", size: 1 },
         "TOTAL NUMBER OF VAULTS": { route: r2, identifier: 'num_vaults', size: 1 },
         "DISTRIBUTED ROOK REWARDS": { prefix: "$", size: 1 },
         "SAVED FROM LIQUIDATION BY JITU": { prefix: "$", size: 1 },
