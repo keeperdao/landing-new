@@ -11,7 +11,7 @@ export default function Layout(props) {
     <Grid
       container
       direction="column"
-      // justifyContent="space-between"
+      justifyContent="space-evenly"
       sx={{
         minHeight: "100vh",
         width: "100vw",

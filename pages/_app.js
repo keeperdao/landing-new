@@ -21,10 +21,10 @@ export default function MyApp(props) {
   const getLayout = Component.getLayout || ((page) => page)
   if (getLayout.name) return getLayout(
     <CacheProvider value={emotionCache}>
-        <CssBaseline />
-        <Component {...pageProps}/>
+      <CssBaseline />
+      <Component {...pageProps} />
     </CacheProvider>
-  , colorMode, setColorMode)
+    , colorMode, setColorMode)
 
   return (
     <CacheProvider value={emotionCache}>

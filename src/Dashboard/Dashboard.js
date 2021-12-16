@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useCallback } from "react";
-import { Button, Grid, Fade, Container, Grow} from "@material-ui/core";
-import { SWRConfig } from "swr"
-import { Panel } from "./Containers"
-import theme from '../theme'
+import React, { useState, useMemo } from "react";
+import { Grid } from "@material-ui/core";
+import { SWRConfig } from "swr";
+import { DashboardNavigationBar } from './NavBar'
+import { DashboardPanel } from "./Panel";
+import theme from "../theme";
 
 async function fetcher(...args) {
   const res = await fetch(...args);
@@ -12,17 +13,10 @@ async function fetcher(...args) {
 function Dashboard(props) {
 
   const [activePanelIndex, setActivePanelIndex] = useState(() => 0);
-  const changeActivePanelIndex = event => {
-    setActivePanelIndex(event?.target?.value);
-  }
-
-  const panelArray = useMemo(() => React.Children.map(props.buttons,(_, index) =>
-    <Panel {...props.properties[index]}/>
-  ),[props.properties]);
 
   return (
     <Grid
-      variant="dashboard-container"
+      variant="dashboard-component-container"
       container
     >
       <Grid
@@ -32,31 +26,25 @@ function Dashboard(props) {
         container
         item
       >
-        {useMemo(() => React.Children.map(props.buttons, (buttonText, index) =>
-          <Grid
-            sm={1} min={1} xs={1}
-            px={theme.spacing(1)}
-            item
-          >
-            <Button
-              variant="navigation-bar-button"
-              active={index == activePanelIndex? 1 : 0}
-              onClick={changeActivePanelIndex}
-              value={index}
-            >
-              {buttonText}
-            </Button>
-          </Grid>
-        ), [activePanelIndex])}
+        <DashboardNavigationBar
+          buttons={props.buttons}
+          activePanelIndex={activePanelIndex}
+          changeActivePanelIndex={event => setActivePanelIndex(event?.target?.value)}
+        />
       </Grid>
       <Grid
-        variant="panel-container"
+        variant="panel-component-container"
         columns={{ sm: 2, min: 2, xs: 1 }}
+        py={theme.spacing(5)}
         container
         item
       >
         <SWRConfig value={{ fetcher: fetcher }}>
-          {panelArray[activePanelIndex]}
+          <DashboardPanel
+            buttons={props.buttons}
+            properties={props.properties}
+            activePanelIndex={activePanelIndex}
+          />
         </SWRConfig>
       </Grid>
     </Grid>

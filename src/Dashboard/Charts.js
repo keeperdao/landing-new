@@ -1,5 +1,5 @@
-import React, {useState, useMemo} from 'react';
-import {AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar, Label, Brush} from 'recharts';
+import React from 'react';
+import {AreaChart, Area, XAxis,ResponsiveContainer, Tooltip, BarChart, Bar} from 'recharts';
 import {Grid, Typography} from '@mui/material';
 import theme from "../theme"
 // tbd

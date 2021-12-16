@@ -137,7 +137,6 @@ const theme = createTheme({
       letterSpacing: "0.02em",
       textTransform: "uppercase",
       "&:hover": {
-        background: "none",
         cursor: "pointer",
       },
     },
@@ -353,7 +352,7 @@ const theme = createTheme({
           },
         },
         {
-          props: { 
+          props: {
             variant: "navigation-bar-button",
             active: 1,
           },
@@ -362,7 +361,6 @@ const theme = createTheme({
             background: COLORS.text_accent,
             width: '100%',
             borderRadius: 8,
-            padding: 8,
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: "normal",
@@ -377,7 +375,7 @@ const theme = createTheme({
           },
         },
         {
-          props: { 
+          props: {
             variant: "navigation-bar-button",
             active: 0,
           },
@@ -386,7 +384,6 @@ const theme = createTheme({
             background: "none",
             width: '100%',
             borderRadius: 8,
-            padding: 8,
             fontFamily: "Inter",
             fontStyle: "normal",
             fontWeight: "normal",
@@ -497,7 +494,7 @@ const theme = createTheme({
     MuiGrid: {
       variants: [
         {
-          props: { variant: "dashboard-container" },
+          props: { variant: "dashboard-component-container" },
           style: {
             background: COLORS.background_dark,
             alignItems: "center",
@@ -514,15 +511,14 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: "panel-container" },
+          props: { variant: "panel-component-container" },
           style: {
-            paddingTop: 40,
+            paddingTop: 32,
           },
         },
         {
-          props: { variant: "tile-item" },
+          props: { variant: "panel-grid-item" },
           style: {
-            padding: 4,
             height: "100%",
           },
         },
@@ -554,7 +550,7 @@ const theme = createTheme({
             textWrap: 'noWrap',
             alignItems: "center",
             direction: "column",
-  
+
             [`& .${outlinedInputClasses.notchedOutline}`]: {
               border: "none",
             },
@@ -618,6 +614,48 @@ const theme = createTheme({
           margin: 0,
         }
       },
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: {
+            variant: "paragraphBoldLabelLink",
+            active: 1
+          },
+          style: {
+            color: COLORS.text_accent,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "600",
+            fontSize: "12px",
+            lineHeight: "15px",
+            letterSpacing: "0.02em",
+            textTransform: "uppercase",
+            "&:hover": {
+              cursor: "pointer",
+            },
+          },
+        },
+        {
+          props: {
+            variant: "paragraphBoldLabelLink",
+            active: 0
+          },
+          style: {
+            color: COLORS.text_primary_dark,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "600",
+            fontSize: "12px",
+            lineHeight: "15px",
+            letterSpacing: "0.02em",
+            textTransform: "uppercase",
+            "&:hover": {
+              cursor: "pointer",
+            },
+          },
+        },
+      ]
     },
   },
   breakpoints: {
