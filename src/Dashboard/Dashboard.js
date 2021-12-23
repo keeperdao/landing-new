@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
 import { SWRConfig } from "swr";
 import { DashboardNavigationBar } from './NavBar'
@@ -40,7 +40,7 @@ function Dashboard(props) {
         container
         item
       >
-        <SWRConfig value={{fetcher: fetcher, fallback: props.fallback}}>
+        <SWRConfig value={{fetcher: fetcher, /*fallback: props.fallback*/}}>
           <DashboardPanel
             buttons={props.buttons}
             properties={props.properties}

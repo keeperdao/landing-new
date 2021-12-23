@@ -22,10 +22,10 @@ Main.getLayout = function getLayout(page, colorMode, setColorMode) {
 
 export async function getStaticProps() {
 
-  async function fetcher(...args) {
-    const res = await fetch(...args);
-    return res.json()
-  }
+  // async function fetcher(...args) {
+  //   const res = await fetch(...args);
+  //   return res.json()
+  // }
 
   let buttons =
     [
@@ -84,11 +84,11 @@ export async function getStaticProps() {
     props: { 
       buttons, 
       properties, 
-      fallback : {
-        [`${r1}`]: await fetcher(r1),
-        [`${r2}`]: await fetcher(r2),
-        [`${r3}`]: await fetcher(r3)
-      }
+      // fallback : {
+      //   [`${r1}`]: await fetcher(r1),
+      //   [`${r2}`]: await fetcher(r2),
+      //   [`${r3}`]: await fetcher(r3)
+      // }
     }
   }
 }
