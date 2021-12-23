@@ -9,10 +9,11 @@ import theme from "../theme";
 function Tile(props) {
   const [activeOption, setActiveOption] = useState(() => props.optionsFilter ? props.optionsFilter[0] : "week")
   const [activeSelection, setActiveSelection] = useState(() => props.selectionsFilter ? props.selectionsFilter[0] : "")
-  const { response: chartData, error } = dataRequest({ route: props.route2, identifier: props.identifier2, arguments: { range: activeOption } })
+  const { response: chartData } = props.route2 ? dataRequest({ route: props.route2, identifier: props.identifier2, arguments: { range: activeOption } }) : ""
   return (
     <Grid
       variant="tile-inner-container"
+      p={theme.spacing(5)}
     >
       <TileNavigationBar
         activeOption={activeOption}
@@ -72,7 +73,6 @@ function Tile(props) {
         <DataBlock
           variant="headingTitle"
           color={theme.palette.text.primary_dark}
-          my={theme.spacing(2)}
           {...props}
         />
       }
@@ -82,10 +82,8 @@ function Tile(props) {
 
 function DataBlock(props) {
 
-  let { response, error } = dataRequest({ route: props.route, identifier: props.identifier })
-  //basic error logging
-  error && console.log(props.title + " " + error.toString())
-  response = response !== "" ? response : Math.random() * 10000;
+  let { response } = props.route ? dataRequest({ route: props.route, identifier: props.identifier }) : "";
+  response = response !== undefined ? response : Math.random() * 10000;
 
   return (
     <Typography
@@ -108,10 +106,15 @@ function DataBlock(props) {
 }
 
 function dataRequest(props) {
-  const { data: response, error } = useSWR(props?.route + new URLSearchParams(props.arguments)?.toString())
+  //basic error logging
+  const { data: response } = useSWR(
+    props?.route + new URLSearchParams(props.arguments)?.toString(), 
+    { 
+      onError: (err) => console.log(props.route + ": " + err),
+      dedupingInterval: 5000
+    })
   return ({
     response: response != null ? response[props?.identifier] : "",
-    error: error
   })
 }
 

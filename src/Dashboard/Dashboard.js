@@ -40,7 +40,7 @@ function Dashboard(props) {
         container
         item
       >
-        <SWRConfig value={{ fetcher: fetcher }}>
+        <SWRConfig value={{fetcher: fetcher, fallback: props.fallback}}>
           <DashboardPanel
             buttons={props.buttons}
             properties={props.properties}

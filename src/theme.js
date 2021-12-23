@@ -582,6 +582,11 @@ const theme = createTheme({
             [`& .recharts-text.recharts-cartesian-axis-tick-value`]: {
               fill: COLORS.text_primary,
             },
+            [`& .recharts-cartesian-axis-line`]: {
+              stroke: COLORS.text_primary,
+              fill: COLORS.text_primary,
+              opacity: 0.3
+            },
           },
         },
       ]
@@ -669,7 +674,7 @@ const theme = createTheme({
       xl: 1536,
     },
   },
-  shadows: ["none"],
+  // shadows: ["none"],
 });
 
 export default theme;

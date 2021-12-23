@@ -22,6 +22,11 @@ Main.getLayout = function getLayout(page, colorMode, setColorMode) {
 
 export async function getStaticProps() {
 
+  async function fetcher(...args) {
+    const res = await fetch(...args);
+    return res.json()
+  }
+
   let buttons =
     [
       'KPIs',
@@ -50,8 +55,6 @@ export async function getStaticProps() {
         "BID ROOK": { prefix: "R", size: 1 },
         "STAKED ROOK": { prefix: "R", size: 1 },
         "BURNED ROOK": { prefix: "R", size: 1 },
-        // "ACTIVE KEEPERS" : {type: "Table"},
-        // "ACTIVE AUCTIONS" : {type: "Table"}
       },
       {
         "LIMIT ORDERS": { type: "Info", size: 2 },
@@ -78,6 +81,14 @@ export async function getStaticProps() {
     ]
 
   return {
-    props: { buttons, properties }
+    props: { 
+      buttons, 
+      properties, 
+      fallback : {
+        [`${r1}`]: await fetcher(r1),
+        [`${r2}`]: await fetcher(r2),
+        [`${r3}`]: await fetcher(r3)
+      }
+    }
   }
 }

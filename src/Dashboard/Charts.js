@@ -8,14 +8,11 @@ const gradient =
   <defs>
     <linearGradient
       id="gradient"
-      x1="0"
-      y1="0"
-      x2="0"
-      y2="100%"
+      x1="0" y1="0" x2="0" y2="100%"
       gradientUnits="userSpaceOnUse"
     >
       <stop
-        offset="0.2"
+        offset="0.25"
         stopColor={theme.palette.accent}
       />
       <stop
@@ -35,6 +32,7 @@ let xaxis = {
   axisLine: true,
   tickSize: 0,
   tickMargin: 12,
+  tickLine: false,
 }
 
 let barFill = {
@@ -90,6 +88,7 @@ function Chart(props) {
 
   xaxis.dataKey = props?.data ? Object?.keys(props?.data[0])[0]: "";
   xaxis.interval = `${props.data?.length}` - 2;
+  // xaxis.interval = "preserveStartEnd";
 
   barFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
   areaFill.dataKey = props?.data ? Object.keys(props?.data[0])[1]: "";
@@ -107,14 +106,14 @@ function Chart(props) {
               >
                 {gradient}
                 <Tooltip {...tooltip}/>
-                <XAxis {...xaxis}/>
+                <XAxis {...xaxis} />
                 <Bar
                   strokeWidth={2}
                   {...barFill}
                 />
               </BarChart>
 
-              :<AreaChart data={props.data}>
+          : <AreaChart data={props.data}>
                 {gradient}
                 <Tooltip {...tooltip}/>
                 <XAxis {...xaxis}/>

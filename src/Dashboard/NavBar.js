@@ -68,7 +68,8 @@ function TileNavigationBar(props) {
                 <Grid
                     variant="filter-container"
                     container
-                    spacing={0.75}
+                    item
+                    spacing={1}
                 >
                     {props.optionsFilter
                         && optionsArray
