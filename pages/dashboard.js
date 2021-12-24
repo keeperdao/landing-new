@@ -80,11 +80,11 @@ const properties =
   ]
 
   let fallback = {}
-  for (var i = 0; i < routes.length; i++){
-    try {
-      fallback[`${routes[i]}`] = await fetch(routes[i]).then(res => res.json());
-    } catch(err) {/*tbd*/}
-  }
+  // for (var i = 0; i < routes.length; i++){
+  //   try {
+  //     fallback[`${routes[i]}`] = await fetch(routes[i]).then(res => res.json());
+  //   } catch(err) {/*tbd*/}
+  // }
 
   return {
     props: { 

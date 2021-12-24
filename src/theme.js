@@ -604,6 +604,9 @@ const theme = createTheme({
             elevation: 0,
             style: {
               background: "none",
+              [`&:hover .MuiPaper-root`] : {
+                color: COLORS.hover_dark,
+              }
             },
           },
         },
