@@ -5,11 +5,6 @@ import { DashboardNavigationBar } from './NavBar'
 import { DashboardPanel } from "./Panel";
 import theme from "../theme";
 
-async function fetcher(...args) {
-  const res = await fetch(...args);
-  return res.json()
-}
-
 function Dashboard(props) {
 
   const [activePanelIndex, setActivePanelIndex] = useState(() => 0);
@@ -40,7 +35,7 @@ function Dashboard(props) {
         container
         item
       >
-        <SWRConfig value={{fetcher: fetcher, /*fallback: props.fallback*/}}>
+        <SWRConfig value={{ fetcher: (...args) => fetch(...args).then(res => res.json()), fallback: props.fallback}}>
           <DashboardPanel
             buttons={props.buttons}
             properties={props.properties}
