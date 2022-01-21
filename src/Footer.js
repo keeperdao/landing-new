@@ -128,7 +128,7 @@ export default function Footer(props) {
                 <TextButton
                   variant="text-footer"
                   target="_blank"
-                  href="https://github.com/keeperdao/jobs"
+                  href="https://keeperdao-labs.notion.site/Open-Roles-45591931333b410bacfcafad848f3912"
                   rel="noopener noreferrer"
                 >
                   Careers{" "}
