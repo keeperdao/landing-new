@@ -38,7 +38,7 @@ export default function Footer(props) {
         background: "none",
       }}
     >
-      <Container maxWidth="header" disableGutters>
+      <Container maxWidth="md" disableGutters>
         <Grid
           container
           direction="column"

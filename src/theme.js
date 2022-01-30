@@ -1,5 +1,7 @@
 import { createTheme } from "@material-ui/core/styles";
 import { css, keyframes } from "@emotion/react";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import { selectClasses } from "@mui/material/Select";
 
 const COLORS = {
   text_primary: "#F5F5F5",
@@ -16,6 +18,10 @@ const COLORS = {
   focus: "#552BC8",
   disabled: "#D5D5D5",
   active: "#09AF73",
+
+  dashboard_primary_light: "#F5F5F532",
+  dashboard_primary_dark: "#F5F5F50D",
+  dashboard_secondary_dark: "#6C46D60D",
 };
 
 const animGradient = keyframes`
@@ -41,6 +47,8 @@ const theme = createTheme({
     background: {
       dark: COLORS.background_dark,
       light: COLORS.background_light,
+      dashboard_primary_dark: COLORS.dashboard_primary_dark,
+      dashboard_secondary_dark: COLORS.dashboard_secondary_dark
     },
     action: {
       hover: COLORS.hover,
@@ -118,7 +126,19 @@ const theme = createTheme({
       fontSize: "12px",
       lineHeight: "15px",
       letterSpacing: "0.02em",
-      textTransform: "capitalize",
+      textTransform: "uppercase",
+    },
+    paragraphBoldLabelLink: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: "600",
+      fontSize: "12px",
+      lineHeight: "15px",
+      letterSpacing: "0.02em",
+      textTransform: "uppercase",
+      "&:hover": {
+        cursor: "pointer",
+      },
     },
     bodyNormal: {
       fontFamily: "Inter",
@@ -331,6 +351,52 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: {
+            variant: "navigation-bar-button",
+            active: 1,
+          },
+          style: {
+            color: COLORS.text_primary_dark,
+            background: COLORS.text_accent,
+            width: '100%',
+            borderRadius: 8,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "16px",
+            lineHeight: "19px",
+            whiteSpace: "noWrap",
+            textTransform: "none",
+
+            "&:hover": {
+              background: COLORS.text_accent,
+            },
+          },
+        },
+        {
+          props: {
+            variant: "navigation-bar-button",
+            active: 0,
+          },
+          style: {
+            color: COLORS.dashboard_primary_light,
+            background: "none",
+            width: '100%',
+            borderRadius: 8,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "16px",
+            lineHeight: "19px",
+            whiteSpace: "noWrap",
+            textTransform: "none",
+
+            "&:hover": {
+              background: "none",
+            },
+          },
+        },
       ],
       styleOverrides: {
         "contained-dark": {
@@ -425,10 +491,185 @@ const theme = createTheme({
         },
       ],
     },
+    MuiGrid: {
+      variants: [
+        {
+          props: { variant: "dashboard-component-container" },
+          style: {
+            background: COLORS.background_dark,
+            alignItems: "center",
+            minWidth: 350, //theme.breakpoints["min"]
+            maxWidth: 1000, //theme.breakpoints["header"]
+          },
+        },
+        {
+          props: { variant: "navigation-bar-container" },
+          style: {
+            background: COLORS.dashboard_primary_dark,
+            alignItems: "center",
+            borderRadius: 16,
+          },
+        },
+        {
+          props: { variant: "panel-component-container" },
+          style: {
+            paddingTop: 32,
+          },
+        },
+        {
+          props: { variant: "panel-grid-item" },
+          style: {
+            height: "100%",
+          },
+        },
+        {
+          props: { variant: "tile-inner-container" },
+          style: {
+            background: COLORS.dashboard_secondary_dark,
+            padding: 40,
+            // '@media (max-width:700px)': {
+            //   padding: 20,
+            // },
+            // '@media (max-width:600px)': {
+            //   padding: 10,
+            // },
+          },
+        },
+        {
+          props: { variant: "header-container" },
+          style: {
+            justifyContent: "space-between",
+            alignItems: "center",
+          },
+        },
+        {
+          props: { variant: "filter-container" },
+          style: {
+            justifyContent: "flex-end",
+            textTransform: 'uppercase',
+            textWrap: 'noWrap',
+            alignItems: "center",
+            direction: "column",
+
+            [`& .${outlinedInputClasses.notchedOutline}`]: {
+              border: "none",
+            },
+            [`& .${selectClasses.outlined}`]: {
+              color: COLORS.text_primary,
+              background: "none",
+              padding: 0,
+            },
+            [`& .${selectClasses.iconOutlined}`]: {
+              stroke: COLORS.text_primary,
+              fill: "none",
+            },
+          },
+        },
+        {
+          props: { variant: "chart-container" },
+          style: {
+            marginTop: 96,
+            height: "30vh",
+            [`& .recharts-rectangle:hover`]: {
+              fill: COLORS.text_accent,
+            },
+            [`& .recharts-tooltip-wrapper`]: {
+              color: COLORS.text_primary,
+              background: COLORS.dashboard_primary_dark,
+              borderRadius: 16,
+              padding: 16,
+            },
+            [`& .recharts-text.recharts-cartesian-axis-tick-value`]: {
+              fill: COLORS.text_primary,
+            },
+            [`& .recharts-cartesian-axis-line`]: {
+              stroke: COLORS.text_primary,
+              fill: COLORS.text_primary,
+              opacity: 0.3
+            },
+          },
+        },
+      ]
+    },
+    MuiSelect: {
+      defaultProps: {
+        MenuProps: {
+          padding: 0,
+          margin: 0,
+          anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "center",
+          },
+          PaperProps: {
+            elevation: 0,
+            style: {
+              background: "none",
+              [`&:hover .MuiPaper-root`] : {
+                color: COLORS.hover_dark,
+              }
+            },
+          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      defaultProps: {
+        style: {
+          color: COLORS.text_primary,
+          alignItems: "center",
+          background: "none",
+          padding: 0,
+          margin: 0,
+        }
+      },
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: {
+            variant: "paragraphBoldLabelLink",
+            active: 1
+          },
+          style: {
+            color: COLORS.text_accent,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "600",
+            fontSize: "12px",
+            lineHeight: "15px",
+            letterSpacing: "0.02em",
+            textTransform: "uppercase",
+            "&:hover": {
+              cursor: "pointer",
+            },
+          },
+        },
+        {
+          props: {
+            variant: "paragraphBoldLabelLink",
+            active: 0
+          },
+          style: {
+            color: COLORS.text_primary_dark,
+            fontFamily: "Inter",
+            fontStyle: "normal",
+            fontWeight: "600",
+            fontSize: "12px",
+            lineHeight: "15px",
+            letterSpacing: "0.02em",
+            textTransform: "uppercase",
+            "&:hover": {
+              cursor: "pointer",
+            },
+          },
+        },
+      ]
+    },
   },
   breakpoints: {
     values: {
       xs: 0,
+      min: 350,
       sm: 600,
       md: 840,
       header: 1000,
@@ -436,7 +677,7 @@ const theme = createTheme({
       xl: 1536,
     },
   },
-  shadows: ["none"],
+  // shadows: ["none"],
 });
 
 export default theme;

@@ -6,7 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
-
 import Layout from "../src/Layout";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -17,6 +16,15 @@ export default function MyApp(props) {
 
   // Allows components to individually have light or dark theming
   const [colorMode, setColorMode] = useState("dark");
+
+  // Dashboard -> remove justify-content property without breaking other pages
+  const getLayout = Component.getLayout || ((page) => page)
+  if (getLayout.name) return getLayout(
+    <CacheProvider value={emotionCache}>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </CacheProvider>
+    , colorMode, setColorMode)
 
   return (
     <CacheProvider value={emotionCache}>

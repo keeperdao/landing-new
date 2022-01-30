@@ -1,41 +1,33 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
-
 import { css, keyframes } from "@emotion/react";
-
 import Image from "next/image";
 import Head from "next/head";
-
 import theme from "../../src/theme";
-
 import { Grid, Typography, Button, Divider } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 const HidingBookIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "80px",
   justifyContent: "space-around",
   padding: "8px 18px",
 }));
-
 const AsUsedBy = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "80px",
   justifyContent: "space-around",
   padding: "8px 18px",
 }));
-
 const MEVIntro = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
   justifyContent: "space-around",
   padding: "8px 18px",
 }));
-
 const Benefits = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -43,7 +35,6 @@ const Benefits = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   padding: "8px 18px",
 }));
-
 const UseCases = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -51,7 +42,6 @@ const UseCases = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   padding: "8px 18px",
 }));
-
 const SideTitle = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -59,7 +49,6 @@ const SideTitle = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   padding: "8px 18px",
 }));
-
 const HGFlowChart = styled(Grid)(({ theme }) => ({
   width: "100vw",
   position: "relative",
@@ -72,7 +61,6 @@ const HGFlowChart = styled(Grid)(({ theme }) => ({
   paddingRight: "10px",
   backgroundColor: "rgba(9, 167, 243, 0.05)",
 }));
-
 const Keepers = styled(Grid)(({ theme }) => ({
   width: "100vw",
   position: "relative",
@@ -82,7 +70,6 @@ const Keepers = styled(Grid)(({ theme }) => ({
   padding: "20px 0",
   backgroundColor: "#1D1842",
 }));
-
 const PartnerRewards = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -90,7 +77,6 @@ const PartnerRewards = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   padding: "8px 18px",
 }));
-
 const WhyIntegrate = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -98,7 +84,6 @@ const WhyIntegrate = styled(Grid)(({ theme }) => ({
   alignItems: "center",
   padding: "8px 18px",
 }));
-
 const HowToIntegrate = styled(Grid)(({ theme }) => ({
   width: "100%",
   marginBottom: "128px",
@@ -107,7 +92,6 @@ const HowToIntegrate = styled(Grid)(({ theme }) => ({
   background: "rgba(9, 167, 243, 0.05)",
   borderRadius: "4px",
 }));
-
 const FAQ = styled(Grid)(({ theme }) => ({
   width: "100vw",
   position: "relative",
@@ -119,7 +103,6 @@ const FAQ = styled(Grid)(({ theme }) => ({
   paddingBottom: "128px",
   backgroundColor: "rgba(143, 143, 143, 0.05)",
 }));
-
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -131,7 +114,6 @@ const Accordion = styled((props) => (
     display: "none",
   },
 }));
-
 const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
   ({ theme }) => ({
     paddingTop: "40px",
@@ -149,12 +131,10 @@ const AccordionSummary = styled((props) => <MuiAccordionSummary {...props} />)(
     },
   })
 );
-
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   marginBottom: "16px",
   //borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
-
 const myEffect = keyframes`
   0% {
     transform: translateY(-348px);
@@ -189,16 +169,13 @@ const myEffectExit = keyframes`
     transform: translateY(-200%);
   }
 `;
-
 export default function HidingBook(props) {
   const { colorMode, setColorMode } = props;
   setColorMode("light");
-
   const [expanded, setExpanded] = React.useState(null);
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
   const animatedItem = css`
     animation: ${myEffect} 18000ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
   `;
@@ -208,7 +185,6 @@ export default function HidingBook(props) {
     transform: translateY(-200%);
   `;
   const [exit, setExit] = React.useState(false);
-
   return (
     <>
       <Head>
